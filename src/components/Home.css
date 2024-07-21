@@ -1,0 +1,49 @@
+/* Home.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #0a192f; /* Fondo oscuro */
+    color: #ccd6f6; /* Color de texto claro */
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+.profile-picture {
+    width: 200px; /* Ajusta el tamaño según sea necesario */
+    height: 200px; /* Asegura que sea cuadrada */
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover; /* Asegura que la imagen se ajuste bien */
+    object-position: top; /* Centra la imagen en el contenedor */
+    border: 4px solid #64ffda; /* Añade un borde suave */
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ffffff; /* Color del texto blanco */
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #64ffda; /* Color del subtítulo */
+    margin: 0.5rem 0;
+}
+
+.description {
+    font-size: 1rem;
+    color: #8892b0; /* Color del texto de la descripción */
+    margin-top: 1rem;
+    line-height: 1.5;
+}
