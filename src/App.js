@@ -6,20 +6,25 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faLanguage } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
     return (
         <Router>
             <div className="app">
-                <nav>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/experience">Experience</a></li>
-                        <li><a href="/skills">Skills</a></li>
-                        <li><a href="/projects">Projects</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                    </ul>
-                </nav>
+                <header>
+                    <div className="header-name">Alberto Bort Profile</div>
+                    <nav>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/experience">Experience</a></li>
+                            <li><a href="/skills">Skills</a></li>
+                            <li><a href="/projects">Projects</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </header>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/experience" element={<Experience />} />

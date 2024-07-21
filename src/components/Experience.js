@@ -39,7 +39,7 @@ const Experience = () => {
                                 <br />• File Formats: XML, JSON, .Config files, txt...
                                 <br />• Debugging: Log analysis with Notepad++, windows event viewer, .dmp files..
                             </p>
-                            <a className="company-link" href="https://www.etra.com" target="_blank" rel="noopener noreferrer">Company site →</a>
+                            <a className="company-link" href="https://www.grupoetra.com" target="_blank" rel="noopener noreferrer">Company site →</a>
                         </div>
                     </div>
                 </div>
