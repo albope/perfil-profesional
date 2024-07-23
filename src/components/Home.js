@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import profileImage from '../assets/images/alberto_bort_pérez.JPG';
 import linkedinIcon from '../assets/images/linkedin.png';
+import githubIcon from '../assets/images/github_w.png'; // Importamos el nuevo logo
 import spainFlag from '../assets/images/spain.png';
 import usaFlag from '../assets/images/usa.png';
 import franceFlag from '../assets/images/france.png';
@@ -14,6 +15,9 @@ const Home = () => {
         <h1>Alberto Bort</h1>
         <a href="https://www.linkedin.com/in/albertobort" target="_blank" rel="noopener noreferrer">
           <img src={linkedinIcon} alt="LinkedIn" className="linkedin-icon" />
+        </a>
+        <a href="https://github.com/albope" target="_blank" rel="noopener noreferrer">
+          <img src={githubIcon} alt="GitHub" className="github-icon" /> {/* Añadimos el logo de GitHub */}
         </a>
       </div>
       <p>Technical Business Analyst</p>
