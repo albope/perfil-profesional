@@ -1,4 +1,3 @@
-/* App.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -19,6 +18,7 @@ header {
   margin-left: 1rem;
   font-size: 1.5rem;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif; /* Aquí se especifica la nueva fuente */
 }
 
 nav ul {
