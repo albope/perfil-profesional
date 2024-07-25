@@ -11,14 +11,16 @@ const Home = () => {
   return (
     <div className="profile">
       <img src={profileImage} alt="Alberto Bort" className="profile-img" />
-      <div className="name-linkedin">
+      <div className="name-icons">
         <h1>Alberto Bort</h1>
-        <a href="https://www.linkedin.com/in/albertobort" target="_blank" rel="noopener noreferrer">
-          <img src={linkedinIcon} alt="LinkedIn" className="linkedin-icon" />
-        </a>
-        <a href="https://github.com/albope" target="_blank" rel="noopener noreferrer">
-          <img src={githubIcon} alt="GitHub" className="github-icon" />
-        </a>
+        <div className="name-linkedin">
+          <a href="https://www.linkedin.com/in/albertobort" target="_blank" rel="noopener noreferrer">
+            <img src={linkedinIcon} alt="LinkedIn" className="linkedin-icon" />
+          </a>
+          <a href="https://github.com/albope" target="_blank" rel="noopener noreferrer">
+            <img src={githubIcon} alt="GitHub" className="github-icon" />
+          </a>
+        </div>
       </div>
       <p>Technical Business Analyst</p>
       <p className="description">
