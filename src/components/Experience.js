@@ -24,21 +24,36 @@ const Experience = () => {
                                 <br />• Managing, preparing and Transferring products to group companies.
                                 <br />• Training users for both applications and management of installed systems.
                                 <br />• Documentation of different products and systems (application user manuals, software technical documentation, software installation/configuration manuals, application integration manuals), user requirements documents, etc.
-                                <br /><br /><strong>Tools & Technology used:</strong>
-                                <br />• Test management and bugs: JIRA
-                                <br />• Support & bug tracking system: Mantis
-                                <br />• Virtualization environments: MRemote, VNC.
-                                <br />• Unix / Linux : Through Putty
-                                <br />• Protocols: FTP, SFTP, TCP/IP , UDP, VOIP (Asterisk PBX)...
-                                <br />• Testing of Web Services: Postman & SOAP UI
-                                <br />• DB's: SQL (SQL server) & Oracle : Queries, updating DB's, executing stored procedures..
-                                <br />• Non-relational DB's: Mongo DB
-                                <br />• Continuous Integration: Jenkins and SVN Tortoise
-                                <br />• Windows OS: Creating Scheduled tasks, creating windows services.
-                                <br />• Scripting: Creating simple Bash scripts to automate certain processes.
-                                <br />• File Formats: XML, JSON, .Config files, txt...
-                                <br />• Debugging: Log analysis with Notepad++, windows event viewer, .dmp files..
                             </p>
+                            <p><strong>Tools & Technology used:</strong></p>
+                            <div className="skills">
+                                <span className="skill-badge">JIRA</span>
+                                <span className="skill-badge">Mantis</span>
+                                <span className="skill-badge">MRemote</span>
+                                <span className="skill-badge">VNC</span>
+                                <span className="skill-badge">Putty</span>
+                                <span className="skill-badge">FTP</span>
+                                <span className="skill-badge">SFTP</span>
+                                <span className="skill-badge">TCP/IP</span>
+                                <span className="skill-badge">UDP</span>
+                                <span className="skill-badge">VOIP (Asterisk PBX)</span>
+                                <span className="skill-badge">Postman</span>
+                                <span className="skill-badge">SOAP UI</span>
+                                <span className="skill-badge">SQL Server</span>
+                                <span className="skill-badge">Oracle</span>
+                                <span className="skill-badge">Mongo DB</span>
+                                <span className="skill-badge">Jenkins</span>
+                                <span className="skill-badge">SVN Tortoise</span>
+                                <span className="skill-badge">Windows OS</span>
+                                <span className="skill-badge">Bash Scripts</span>
+                                <span className="skill-badge">XML</span>
+                                <span className="skill-badge">JSON</span>
+                                <span className="skill-badge">.Config files</span>
+                                <span className="skill-badge">txt</span>
+                                <span className="skill-badge">Notepad++</span>
+                                <span className="skill-badge">Windows Event Viewer</span>
+                                <span className="skill-badge">.dmp files</span>
+                            </div>
                             <a className="company-link" href="https://www.grupoetra.com" target="_blank" rel="noopener noreferrer">Company site →</a>
                         </div>
                     </div>
@@ -86,18 +101,21 @@ const Experience = () => {
                                 <br />• Ensure execution and analysis of tests and give final approval for load to Production.
                                 <br />• Maintain, improve and plan the evolution of test scripts and scenarios.
                                 <br />• Define the test coverage for automation
-                                <br /><br /><strong>Tools & Technologies Used:</strong>
-                                <br />• HPQC
-                                <br />• SOAP UI
-                                <br />• JIRA
-                                <br />• Filezilla
-                                <br />• Confluence
-                                <br />• Db Visualizer / Oracle DB´s
-                                <br />• T-tool (Automation tool)
-                                <br />• Bizagi (UML Modelling)
-                                <br />• Unix
-                                <br />• Notepad ++
                             </p>
+                            <p><strong>Tools & Technologies Used:</strong></p>
+                            <div className="skills">
+                                <span className="skill-badge">HPQC</span>
+                                <span className="skill-badge">SOAP UI</span>
+                                <span className="skill-badge">JIRA</span>
+                                <span className="skill-badge">Filezilla</span>
+                                <span className="skill-badge">Confluence</span>
+                                <span className="skill-badge">Db Visualizer</span>
+                                <span className="skill-badge">Oracle DB´s</span>
+                                <span className="skill-badge">T-tool (Automation tool)</span>
+                                <span className="skill-badge">Bizagi (UML Modelling)</span>
+                                <span className="skill-badge">Unix</span>
+                                <span className="skill-badge">Notepad ++</span>
+                            </div>
                         </div>
                     </div>
                 </div>
