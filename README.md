@@ -70,9 +70,13 @@ Cree una nueva rama (git checkout -b feature/nueva-funcionalidad).
 Realice los cambios necesarios y haga commit (git commit -m 'Añadir nueva funcionalidad').
 Empuje los cambios a la rama (git push origin feature/nueva-funcionalidad).
 Cree un Pull Request.
+ ```
+
 Licencia
 Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
 
 Contacto
-Alberto Bort Pérez - albope
-LinkedIn
+Para más información o preguntas, puedes contactarme:
+
+GitHub: albope
+LinkedIn: Alberto Bort Pérez (https://www.linkedin.com/in/albertobort/)
