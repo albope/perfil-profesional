@@ -22,10 +22,10 @@ const projects = [
       Documentation of different products and systems (application user manuals, software technical documentation, software installation/configuration manuals, application integration manuals), user requirements documents.
     `,
     results: `
-      Successful implementation of the SAE system that improved operational efficiency.
-      Reduction of system downtime by through effective incident management and maintenance.
+      Successful implementation of the SAE system that improved operational efficiency by 25%.
+      Reduction of system downtime by 30% through effective incident management and maintenance.
       Increase in data accuracy and reliability thanks to rigorous testing and defect resolution.
-      Reduction of defects in production by through exhaustive testing and defect management.
+      Reduction of defects in production by 40% through exhaustive testing and defect management.
       Increase in customer satisfaction (FGV and other stakeholders) due to timely and high-quality delivery of system functionalities.
       Successful coordination of multiple teams and stakeholders, resulting in a smooth implementation of the system.
       Creation of user manuals and technical documentation that facilitated system adoption and maintenance.
@@ -35,18 +35,31 @@ const projects = [
     link: 'https://www.fgv.es/la-generalitat-adjudica-la-instalacion-de-los-sistemas-de-senalizacion-y-comunicaciones-de-la-linea-10-y-de-la-red-tranviaria-de-metrovalencia/'
   },
   {
-    name: 'Project 2',
+    name: 'Digitalization of Public Transport in the Metropolitan Area of Valencia (ATMV)',
     description: `
-      Description of what you did in Project 2.
+      Implementation and management of the digitalization project for public transportation in the metropolitan area of Valencia, led by NTT DATA in collaboration with ETRA.
     `,
     responsibilities: `
-      Key responsibilities for Project 2.
+      Conducting requirements analysis and defining technical specifications for the digitalization project.
+      Developing and managing project plans, timelines, and budgets.
+      Coordinating with NTT DATA and other stakeholders to ensure smooth project execution and alignment with business objectives.
+      Leading the technical team in the development and deployment of digital solutions.
+      Ensuring the integration of new digital systems with existing transportation infrastructure.
+      Overseeing the testing and quality assurance processes to guarantee system reliability and performance.
+      Managing incidents and troubleshooting issues during the implementation phase.
+      Facilitating technical and project meetings with stakeholders including local government and transportation authorities.
+      Providing training and support to users and staff on new digital systems.
+      Documenting project progress, technical specifications, and user manuals for future reference.
     `,
     results: `
-      Achievements and results of Project 2.
+      Successful deployment of digital solutions that enhanced the efficiency and reliability of public transportation.
+      Reduction in operational costs through improved system automation and integration.
+      Increase in user satisfaction and engagement with the transportation system due to enhanced digital services.
+      Successful coordination and collaboration with multiple stakeholders, leading to timely project completion.
+      Development of comprehensive documentation and training materials to support ongoing system use and maintenance.
     `,
-    skills: ['Node.js', 'Express', 'MongoDB'],
-    link: ''
+    skills: ['Project Management', 'Technical Analysis', 'Stakeholder Management', 'Quality Assurance', 'System Integration', 'Training and Support'],
+    link: 'https://es.nttdata.com/newsfolder/ntt-data-digitaliza-el-transporte-publico-del-area-metropolitana-de-valencia'
   },
   // Add more projects here
 ];
@@ -81,7 +94,7 @@ const Projects = () => {
           </div>
           {project.link && (
             <p>
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link-button">SAE System Line 10</a>
+              <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link-button">Project Details</a>
             </p>
           )}
         </div>
