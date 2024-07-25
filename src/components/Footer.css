@@ -1,0 +1,16 @@
+/* Footer.css */
+
+.footer {
+  position: relative; /* Cambiado de fixed a relative */
+  width: 100%;
+  background-color: #34495e;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.8rem;
+  margin-top: auto; /* Permite que el footer se empuje al final de la página */
+}
+
+.heart {
+  color: red;
+}

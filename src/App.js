@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
-import Projects from './components/Projects'; // Asegúrate de que el componente Projects esté importado
+import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Footer from './components/Footer'; // Importa el componente Footer
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faLanguage } from '@fortawesome/free-solid-svg-icons';
@@ -25,13 +26,16 @@ function App() {
                         </ul>
                     </nav>
                 </header>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/experience" element={<Experience />} />
-                    <Route path="/skills" element={<Skills />} />
-                    <Route path="/projects" element={<Projects />} /> {/* Añadimos la ruta de Projects */}
-                    <Route path="/contact" element={<Contact />} />
-                </Routes>
+                <div className="content">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/experience" element={<Experience />} />
+                        <Route path="/skills" element={<Skills />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/contact" element={<Contact />} />
+                    </Routes>
+                </div>
+                <Footer /> {/* Añade el componente Footer aquí */}
             </div>
         </Router>
     );
