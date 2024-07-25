@@ -35,7 +35,7 @@ body {
   margin: 0;
 }
 
-.linkedin-icon, .github-icon { /* Añadimos los estilos para el nuevo logo de GitHub */
+.linkedin-icon, .github-icon {
   width: 30px;
   height: auto;
 }
@@ -46,10 +46,25 @@ body {
 
 .languages img {
   width: 30px;
-  height: auto; /* Mantener la proporción */
+  height: auto;
   margin: 0 0.5rem;
 }
 
 .languages span {
   margin-left: 0.5rem;
-} 
+}
+
+.cv-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cv-link:hover {
+  background-color: #16a085;
+}
