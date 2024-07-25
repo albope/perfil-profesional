@@ -22,10 +22,10 @@ const projects = [
       Documentation of different products and systems (application user manuals, software technical documentation, software installation/configuration manuals, application integration manuals), user requirements documents.
     `,
     results: `
-      Successful implementation of the SAE system that improved operational efficiency by 25%.
-      Reduction of system downtime by 30% through effective incident management and maintenance.
+      Successful implementation of the SAE system that improved operational efficiency.
+      Reduction of system downtime through effective incident management and maintenance.
       Increase in data accuracy and reliability thanks to rigorous testing and defect resolution.
-      Reduction of defects in production by 40% through exhaustive testing and defect management.
+      Reduction of defects in production through exhaustive testing and defect management.
       Increase in customer satisfaction (FGV and other stakeholders) due to timely and high-quality delivery of system functionalities.
       Successful coordination of multiple teams and stakeholders, resulting in a smooth implementation of the system.
       Creation of user manuals and technical documentation that facilitated system adoption and maintenance.
@@ -85,9 +85,8 @@ const Projects = () => {
               <li key={idx}>{line.trim()}</li>
             ))}
           </ul>
+          <p><strong>Skills:</strong></p>
           <div className="skills">
-            <br />
-            <strong>Skills:</strong>
             {project.skills.map((skill, idx) => (
               <span key={idx} className="skill-badge">{skill}</span>
             ))}
