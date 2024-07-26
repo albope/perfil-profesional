@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   justify-content: center;
   height: calc(100vh - 100px);
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .profile img.profile-img {
@@ -90,7 +90,6 @@ body {
   background-color: #16a085;
 }
 
-/* Nueva clase para el título del trabajo */
 .job-title {
   font-weight: bold; /* Negrita */
   font-family: 'Arial Black', Gadget, sans-serif; /* Fuente llamativa */
@@ -98,4 +97,17 @@ body {
   color: white; /* Mantener el color blanco */
   font-size: 1.5rem; /* Ajustar el tamaño de la fuente */
   margin: 20px 0; /* Añadir un margen para separar del resto del contenido */
+}
+
+/* Clase para el título Who am I */
+.about-me-title {
+  font-size: 3rem; /* Aumentar el tamaño de la fuente */
+  color: #16a085; /* Cambiar el color a blanco */
+  margin-bottom: 10px;
+  margin-top: -120px; /* Ajustar el margen superior para acercar al encabezado */
+}
+
+/* Clase para el icono blanco */
+.white-icon {
+  color: white; /* Asegurar que el icono sea blanco */
 }

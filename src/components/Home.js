@@ -10,6 +10,9 @@ import franceFlag from '../assets/images/france.png';
 const Home = () => {
   return (
     <div className="profile">
+      <h2 className="about-me-title">
+        Who am I? <span className="white-icon" role="img" aria-label="Who am I">👤</span>
+      </h2>
       <img src={profileImage} alt="Alberto Bort" className="profile-img" />
       <div className="name-icons">
         <h1>Alberto Bort</h1>
