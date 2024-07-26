@@ -33,21 +33,12 @@ const Contact = () => {
           <div className="modal-content">
             <span className="close" onClick={closeModal}>&times;</span>
             <h2>Get in Touch</h2>
-            <form>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div className="form-group">
-                <label htmlFor="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-              </div>
-              <button type="submit" className="submit-btn">Send</button>
-            </form>
+            <iframe
+              src="https://forms.gle/jUuKjQgdjTKHiq7K8"
+              title="Google Forms"
+            >
+              Loading…
+            </iframe>
           </div>
         </div>
       )}
