@@ -75,6 +75,9 @@ body {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  width: fit-content;
+  max-width: 200px; /* Establecer un ancho máximo */
+  margin: 0 auto; /* Centrar el botón */
 }
 
 .cv-link:hover {
