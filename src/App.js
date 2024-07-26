@@ -7,15 +7,15 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer'; // Importa el componente Footer
 import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faLanguage } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
     return (
         <Router>
             <div className="app">
                 <header>
-                    <div className="header-name">Alberto Bort Profile</div>
+                    <div className="header-name">
+                        Alberto Bort Profile <span className="header-emoticon">🌐</span>
+                    </div>
                     <nav>
                         <ul>
                             <li><a href="/">Home</a></li>

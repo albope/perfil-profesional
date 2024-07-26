@@ -100,3 +100,9 @@ nav ul li a:hover {
 .heart {
   color: red;
 }
+
+/* Estilo para el emoticono en el encabezado */
+.header-emoticon {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+}
