@@ -50,6 +50,12 @@ body {
 .linkedin-icon, .github-icon {
   width: 30px;
   height: auto;
+  transition: box-shadow 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.linkedin-icon:hover, .github-icon:hover {
+  box-shadow: 0 0 10px 2px #1abc9c; /* Iluminar el borde con el color verde */
+  border-radius: 50%; /* Asegurarse de que el borde iluminado sea circular */
 }
 
 .languages {
