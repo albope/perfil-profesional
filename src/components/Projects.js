@@ -4,6 +4,7 @@ import './Projects.css';
 const projects = [
   {
     name: 'SAE System on Line 10 of Metrovalencia',
+    company: 'ETRA',
     description: `
       Installation, supervision, management, and control of the SAE system (Operating Assistance System) on Line 10 (Alacant-Natzaret) of Metrovalencia.
     `,
@@ -36,6 +37,7 @@ const projects = [
   },
   {
     name: 'Digitalization of Public Transport in the Metropolitan Area of Valencia (ATMV)',
+    company: 'ETRA',
     description: `
       Implementation and management of the digitalization project for public transportation in the metropolitan area of Valencia, led by NTT DATA in collaboration with ETRA.
     `,
@@ -61,7 +63,38 @@ const projects = [
     skills: ['Project Management', 'Technical Analysis', 'Stakeholder Management', 'Quality Assurance', 'System Integration', 'Training and Support'],
     link: 'https://es.nttdata.com/newsfolder/ntt-data-digitaliza-el-transporte-publico-del-area-metropolitana-de-valencia'
   },
-  // Add more projects here
+  {
+    name: "Creation of a Common Testing Environment for the Entire QA Team",
+    company: 'Sopra Banking Software',
+    description: `
+      The goal of the project was to create, manage, and maintain a common testing environment for the entire QA team, where various evolutions could be tested and manual and automated regression campaigns could be executed.
+    `,
+    responsibilities: `
+      Project management for the creation and maintenance of a common testing environment.
+      Coordination of requirements analysis and definition of technical specifications.
+      Overseeing the configuration and maintenance of test servers and associated databases.
+      Managing the development and execution of manual and automated test cases to validate evolutions.
+      Facilitating communication and coordination between the QA and development teams to resolve defects and improve the testing environment.
+      Ensuring verification and validation of system functionality in the testing environment.
+      Planning and overseeing the execution of user acceptance tests, integration tests, and component tests.
+      Developing and managing test plans associated with user requirements using the JIRA tool.
+      Overseeing incident and defect management during testing and in production environments.
+      Leading technical and project meetings with stakeholders to review progress and resolve issues.
+      Developing and managing maintenance and update plans for the testing environment.
+      Providing training and support to the QA team in using the testing environment and automation tools.
+    `,
+    results: `
+      Successful project management leading to the implementation of a testing environment that improved operational efficiency of the QA team.
+      Significant reduction in testing time thanks to the automation of tests.
+      Improvement in data accuracy and reliability through rigorous testing and defect resolution.
+      Reduction of defects in production through exhaustive testing and defect management.
+      Increase in customer satisfaction due to timely and high-quality delivery of system functionalities.
+      Successful coordination of multiple teams and stakeholders, resulting in a smooth implementation of the testing environment.
+      Creation of user manuals and technical documentation that facilitated the adoption and maintenance of the environment.
+      Effective training of users, resulting in more competent and efficient use of the testing environment.
+    `,
+    skills: ['Project Management', 'Stakeholder Management', 'Incident Analysis', 'SQL', 'JIRA', 'Postman', 'QA', 'Test Automation', 'Team Leadership', 'Communication']
+  }
 ];
 
 const Projects = () => {
@@ -71,6 +104,7 @@ const Projects = () => {
       {projects.map((project, index) => (
         <div key={index} className="project-card">
           <h2>{project.name}</h2>
+          <p className="company-name"><strong>Company:</strong> {project.company}</p>
           <p><strong>Description:</strong></p>
           <p>{project.description}</p>
           <p><strong>Key Responsibilities:</strong></p>
