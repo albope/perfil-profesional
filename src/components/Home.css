@@ -19,13 +19,13 @@ body {
   margin-top: 50px;
 }
 
-.profile-img {
-  width: 350px; /* Aumentar el tamaño del contenedor */
-  height: 350px; /* Asegurar que el contenedor sea un círculo perfecto */
+.profile img.profile-img {
+  width: 300px; /* Tamaño del contenedor más pequeño */
+  height: 300px; /* Asegurar que el contenedor sea un círculo perfecto */
   border-radius: 50%;
-  border: 4px solid #1abc9c;
+  border: 8px solid #1abc9c; /* Tamaño del borde */
   object-fit: cover;
-  object-position: top; /* Ajustar la posición de la imagen dentro del contenedor */
+  object-position: 50% 5%; /* Ajustar la posición de la imagen dentro del contenedor */
   margin: 0 auto 20px auto;
 }
 
