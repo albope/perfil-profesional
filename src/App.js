@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
     return (
-        <Router>
+        <Router basename="/perfil-profesional">
             <div className="app">
                 <header>
                     <div className="header-name">
