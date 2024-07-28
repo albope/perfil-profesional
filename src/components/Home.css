@@ -99,37 +99,37 @@ body {
   margin: 20px 0; /* Añadir un margen para separar del resto del contenido */
 }
 
+/* Contenedor para posicionar el título Who am I */
+.about-me-title-container {
+  position: absolute;
+  top: 20%; /* Ajustar para centrar verticalmente */
+  left: 10%; /* Ajustar para mover más a la izquierda */
+  transform: translate(0, -50%);
+}
+
 /* Clase para el título Who am I */
 .about-me-title {
   font-size: 3rem; /* Aumentar el tamaño de la fuente */
   color: #16a085; /* Cambiar el color a blanco */
   margin-bottom: 10px;
-  margin-top: -120px; /* Ajustar el margen superior para acercar al encabezado */
+  animation: typing 3s steps(22), blink-caret 0.5s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid; /* Agregar cursor de tipeo */
+  animation: typing 6s steps(22) infinite, blink-caret 0.5s step-end infinite; /* Animación constante */
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
 }
 
 /* Clase para el icono blanco */
 .white-icon {
   color: white; /* Asegurar que el icono sea blanco */
-}
-
-/* Media query para pantallas pequeñas */
-@media (max-width: 600px) {
-  .about-me-title {
-    font-size: 2rem; /* Reducir el tamaño de la fuente para pantallas pequeñas */
-    margin-top: -60px; /* Reducir el margen superior para evitar superposición */
-  }
-  
-  .profile {
-    margin-top: 10px; /* Reducir el margen superior del perfil */
-  }
-
-  .languages {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .languages img {
-    margin: 5px 0; /* Ajustar el margen de los iconos de idiomas */
-  }
 }
