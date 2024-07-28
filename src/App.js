@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
     return (
-        <Router basename="/perfil-profesional">
+        <Router>
             <div className="app">
                 <header>
                     <div className="header-name">
@@ -18,11 +18,11 @@ function App() {
                     </div>
                     <nav>
                         <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/experience">Experience</a></li>
-                            <li><a href="/skills">Skills</a></li>
-                            <li><a href="/projects">Projects</a></li>
-                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="#/">Home</a></li>
+                            <li><a href="#/experience">Experience</a></li>
+                            <li><a href="#/skills">Skills</a></li>
+                            <li><a href="#/projects">Projects</a></li>
+                            <li><a href="#/contact">Contact</a></li>
                         </ul>
                     </nav>
                 </header>
