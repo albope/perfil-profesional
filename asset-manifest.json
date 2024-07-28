@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/perfil-profesional/static/css/main.abd7f91c.css",
+    "main.js": "/perfil-profesional/static/js/main.f00db120.js",
+    "static/js/453.233fc212.chunk.js": "/perfil-profesional/static/js/453.233fc212.chunk.js",
+    "static/media/alberto_bort_pérez.JPG": "/perfil-profesional/static/media/alberto_bort_pérez.0bc87543fd1d94a1e218.JPG",
+    "index.html": "/perfil-profesional/index.html",
+    "main.abd7f91c.css.map": "/perfil-profesional/static/css/main.abd7f91c.css.map",
+    "main.f00db120.js.map": "/perfil-profesional/static/js/main.f00db120.js.map",
+    "453.233fc212.chunk.js.map": "/perfil-profesional/static/js/453.233fc212.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abd7f91c.css",
+    "static/js/main.f00db120.js"
+  ]
+}
