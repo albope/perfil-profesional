@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="profile">
       <h2 className="about-me-title">
-        Who am I? <span className="white-icon" role="img" aria-label="Who am I">👤</span>
+        Who am I? <span className="white-icon" role="img" aria-label="Who am I">👨‍💻</span>
       </h2>
       <img src={profileImage} alt="Alberto Bort" className="profile-img" />
       <div className="name-icons">
@@ -25,7 +25,7 @@ const Home = () => {
           </a>
         </div>
       </div>
-      <p className="job-title">Technical Business Analyst</p> {/* Aplicar la clase aquí */}
+      <p className="job-title">Technical Business Analyst</p>
       <p className="description">
         QA Engineer & IT Business Analyst with more than 6 years of experience in the IT sector across various industries such as banking and public transport & mobility, combining technical knowledge with management skills to thrive in various roles within organizations dedicated to software development.
       </p>

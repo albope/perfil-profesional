@@ -6,26 +6,26 @@ const skillsData = {
     {
       category: "Technical Skills",
       skills: [
-        { name: "SQL", level: 3 },
-        { name: "REST APIs", level: 3 },
-        { name: "SOAP", level: 3 },
-        { name: "XML", level: 3 },
-        { name: "JSON", level: 3 },
-        { name: "Jenkins", level: 3 },
-        { name: "JIRA", level: 3 },
-        { name: "POSTMAN", level: 3 },
-        { name: "Mongo DB", level: 3 },
-        { name: ".Config Files", level: 3 },
+        { name: "SQL", level: 4 },
+        { name: "Rest APIs", level: 4 },
+        { name: "SOAP", level: 4 },
+        { name: "XML", level: 4 },
+        { name: "JSON", level: 5 },
+        { name: "Jenkins", level: 4 },
+        { name: "Jira", level: 5 },
+        { name: "Postman", level: 5 },
+        { name: "Mongo DB", level: 4 },
+        { name: ".Config Files", level: 4 },
         { name: "Unix / Linux", level: 3 },
-        { name: "Log Analysis", level: 3 },
-        { name: "Windows OS", level: 3 },
+        { name: "Log Analysis", level: 5 },
+        { name: "Windows OS", level: 4 },
       ]
     },
     {
       category: "QA Skills",
       skills: [
         { name: "Manual Testing", level: 5 },
-        { name: "Automated Testing", level: 4 },
+        { name: "Automated Testing", level: 3 },
         { name: "Test Planning", level: 4 },
         { name: "Bug Tracking", level: 5 },
         { name: "Regression Testing", level: 4 }
@@ -36,19 +36,22 @@ const skillsData = {
       skills: [
         { name: "Agile Methodologies", level: 5 },
         { name: "Project Planning", level: 4 },
-        { name: "Risk Management", level: 3 },
+        { name: "Risk Management", level: 4 },
         { name: "Stakeholder Management", level: 4 },
         { name: "Time Management", level: 4 }
       ]
     },
     {
-      category: "Business Analysis Skills",
+      category: "Technical Business Analyst Skills",
       skills: [
-        { name: "Requirements Gathering", level: 5 },
-        { name: "Process Mapping", level: 4 },
-        { name: "SWOT Analysis", level: 3 },
-        { name: "Use Case Development", level: 4 },
-        { name: "Stakeholder Analysis", level: 4 }
+        { name: "Data Analysis", level: 4 },
+        { name: "Systems Analysis", level: 4 },
+        { name: "Business Process Improvement", level: 4 },
+        { name: "Technical Writing", level: 5 },
+        { name: "User stories", level: 5 },
+        { name: "Software Development Lifecycle", level: 4 },
+        { name: "Requirements Analysis", level: 5 },
+        { name: "Stakeholder Communication", level: 5 }
       ]
     }
   ]

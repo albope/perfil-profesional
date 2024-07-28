@@ -1,3 +1,5 @@
+/* Home.css */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -10,22 +12,22 @@ body {
 .profile {
   text-align: center;
   padding: 2rem;
+  padding-top: 100px; /* Asegurar suficiente espacio en la parte superior */
   max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: calc(100vh - 100px);
-  margin-top: 20px;
 }
 
 .profile img.profile-img {
-  width: 200px; /* Tamaño del contenedor más pequeño */
-  height: 200px; /* Asegurar que el contenedor sea un círculo perfecto */
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 8px solid #1abc9c; /* Tamaño del borde */
+  border: 8px solid #1abc9c;
   object-fit: cover;
-  object-position: 50% 5%; /* Ajustar la posición de la imagen dentro del contenedor */
+  object-position: 50% 5%;
   margin: 0 auto 20px auto;
 }
 
@@ -38,7 +40,7 @@ body {
 .name-icons h1 {
   color: #1abc9c;
   font-size: 2.5rem;
-  margin-right: 0.5rem; /* Añadir un poco de espacio entre el nombre y los iconos */
+  margin-right: 0.5rem;
 }
 
 .name-linkedin {
@@ -50,12 +52,12 @@ body {
 .linkedin-icon, .github-icon {
   width: 30px;
   height: auto;
-  transition: box-shadow 0.3s ease; /* Transición suave para el cambio de color */
+  transition: box-shadow 0.3s ease;
 }
 
 .linkedin-icon:hover, .github-icon:hover {
-  box-shadow: 0 0 10px 2px #1abc9c; /* Iluminar el borde con el color verde */
-  border-radius: 50%; /* Asegurarse de que el borde iluminado sea circular */
+  box-shadow: 0 0 10px 2px #1abc9c;
+  border-radius: 50%;
 }
 
 .languages {
@@ -82,8 +84,8 @@ body {
   border-radius: 5px;
   transition: background-color 0.3s ease;
   width: fit-content;
-  max-width: 200px; /* Establecer un ancho máximo */
-  margin: 0 auto; /* Centrar el botón */
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 .cv-link:hover {
@@ -91,23 +93,46 @@ body {
 }
 
 .job-title {
-  font-weight: bold; /* Negrita */
-  font-family: 'Arial Black', Gadget, sans-serif; /* Fuente llamativa */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombreado */
-  color: white; /* Mantener el color blanco */
-  font-size: 1.5rem; /* Ajustar el tamaño de la fuente */
-  margin: 20px 0; /* Añadir un margen para separar del resto del contenido */
+  font-weight: bold;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 1.5rem;
+  margin: 20px 0;
 }
 
 /* Clase para el título Who am I */
 .about-me-title {
-  font-size: 3rem; /* Aumentar el tamaño de la fuente */
-  color: #16a085; /* Cambiar el color a blanco */
+  font-size: 3rem;
+  color: #16a085;
   margin-bottom: 10px;
-  margin-top: -120px; /* Ajustar el margen superior para acercar al encabezado */
+  margin-top: 0; /* Ajustar el margen superior */
 }
 
 /* Clase para el icono blanco */
 .white-icon {
-  color: white; /* Asegurar que el icono sea blanco */
+  color: white;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .about-me-title {
+    margin-top: 0; /* Asegurar que no haya superposición en pantallas pequeñas */
+    font-size: 2.5rem;
+  }
+
+  .name-icons h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-me-title {
+    margin-top: 0; /* Asegurar que no haya superposición en pantallas muy pequeñas */
+    font-size: 2rem;
+  }
+
+  .name-icons h1 {
+    font-size: 1.5rem;
+  }
 }
