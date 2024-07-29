@@ -133,3 +133,46 @@ body {
 .white-icon {
   color: white; /* Asegurar que el icono sea blanco */
 }
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .profile {
+    padding: 1rem;
+    height: auto; /* Ajustar altura para dispositivos móviles */
+  }
+
+  .profile img.profile-img {
+    width: 150px; /* Reducir el tamaño de la imagen */
+    height: 150px;
+    border: 6px solid #1abc9c; /* Reducir el tamaño del borde */
+  }
+
+  .name-icons h1 {
+    font-size: 2rem; /* Reducir el tamaño de la fuente */
+  }
+
+  .about-me-title-container {
+    top: auto; /* Ajustar para dispositivos móviles */
+    left: auto; /* Ajustar para dispositivos móviles */
+    transform: none; /* Ajustar para dispositivos móviles */
+    position: static; /* Hacer que el contenedor sea estático en móviles */
+    margin-top: 20px; /* Añadir margen superior */
+  }
+
+  .about-me-title {
+    font-size: 2rem; /* Reducir el tamaño de la fuente del título */
+  }
+
+  .cv-link {
+    max-width: 100%; /* Ajustar el ancho máximo */
+    width: auto; /* Ajustar el ancho automático */
+  }
+
+  .languages img {
+    width: 25px; /* Reducir el tamaño de las imágenes de idiomas */
+  }
+
+  .job-title {
+    font-size: 1.2rem; /* Reducir el tamaño de la fuente del título del trabajo */
+  }
+}
