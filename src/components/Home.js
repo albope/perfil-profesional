@@ -31,7 +31,7 @@ const Home = () => {
       <p className="description">
         QA Engineer & IT Business Analyst with more than 6 years of experience in the IT sector across various industries such as banking and public transport & mobility, combining technical knowledge with management skills to thrive in various roles within organizations dedicated to software development. ISQTB certified and Scrum Manager level 1.
       </p>
-      <a href="https://drive.google.com/file/d/1wQlXY0ertZdb6ocfo8KQhkrDAp2lr198/view?usp=sharing" className="cv-link" target="_blank" rel="noopener noreferrer">Download My CV</a>
+      <a href="https://drive.google.com/file/d/1leYNHp0SaXLTQcICPvg5EF1-3Tndp9P3/view?usp=drive_link" className="cv-link" target="_blank" rel="noopener noreferrer">Download My CV</a>
       <div className="languages">
         <span role="img" aria-label="Languages">🈯</span>
         <span>Languages:</span>
