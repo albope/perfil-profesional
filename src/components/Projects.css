@@ -70,3 +70,39 @@
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 1rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-card h2 {
+    font-size: 1.5rem; /* Reducir el tamaño de la fuente */
+  }
+
+  .project-card p {
+    font-size: 1rem; /* Reducir el tamaño de la fuente */
+  }
+
+  .company-name {
+    font-size: 1rem; /* Reducir el tamaño de la fuente */
+  }
+
+  .skills {
+    gap: 0.3rem; /* Reducir el espacio entre las habilidades */
+  }
+
+  .skill-badge {
+    font-size: 0.8rem; /* Reducir el tamaño de la fuente */
+  }
+
+  .project-link-button {
+    padding: 0.4rem 0.8rem; /* Reducir el tamaño del botón */
+  }
+}

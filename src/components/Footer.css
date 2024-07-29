@@ -14,3 +14,11 @@
 .heart {
   color: red;
 }
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px 0;
+    font-size: 1rem; /* Aumentar el tamaño de la fuente para mejor legibilidad */
+  }
+}

@@ -34,6 +34,8 @@ h1 {
     margin-bottom: 20px;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex; /* Añadido para permitir el alineamiento correcto de los elementos internos */
+    align-items: center; /* Alinear los elementos verticalmente */
 }
 
 .timeline-item::before {
@@ -59,6 +61,9 @@ h1 {
     text-align: center;
     line-height: 40px;
     font-size: 1.2em;
+    display: flex; /* Añadido para centrar el icono internamente */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
 }
 
 .timeline-content {
@@ -120,4 +125,72 @@ h1 {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.8rem;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .experience-container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .timeline {
+        max-width: 100%;
+    }
+
+    .timeline-item {
+        padding: 15px;
+        flex-direction: column; /* Alinear los elementos verticalmente en móviles */
+        align-items: flex-start; /* Alinear los elementos a la izquierda */
+        padding-left: 50px; /* Ajustar padding para dar espacio al icono */
+    }
+
+    .timeline-item::before {
+        left: -10px;
+    }
+
+    .timeline-icon {
+        left: 10px; /* Ajustar la posición del icono en móviles */
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 1em;
+    }
+
+    .company-name {
+        font-size: 1.5em;
+    }
+
+    .date {
+        font-size: 1em;
+    }
+
+    .title {
+        font-size: 1.3em;
+    }
+
+    .location {
+        font-size: 1em;
+    }
+
+    .description {
+        font-size: 1em;
+    }
+
+    .company-link {
+        padding: 3px 8px;
+        font-size: 0.9em;
+    }
+
+    .skills {
+        margin-top: 5px;
+    }
+
+    .skill-badge {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+    }
 }
