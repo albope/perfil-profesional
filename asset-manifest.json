@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/perfil-profesional/static/css/main.cb83a6be.css",
-    "main.js": "/perfil-profesional/static/js/main.0b3301d2.js",
+    "main.css": "/perfil-profesional/static/css/main.cd69fa31.css",
+    "main.js": "/perfil-profesional/static/js/main.472d7871.js",
     "static/js/453.233fc212.chunk.js": "/perfil-profesional/static/js/453.233fc212.chunk.js",
-    "static/media/alberto_bort_pérez.JPG": "/perfil-profesional/static/media/alberto_bort_pérez.0bc87543fd1d94a1e218.JPG",
+    "static/media/Alberto_Bort.jfif": "/perfil-profesional/static/media/Alberto_Bort.06bbf398aef4e9aaff6b.jfif",
     "index.html": "/perfil-profesional/index.html",
-    "main.cb83a6be.css.map": "/perfil-profesional/static/css/main.cb83a6be.css.map",
-    "main.0b3301d2.js.map": "/perfil-profesional/static/js/main.0b3301d2.js.map",
+    "main.cd69fa31.css.map": "/perfil-profesional/static/css/main.cd69fa31.css.map",
+    "main.472d7871.js.map": "/perfil-profesional/static/js/main.472d7871.js.map",
     "453.233fc212.chunk.js.map": "/perfil-profesional/static/js/453.233fc212.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cb83a6be.css",
-    "static/js/main.0b3301d2.js"
+    "static/css/main.cd69fa31.css",
+    "static/js/main.472d7871.js"
   ]
 }
