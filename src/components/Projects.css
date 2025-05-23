@@ -1,108 +1,159 @@
-/* Projects.css */
+/* src/components/Projects.css */
 
-.projects-container {
-  padding: 2rem;
+.projects-section {
+  padding: 2rem 0;
 }
 
-.projects-container h1 {
-  color: #1abc9c;
+/* Reutilizamos el estilo del título de sección de Experience.css */
+.section-title {
   text-align: center;
-  margin-bottom: 2rem;
+  font-family: var(--font-family-headings);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary-text-color);
 }
 
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin: 0.5rem auto 0;
+}
+
+/* --- La Cuadrícula de Proyectos (Grid) --- */
+.projects-grid {
+  display: grid;
+  /* Crea columnas automáticas que tengan un mínimo de 400px y un máximo de 1fr.
+     Esto hace la grid responsive por naturaleza. */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+/* --- La Tarjeta de Proyecto --- */
 .project-card {
-  background-color: #2c3e50;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.project-card h2 {
-  color: #1abc9c;
-  margin-bottom: 0.5rem;
-}
-
-.project-card p {
-  margin-bottom: 1rem;
-}
-
-.project-card h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.company-name {
-  font-size: 1.2rem;
-  color: #2ecc71; /* Diferente tono de verde */
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.skills {
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-icon {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+.project-name {
+  font-family: var(--font-family-headings);
+  font-size: 1.5rem;
+  color: var(--primary-text-color);
+}
+
+.project-company {
+  color: var(--secondary-text-color);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
-.skill-badge {
-  background-color: #1abc9c;
-  color: white;
-  border-radius: 4px;
-  padding: 0.2rem 0.5rem;
+.company-icon {
   font-size: 0.9rem;
 }
 
-.project-link-button {
-  display: inline-block;
-  background-color: #1abc9c;
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+.project-description-text {
+  color: var(--secondary-text-color);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.card-subtitle {
+  font-family: var(--font-family-headings);
+  font-weight: 600;
+  color: var(--primary-text-color);
   margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.responsibilities-list, .results-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.responsibilities-list li, .results-list li {
+  color: var(--secondary-text-color);
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+/* Reutilizamos el bullet point personalizado */
+.responsibilities-list li::before, .results-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.project-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Reutilizamos el estilo de los badges */
+.skill-badge {
+  background-color: rgba(14, 148, 136, 0.15);
+  color: var(--accent-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.project-link-button {
+  margin-top: auto; /* Empuja el botón al final de la tarjeta */
+  align-self: flex-start; /* Alinea el botón a la izquierda */
+  font-family: var(--font-family-headings);
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--border-radius);
+  transition: all var(--transition-speed) ease;
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  text-align: center;
 }
 
 .project-link-button:hover {
-  background-color: #16a085;
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: var(--accent-color);
+  color: #ffffff;
 }
 
-/* Media Queries para dispositivos móviles */
-@media (max-width: 768px) {
-  .projects-container {
-    padding: 1rem;
-  }
-
-  .project-card {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .project-card h2 {
-    font-size: 1.5rem; /* Reducir el tamaño de la fuente */
-  }
-
-  .project-card p {
-    font-size: 1rem; /* Reducir el tamaño de la fuente */
-  }
-
-  .company-name {
-    font-size: 1rem; /* Reducir el tamaño de la fuente */
-  }
-
-  .skills {
-    gap: 0.3rem; /* Reducir el espacio entre las habilidades */
-  }
-
-  .skill-badge {
-    font-size: 0.8rem; /* Reducir el tamaño de la fuente */
-  }
-
-  .project-link-button {
-    padding: 0.4rem 0.8rem; /* Reducir el tamaño del botón */
+@media(max-width: 450px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }

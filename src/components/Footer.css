@@ -1,24 +1,27 @@
-/* Footer.css */
+/* src/components/Footer.css */
 
-.footer {
-  position: relative; /* Cambiado de fixed a relative */
+.app-footer {
   width: 100%;
-  background-color: #34495e;
-  color: #ffffff;
+  padding: 1.5rem 2rem; /* Un poco más de espacio vertical */
   text-align: center;
-  padding: 10px 0;
-  font-size: 0.8rem;
-  margin-top: auto; /* Permite que el footer se empuje al final de la página */
+  
+  /* Lo integramos en el fondo y lo separamos con un borde sutil */
+  background-color: var(--background-color);
+  border-top: 1px solid var(--border-color);
+
+  /* Empujado al final de la página por la estructura flex en App.css */
+  margin-top: auto; 
+}
+
+.app-footer p {
+  /* Usamos el color secundario para que no sea tan prominente */
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 .heart {
-  color: red;
-}
-
-/* Media Queries para dispositivos móviles */
-@media (max-width: 768px) {
-  .footer {
-    padding: 15px 0;
-    font-size: 1rem; /* Aumentar el tamaño de la fuente para mejor legibilidad */
-  }
+  /* El corazón ahora usa nuestro color de acento, manteniendo la coherencia */
+  color: var(--accent-color);
+  font-size: 1rem;
 }

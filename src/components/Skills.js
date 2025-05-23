@@ -1,57 +1,45 @@
+// src/components/Skills.js
+
 import React from 'react';
 import './Skills.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTools } from '@fortawesome/free-solid-svg-icons';
 
+// --- Tus datos COMPLETOS, sin la propiedad "level" ---
 const skillsData = {
   skills: [
     {
-      category: "Technical Skills",
+      category: "Habilidades Técnicas",
       skills: [
-        { name: "SQL", level: 4 },
-        { name: "Rest APIs", level: 4 },
-        { name: "SOAP", level: 4 },
-        { name: "XML", level: 4 },
-        { name: "JSON", level: 5 },
-        { name: "Jenkins", level: 4 },
-        { name: "Jira", level: 5 },
-        { name: "Postman", level: 5 },
-        { name: "Mongo DB", level: 4 },
-        { name: ".Config Files", level: 4 },
-        { name: "Unix / Linux", level: 3 },
-        { name: "Log Analysis", level: 5 },
-        { name: "Windows OS", level: 4 },
+        { name: "SQL" }, { name: "Rest APIs" }, { name: "SOAP" }, { name: "XML" },
+        { name: "JSON" }, { name: "Jenkins" }, { name: "Jira" }, { name: "Postman" },
+        { name: "MongoDB" }, { name: ".Config Files" }, { name: "Unix / Linux" },
+        { name: "Análisis de Logs" }, { name: "Windows OS" }
       ]
     },
     {
-      category: "QA Skills",
+      category: "Habilidades de QA",
       skills: [
-        { name: "Manual Testing", level: 5 },
-        { name: "Automated Testing", level: 3 },
-        { name: "Test Planning", level: 4 },
-        { name: "Bug Tracking", level: 5 },
-        { name: "Regression Testing", level: 4 }
+        { name: "Testing Manual" }, { name: "Testing Automatizado" },
+        { name: "Planificación de Pruebas" }, { name: "Seguimiento de Errores (Bug Tracking)" },
+        { name: "Pruebas de Regresión" }
       ]
     },
     {
-      category: "Project Management IT Skills",
+      category: "Gestión de Proyectos y Metodologías",
       skills: [
-        { name: "Agile Methodologies", level: 5 },
-        { name: "Project Planning", level: 4 },
-        { name: "Risk Management", level: 4 },
-        { name: "Stakeholder Management", level: 4 },
-        { name: "Time Management", level: 4 }
+        { name: "Metodologías Ágiles (Agile)" }, { name: "Project Planning" },
+        { name: "Gestión de Riesgos" }, { name: "Stakeholder Management" },
+        { name: "Gestión del Tiempo" }
       ]
     },
     {
-      category: "Technical Business Analyst Skills",
+      category: "Habilidades de Business Analyst Técnico",
       skills: [
-        { name: "Data Analysis", level: 4 },
-        { name: "Systems Analysis", level: 4 },
-        { name: "Business Process Improvement", level: 4 },
-        { name: "Technical Writing", level: 5 },
-        { name: "User stories", level: 5 },
-        { name: "Software Development Lifecycle", level: 4 },
-        { name: "Requirements Analysis", level: 5 },
-        { name: "Stakeholder Communication", level: 5 }
+        { name: "Análisis de Datos" }, { name: "Análisis de Sistemas" },
+        { name: "Mejora de Procesos de Negocio" }, { name: "Documentación Técnica" },
+        { name: "Historias de Usuario" }, { name: "Ciclo de Vida del Software (SDLC)" },
+        { name: "Análisis de Requisitos" }, { name: "Comunicación con Stakeholders" }
       ]
     }
   ]
@@ -59,26 +47,21 @@ const skillsData = {
 
 const Skills = () => {
   return (
-    <div className="skills-container">
-      <h1>Skills <span role="img" aria-label="lightbulb">💡</span></h1>
+    <section className="skills-section">
+      <h1 className="section-title">Habilidades y Competencias</h1>
       {skillsData.skills.map((category, index) => (
         <div key={index} className="skills-category">
-          <h2>{category.category}</h2>
-          <ul className="skills-list">
+          <h2 className="category-title">{category.category}</h2>
+          <div className="skills-grid">
             {category.skills.map((skillItem, idx) => (
-              <li key={idx} className="skill-item">
-                <span className="skill-name">{skillItem.name}</span>
-                <span className="skill-level">
-                  {[...Array(skillItem.level)].map((_, i) => (
-                    <span key={i} className="star">⭐</span>
-                  ))}
-                </span>
-              </li>
+              <div key={idx} className="skill-badge">
+                {skillItem.name}
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

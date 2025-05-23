@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+  /* 🎨 PALETA DE COLORES */
+  /* He optado por un tema oscuro sofisticado que hace que el contenido resalte. */
+
+  --background-color: #111827; /* Un azul-gris muy oscuro, más suave que el negro puro */
+  --card-background-color: #1F2937; /* Un gris ligeramente más claro para elementos como tarjetas o el header */
+  --primary-text-color: #F9FAFB; /* Un blanco roto, menos duro a la vista que el blanco puro */
+  --secondary-text-color: #9CA3AF; /* Un gris para texto secundario (fechas, descripciones, etc.) */
+
+  --accent-color: #14b8a6; /* Un verde azulado (teal) vibrante y moderno como color de acento */
+  --accent-color-hover: #0d9488; /* Una versión más oscura para los efectos :hover */
+
+  --border-color: #374151; /* Un color sutil para bordes */
+
+
+  /* ✒️ TIPOGRAFÍA */
+  --font-family-headings: 'Poppins', sans-serif; /* Una fuente elegante y con personalidad para títulos */
+  --font-family-body: 'Roboto', sans-serif; /* Una fuente muy legible y profesional para el texto general */
+
+
+  /* 📐 OTROS ESTILOS GLOBALES */
+  --border-radius: 8px; /* Un radio de borde consistente para todos los elementos */
+  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Una sombra sutil para dar profundidad */
+  --transition-speed: 0.3s; /* Velocidad de transición para animaciones suaves */
+}

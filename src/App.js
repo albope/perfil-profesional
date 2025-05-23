@@ -1,32 +1,53 @@
+// src/App.js
+
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+// Importamos HashRouter y NavLink
+import { HashRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
+
+// Importamos los componentes
 import Home from './components/Home';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Footer from './components/Footer'; // Importa el componente Footer
+import Footer from './components/Footer';
+
+// Importamos el CSS principal
 import './App.css';
 
 function App() {
     return (
         <Router>
-            <div className="app">
-                <header>
-                    <div className="header-name">
-                        Alberto Bort Profile <span className="header-emoticon">🌐</span>
+            <div className="app-container">
+                <header className="app-header">
+                    {/* Contenedor para el logo o nombre */}
+                    <div className="header-brand">
+                        <NavLink to="/">
+                            Alberto Bort <span className="header-brand-dot">.</span>
+                        </NavLink>
                     </div>
-                    <nav>
-                        <ul>
-                            <li><a href="#/">Home</a></li>
-                            <li><a href="#/experience">Experience</a></li>
-                            <li><a href="#/skills">Skills</a></li>
-                            <li><a href="#/projects">Projects</a></li>
-                            <li><a href="#/contact">Contact</a></li>
-                        </ul>
+
+                    {/* Contenedor para la navegación */}
+                    <nav className="header-nav">
+                        <NavLink to="/" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+                            Inicio
+                        </NavLink>
+                        <NavLink to="/experience" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+                            Experiencia
+                        </NavLink>
+                        <NavLink to="/skills" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+                            Habilidades
+                        </NavLink>
+                        <NavLink to="/projects" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+                            Proyectos
+                        </NavLink>
+                        <NavLink to="/contact" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+                            Contacto
+                        </NavLink>
                     </nav>
                 </header>
-                <div className="content">
+
+                <main className="app-content">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/experience" element={<Experience />} />
@@ -34,8 +55,9 @@ function App() {
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/contact" element={<Contact />} />
                     </Routes>
-                </div>
-                <Footer /> {/* Añade el componente Footer aquí */}
+                </main>
+
+                <Footer />
             </div>
         </Router>
     );

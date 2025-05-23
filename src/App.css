@@ -1,158 +1,115 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #2c3e50;
-  color: white;
+/* src/App.css */
+
+/* Estructura principal de la aplicación */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-header {
-  background-color: #1abc9c;
-  padding: 1rem;
+.app-content {
+  flex: 1; /* Permite que el contenido principal crezca y empuje el footer hacia abajo */
+  width: 100%;
+  max-width: 1100px; /* Un ancho máximo para el contenido en pantallas grandes */
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Estilos del Header */
+.app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Añadido para permitir que los elementos del header se ajusten en móviles */
-}
-
-.header-name {
-  margin-left: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: 'Roboto', sans-serif; /* Aquí se especifica la nueva fuente */
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-around;
-  flex-grow: 1;
-  flex-wrap: wrap; /* Añadido para que los elementos del nav se ajusten en móviles */
-}
-
-nav ul li {
-  display: inline;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-  background-color: #16a085;
-}
-
-.profile {
-  text-align: center;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.profile-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid #1abc9c;
-  object-fit: cover;
-}
-
-.languages {
-  margin-top: 1rem;
-}
-
-.languages img {
-  width: 30px;
-  height: 20px;
-  margin: 0 0.5rem;
-}
-
-.languages span {
-  margin-left: 0.5rem;
-}
-
-/* Nuevo estilo para la estructura de la aplicación */
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Asegura que el contenedor principal ocupe toda la altura de la ventana */
-}
-
-.content {
-  flex: 1; /* Permite que el contenido crezca y empuje el footer hacia abajo */
-}
-
-/* Estilo para el footer */
-.footer {
-  position: relative;
+  padding: 1rem 2rem;
+  background-color: var(--background-color); /* Usamos el color de fondo para un look integrado */
+  border-bottom: 1px solid var(--border-color); /* Un borde sutil para separar */
+  position: sticky; /* Hacemos que el header se quede fijo al hacer scroll */
+  top: 0;
+  z-index: 1000;
   width: 100%;
-  background-color: #34495e;
-  color: #ffffff;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 0.8rem;
-  margin-top: auto; /* Permite que el footer se empuje al final de la página */
 }
 
-.heart {
-  color: red;
-}
-
-/* Estilo para el emoticono en el encabezado */
-.header-emoticon {
+/* Estilos de la marca/logo */
+.header-brand a {
+  font-family: var(--font-family-headings);
   font-size: 1.5rem;
-  margin-left: 0.5rem;
+  font-weight: 700;
+  color: var(--primary-text-color);
+  transition: color var(--transition-speed) ease;
 }
 
-/* Media Queries para dispositivos móviles */
+.header-brand a:hover {
+  color: var(--primary-text-color); /* No cambiamos el color del logo al pasar el ratón */
+}
+
+.header-brand-dot {
+  color: var(--accent-color); /* El punto tendrá el color de acento */
+}
+
+/* Estilos de la navegación */
+.header-nav {
+  display: flex;
+  gap: 1.5rem; /* Espacio entre los enlaces de navegación */
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--secondary-text-color);
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color var(--transition-speed) ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-text-color);
+}
+
+/* Estilo para el subrayado del enlace activo */
+.nav-link.active {
+  color: var(--primary-text-color);
+  font-weight: 600;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform var(--transition-speed) ease-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+
+/* --- Media Queries para Móviles --- */
 @media (max-width: 768px) {
-  header {
+  .app-header {
     flex-direction: column;
-    align-items: center;
-  }
-
-  .header-name {
-    margin-left: 0;
-    font-size: 1.2rem;
-    text-align: center;
-    width: 100%;
-  }
-
-  nav ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav ul li {
-    margin-bottom: 10px;
-  }
-
-  .profile {
+    gap: 1rem;
     padding: 1rem;
   }
 
-  .profile-img {
-    width: 100px;
-    height: 100px;
+  .header-nav {
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los enlaces se ajusten si no caben */
   }
 
-  .languages img {
-    width: 20px;
-    height: auto;
-  }
-
-  .cv-link {
-    padding: 10px;
+  .nav-link {
     font-size: 0.9rem;
   }
-
-  .footer {
-    font-size: 0.7rem;
+  
+  .app-content {
+    padding: 1.5rem 1rem;
   }
 }
