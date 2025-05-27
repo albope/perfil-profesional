@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/perfil-profesional/static/css/main.cd69fa31.css",
-    "main.js": "/perfil-profesional/static/js/main.472d7871.js",
+    "main.css": "/perfil-profesional/static/css/main.1658e366.css",
+    "main.js": "/perfil-profesional/static/js/main.3a9c4499.js",
     "static/js/453.233fc212.chunk.js": "/perfil-profesional/static/js/453.233fc212.chunk.js",
     "static/media/Alberto_Bort.jfif": "/perfil-profesional/static/media/Alberto_Bort.06bbf398aef4e9aaff6b.jfif",
     "index.html": "/perfil-profesional/index.html",
-    "main.cd69fa31.css.map": "/perfil-profesional/static/css/main.cd69fa31.css.map",
-    "main.472d7871.js.map": "/perfil-profesional/static/js/main.472d7871.js.map",
+    "main.1658e366.css.map": "/perfil-profesional/static/css/main.1658e366.css.map",
+    "main.3a9c4499.js.map": "/perfil-profesional/static/js/main.3a9c4499.js.map",
     "453.233fc212.chunk.js.map": "/perfil-profesional/static/js/453.233fc212.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd69fa31.css",
-    "static/js/main.472d7871.js"
+    "static/css/main.1658e366.css",
+    "static/js/main.3a9c4499.js"
   ]
 }
