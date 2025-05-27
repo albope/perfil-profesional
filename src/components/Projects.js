@@ -5,8 +5,28 @@ import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderOpen, faBuilding } from '@fortawesome/free-solid-svg-icons';
 
-// --- Datos de Proyectos Refactorizados ---
+// --- Datos de Proyectos con la nueva adición ---
 const projects = [
+  // --- NUEVO PROYECTO AÑADIDO ---
+  {
+    name: 'JIRA Report Generator',
+    company: 'ETRA (Herramienta Interna)',
+    description: "Herramienta web para estandarizar y optimizar la documentación de incidencias en JIRA. Construida con Next.js, TypeScript y TailwindCSS, está siendo utilizada por el Departamento de Transferencia para mejorar la trazabilidad y facilitar la reproducción de errores al equipo de desarrollo.",
+    responsibilities: [
+      "Desarrollo completo de la aplicación, desde el concepto inicial hasta el despliegue.",
+      "Diseño de una interfaz intuitiva para convertir el contenido de los tickets en informes estructurados.",
+      "Implementación de la lógica para generar y descargar los reportes en formatos Markdown y Word."
+    ],
+    results: [
+      "Estandarización de los reportes de JIRA con un formato claro y consistente.",
+      "Reducción significativa del tiempo de creación de informes de incidencias.",
+      "Mejora en la transferencia de conocimiento y en el seguimiento de errores dentro del equipo.",
+      "Facilidad para adjuntar reportes en auditorías (formato Word) y en comentarios de JIRA (Markdown)."
+    ],
+    skills: ['Next.js', 'TypeScript', 'TailwindCSS', 'React', 'Markdown', 'JIRA'],
+    link: 'https://reportes-jira-eid.vercel.app/'
+  },
+  // --- Proyectos anteriores ---
   {
     name: 'Sistema SAE en Línea 10 de Metrovalencia',
     company: 'ETRA',
@@ -27,7 +47,7 @@ const projects = [
     link: 'https://www.fgv.es/la-generalitat-adjudica-la-instalacion-de-los-sistemas-de-senalizacion-y-comunicaciones-de-la-linea-10-y-de-la-red-tranviaria-de-metrovalencia/'
   },
   {
-    name: 'Digitalización del Transporte Público (ATMV)',
+    name: 'Digitalización del Transporte Público Interurbano de Metrobús',
     company: 'ETRA',
     description: "Implementación y gestión del proyecto de digitalización del transporte público en el área metropolitana de Valencia, liderado por NTT DATA en colaboración con ETRA.",
     responsibilities: [
@@ -84,7 +104,7 @@ const Projects = () => {
               {project.responsibilities.map((item, idx) => <li key={idx}>{item}</li>)}
             </ul>
             
-            <h3 className="card-subtitle">Resultados</h3>
+            <h3 className="card-subtitle">Resultados y Características Clave</h3>
             <ul className="results-list">
               {project.results.map((item, idx) => <li key={idx}>{item}</li>)}
             </ul>

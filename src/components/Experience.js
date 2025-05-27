@@ -6,25 +6,39 @@ import './Experience.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBriefcase, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
-// --- AQUÍ ESTÁ LA MAGIA: Tus datos de experiencia en un array ---
+// --- Tus datos de experiencia actualizados ---
 const experienceData = [
   {
     company: "ETRA",
     companyLink: "https://www.grupoetra.com",
     roles: [
       {
+        title: "Technical Project Lead",
+        date: "May 2023 - Presente",
+        location: "Comunidad Valenciana, España",
+        description: [
+          "Liderazgo en la implementación de soluciones digitales para el transporte público, incluyendo la Digitalización del Transporte en el Área Metropolitana de Valencia (ATMV) y el despliegue del Sistema SAE para la Línea 10 de Metrovalencia (FGV).",
+          "Definición de requisitos técnicos y funcionales, asegurando una integración fluida con las infraestructuras existentes.",
+          "Gestión del backlog de producto, riesgos técnicos y comunicación con stakeholders para garantizar entregas puntuales.",
+          "Coordinación entre equipos de desarrollo, operaciones y comerciales para una ejecución sin fisuras.",
+          "Supervisión de pruebas de sistema, despliegues y aseguramiento de la calidad (QA).",
+          "Resolución de incidencias y soporte técnico durante la implementación.",
+          "Formación y creación de documentación para usuarios finales."
+        ],
+        skills: ["Project Management", "Stakeholder Management", "Agile", "Backlog Management", "Risk Management", "System Integration", "QA Leadership"]
+      },
+      {
         title: "Software QA Engineer & Technical Business Analyst",
-        date: "Dic 2021 - Presente",
+        date: "Dic 2021 - May 2023",
         location: "Valencia, España",
         description: [
-          "Verificación y pruebas de software y sistemas en el sector del transporte público.",
-          "Planificación y ejecución de pruebas de Aceptación de Usuario (UAT), integración y componentes.",
-          "Gestión de incidencias y defectos con JIRA.",
-          "Reuniones técnicas y de proyecto con clientes clave como FGV, Metro Ligero Oeste, EMT, etc.",
-          "Soporte remoto y presencial para despliegues y mantenimiento de Sistemas de Ayuda a la Explotación (SAE).",
-          "Formación a usuarios y elaboración de documentación técnica y manuales de usuario."
+          "Diseño y ejecución de pruebas de Aceptación de Usuario (UAT), integración y componentes.",
+          "Desarrollo de planes de prueba detallados basados en los requisitos del usuario, utilizando JIRA para el seguimiento.",
+          "Gestión y resolución de defectos e incidencias para minimizar el impacto operativo.",
+          "Liderazgo en reuniones técnicas y de proyecto con clientes clave como FGV, MLO, Enyse, y NTT.",
+          "Soporte remoto y presencial para despliegues y mantenimiento de Sistemas de Ayuda a la Explotación (SAE)."
         ],
-        skills: ["JIRA", "Mantis", "Postman", "SQL Server", "Oracle", "MongoDB", "Jenkins", "TCP/IP", "XML/JSON", "Bash"]
+        skills: ["JIRA", "Postman", "SOAP UI", "SQL Server", "Oracle", "MongoDB", "Jenkins", "Unix/Linux", "Bash", "XML/JSON", "Log Analysis", "Git"]
       }
     ]
   },
@@ -34,35 +48,59 @@ const experienceData = [
     roles: [
       {
         title: "QA Team Leader",
-        date: "May 2021 - Dic 2021",
+        date: "May 2021 - Dic 2021", // 8 meses
         location: "Valencia, España",
         description: [
-          "Business Analyst en proyectos de medios de pago (transferencias, adeudos, SWIFT, etc.).",
-          "Definición de la estrategia de pruebas y elaboración de planes de prueba.",
-          "Líder del equipo de QA de Medios de Pago (seguimiento, planificación y soporte funcional)."
+          "Business Analyst y Application Manager en proyectos de desarrollo de medios de pago de Sopra Banking Amplitude.",
+          "Análisis de negocio en proyectos de medios de pago (Cheques, Transferencias, Adeudos, SWIFT, RTGS, etc.).",
+          "Diseño de estrategias de prueba, desarrollo e implementación de planes de prueba.",
+          "Liderazgo del equipo de QA para Medios de Pago, supervisando monitorización, planificación y soporte funcional."
         ],
-        skills: ["HPQC", "JIRA", "Liderazgo de equipos", "Medios de Pago"]
+        skills: ["HPQC", "JIRA", "Liderazgo de Equipos", "Medios de Pago", "Análisis de Negocio", "Estrategia de Pruebas"]
       },
       {
         title: "QA Automation Engineer",
-        date: "Jul 2020 - Dic 2021",
+        date: "Jul 2020 - Dic 2021", // 1 año 6 meses
         location: "Valencia, España",
         description: [
-          "Desarrollo y mantenimiento de escenarios de prueba automatizados para reducir la regresión manual, utilizando la herramienta interna T-Tool."
+          "Desarrollo y mantenimiento de escenarios de prueba automatizados para reducir la cantidad de pruebas de regresión manuales por versión.",
+          "Utilización de la herramienta interna T-Tool Software para la automatización.",
+          "Reducción del esfuerzo en pruebas de regresión manuales por lanzamiento mediante la automatización."
         ],
-        skills: ["Automatización de Pruebas", "T-Tool", "Regresión"]
+        skills: ["Automatización de Pruebas", "T-Tool", "Pruebas de Regresión", "Scripting"]
       },
       {
         title: "QA IT Business Analyst",
-        date: "Abr 2018 - May 2021",
+        date: "Abr 2018 - May 2021", // 3 años 2 meses
         location: "Valencia, España",
         description: [
-          "Revisión de especificaciones y documentos de diseño técnico.",
+          "Revisión de prerrequisitos, especificaciones y documentos de diseño técnico.",
           "Desarrollo e implementación de planes de prueba con HPQC Test Suite.",
-          "Seguimiento de defectos y participación en reuniones de ciclo de validación.",
-          "Aprobación final para el paso a Producción y definición de la cobertura de automatización."
+          "Seguimiento de defectos identificados durante la validación de pruebas.",
+          "Participación en reuniones del ciclo de validación: integración, revisión funcional y pre-producción.",
+          "Aseguramiento de la ejecución y análisis de pruebas, y aprobación final para el paso a producción.",
+          "Mantenimiento, mejora y planificación de la evolución de scripts y escenarios de prueba.",
+          "Definición de la cobertura de pruebas para la automatización."
         ],
-        skills: ["HPQC", "SOAP UI", "Filezilla", "Confluence", "Oracle DB", "Unix"]
+        skills: ["HPQC", "SOAP UI", "JIRA", "FileZilla", "Confluence", "DbVisualizer", "Oracle DB", "T-Tool", "Bizagi (UML)", "Unix", "Notepad++"]
+      }
+    ]
+  },
+  {
+    company: "Payever Gmbh",
+    companyLink: "https://payever.de/", // Asumo el link, puedes cambiarlo si es otro
+    roles: [
+      {
+        title: "Asistente de Proyectos y Rol Polivalente",
+        date: "Sep 2017 - Mar 2018", // 7 meses
+        location: "Hamburgo, Alemania", // "Greater Hamburg Area"
+        description: [
+          "Rol multifuncional en start-up tecnológica alemana (SaaS), con actividades en gestión de proyectos, marketing, servicio al cliente y ventas e-commerce.",
+          "Elaboración de la base para la estrategia de precios de diversas aplicaciones de negocio ofrecidas en la solución de sistema operativo de comercio.",
+          "Identificación, análisis y comunicación de las principales fuentes de errores que afectaban el rendimiento del desarrollo.",
+          "Comunicación diaria directa y contribución de ideas con los fundadores de la empresa."
+        ],
+        skills: ["Gestión de Proyectos", "Estrategia de Precios", "Análisis de Errores", "Comunicación", "Marketing", "Atención al Cliente", "E-commerce"]
       }
     ]
   }
