@@ -40,7 +40,7 @@ const Home = () => {
         
         <div className="home-actions">
           <a 
-            href="https://drive.google.com/file/d/1leYNHp0SaXLTQcICPvg5EF1-3Tndp9P3/view?usp=drive_link" 
+            href="https://drive.google.com/file/d/1U13pjNYro61wRMDvAmMFJpReuiEtzsGh/view?usp=sharing" 
             className="cta-button primary" 
             target="_blank" 
             rel="noopener noreferrer"
