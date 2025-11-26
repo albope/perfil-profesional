@@ -2,7 +2,7 @@
 
 .contact-section {
     padding: 4rem 2rem;
-    min-height: calc(100vh - 80px); /* Ajuste para centrar descontando header */
+    min-height: calc(100vh - 80px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,8 @@
 /* --- Grid de Información --- */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Ajuste para que en pantallas muy pequeñas sea 1 columna completa */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -40,6 +41,7 @@
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid transparent;
     transition: all 0.3s ease;
+    overflow: hidden; /* Asegura que nada salga del item */
 }
 
 .contact-item:hover {
@@ -56,17 +58,19 @@
     align-items: center;
     justify-content: center;
     color: white;
-    flex-shrink: 0;
+    flex-shrink: 0; /* El icono no debe encogerse */
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .info-content {
     display: flex;
     flex-direction: column;
+    min-width: 0; /* TRUCO FLEXBOX: Permite que el hijo se encoja y active el word-break */
+    flex: 1;
 }
 
 .info-label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--secondary-text-color);
     margin-bottom: 0.2rem;
     text-transform: uppercase;
@@ -78,12 +82,18 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    width: 100%;
 }
 
 .info-value {
     font-size: 1rem;
     color: var(--primary-text-color);
     font-weight: 500;
+    
+    /* CORRECCIÓN DE DESBORDAMIENTO */
+    white-space: normal;
+    overflow-wrap: anywhere; /* Rompe URLs o emails largos en cualquier punto si es necesario */
+    word-break: break-word;
 }
 
 .info-value.link {
@@ -106,6 +116,7 @@
     transition: all 0.2s;
     display: flex;
     align-items: center;
+    flex-shrink: 0; /* El botón no se aplasta */
 }
 
 .copy-btn:hover {
@@ -133,6 +144,8 @@
     border: none;
     font-weight: 600;
     box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    text-align: center;
+    white-space: normal; /* Permitir que el texto del botón también se adapte si es muy largo */
 }
 
 .contact-cta-btn:hover {
@@ -157,10 +170,10 @@
     width: 100%;
     max-width: 600px;
     height: 85vh;
-    padding: 0; /* Sin padding global para que el iframe ocupe todo */
+    padding: 0; 
     display: flex;
     flex-direction: column;
-    background: #1E293B; /* Fondo sólido oscuro para evitar transparencias raras con el iframe */
+    background: #1E293B;
     border: 1px solid var(--border-color);
     border-radius: 20px;
     overflow: hidden;
@@ -204,7 +217,7 @@
 .iframe-container {
     flex: 1;
     width: 100%;
-    background: white; /* El form de Google suele ser blanco */
+    background: white;
 }
 
 .google-form-iframe {
@@ -215,6 +228,10 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .contact-section {
+        padding: 2rem 1rem; /* Menos padding en móvil */
+    }
+
     .contact-content.card-glass {
         padding: 2rem 1.5rem;
     }
@@ -225,6 +242,6 @@
     }
     
     .contact-item {
-        padding: 0.8rem;
+        padding: 1rem;
     }
 }

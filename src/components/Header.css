@@ -5,10 +5,10 @@
   top: 0;
   z-index: 1000;
   width: 100%;
-  height: 80px; /* Un poco más alto para respirar */
+  height: 80px;
   
   /* Glassmorphism Dark */
-  background-color: rgba(11, 17, 32, 0.7); /* Transparencia sobre el fondo oscuro */
+  background-color: rgba(11, 17, 32, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
@@ -19,32 +19,56 @@
 }
 
 .header-content {
-  max-width: 1200px; /* Ancho estándar moderno */
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
 }
 
-/* Brand */
+/* --- BRAND LOGO (MEJORA UX) --- */
 .header-brand a {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--primary-text-color);
   letter-spacing: -0.5px;
   text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  transition: all 0.3s ease;
+  cursor: pointer; /* Refuerza que es interactivo */
+}
+
+/* Efecto Glow y Elevación al Hover (PC) y al Tocar (Móvil) */
+.header-brand a:hover,
+.header-brand a:active {
+  /* Un brillo sutil azulado detrás del texto */
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.4); 
+  transform: translateY(-1px);
 }
 
 .brand-dot {
   color: var(--brand-blue);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto rebote (bouncy) */
+  display: inline-block;
 }
+
+/* Reacción del punto al Hover (PC) y al Tocar (Móvil) */
+.header-brand a:hover .brand-dot,
+.header-brand a:active .brand-dot {
+  color: var(--brand-purple); /* Cambio de color */
+  transform: scale(1.5) rotate(10deg); /* Pop effect */
+}
+
+/* --- FIN BRAND LOGO --- */
 
 /* Nav Desktop */
 .desktop-nav {
   display: flex;
-  gap: 2.5rem; /* Más espacio entre items */
+  gap: 2.5rem;
 }
 
 .nav-link {
@@ -60,7 +84,7 @@
   color: var(--primary-text-color);
 }
 
-/* La línea animada (azul vibrante) */
+/* La línea animada */
 .underline {
   position: absolute;
   bottom: -4px;
@@ -68,7 +92,7 @@
   right: 0;
   height: 2px;
   background: var(--brand-blue);
-  box-shadow: 0 0 10px var(--brand-blue); /* Glow effect */
+  box-shadow: 0 0 10px var(--brand-blue);
   border-radius: 2px;
 }
 
@@ -79,23 +103,37 @@
   border: none;
   color: var(--primary-text-color);
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 /* Mobile Nav */
 .mobile-nav {
-  background: rgba(11, 17, 32, 0.95);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(11, 17, 32, 0.98);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-color);
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .mobile-link {
-  padding: 1rem 0;
+  padding: 1.2rem 0;
   color: var(--secondary-text-color);
   text-decoration: none;
   border-bottom: 1px solid var(--border-color);
+  font-size: 1.1rem;
+  font-weight: 500;
 }
+
+.mobile-link:last-child {
+  border-bottom: none;
+}
+
 .mobile-link.active {
   color: var(--brand-blue);
 }
