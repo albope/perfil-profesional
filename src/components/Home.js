@@ -1,107 +1,176 @@
-// src/components/Home.js
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, Linkedin, FileText, Mail, Award, CheckCircle2, ArrowRight } from 'lucide-react';
 import './Home.css';
 import profileImage from '../assets/images/Alberto_Bort.jfif';
-import linkedinIcon from '../assets/images/linkedin.png';
-import githubIcon from '../assets/images/github_w.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCertificate } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
-  // 1. Pestaña por defecto cambiada a 'certifications'
-  const [activeTab, setActiveTab] = useState('certifications');
+    const [activeTab, setActiveTab] = useState('certifications');
 
-  return (
-    <section className="home-container">
-      {/* Columna 1: Contenido de texto */}
-      <div className="home-content">
+    // Variantes para la animación en cascada
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1, // Cada hijo aparece 0.1s después del anterior
+                delayChildren: 0.2
+            }
+        },
+        exit: { opacity: 0, transition: { duration: 0.2 } }
+    };
 
-        {/* 2. Iconos sociales movidos aquí, junto al título */}
-        <div className="home-title-container">
-          <h1 className="home-title">
-            Hola, soy <span className="highlight">Alberto Bort</span>
-          </h1>
-          <div className="home-socials">
-            <a href="https://github.com/albope" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-              <img src={githubIcon} alt="GitHub" />
-            </a>
-            <a href="https://www.linkedin.com/in/albertobort" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-              <img src={linkedinIcon} alt="LinkedIn" />
-            </a>
-          </div>
-        </div>
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: { 
+            y: 0, 
+            opacity: 1,
+            transition: { type: "spring", stiffness: 50 } 
+        }
+    };
 
-        <h2 className="home-subtitle">Technical Business Analyst & QA Engineer</h2>
-        <p className="home-description">
-          Ingeniero de QA y Analista de Negocio TI con más de 7 años de experiencia en sectores como banca, transporte público y movilidad. Combino una sólida pericia técnica con una profunda visión de negocio para prosperar en equipos multidisciplinares, ayudando a las organizaciones a entregar soluciones de software robustas y de alta calidad. 
-        </p>
-        
-        <div className="home-actions">
-          <a 
-            href="https://drive.google.com/file/d/1U13pjNYro61wRMDvAmMFJpReuiEtzsGh/view?usp=sharing" 
-            className="cta-button primary" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            Descargar CV
-          </a>
-          <Link to="/contact" className="cta-button secondary">
-            Contáctame
-          </Link>
-        </div>
+    return (
+        <motion.section 
+            className="home-container"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+        >
+            {/* Columna 1: Contenido de texto */}
+            <div className="home-content">
+                
+                <motion.div variants={itemVariants} className="home-header-group">
+                    <h1 className="home-title">
+                        Hola, soy <br />
+                        <span className="gradient-text">Alberto Bort</span>
+                    </h1>
+                    
+                    {/* Redes Sociales modernas */}
+                    <div className="social-links">
+                        <motion.a 
+                            whileHover={{ scale: 1.1, color: '#2563EB' }}
+                            whileTap={{ scale: 0.95 }}
+                            href="https://github.com/albope" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                        >
+                            <Github size={28} />
+                        </motion.a>
+                        <motion.a 
+                            whileHover={{ scale: 1.1, color: '#0A66C2' }}
+                            whileTap={{ scale: 0.95 }}
+                            href="https://www.linkedin.com/in/albertobort" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                        >
+                            <Linkedin size={28} />
+                        </motion.a>
+                    </div>
+                </motion.div>
 
-        <div className="tabs-container">
-          <div className="tabs-nav">
-            <button 
-              className={`tab-button ${activeTab === 'specialties' ? 'active' : ''}`}
-              onClick={() => setActiveTab('specialties')}
-            >
-              Especialidades
-            </button>
-            <button 
-              className={`tab-button ${activeTab === 'certifications' ? 'active' : ''}`}
-              onClick={() => setActiveTab('certifications')}
-            >
-              Certificaciones
-            </button>
-          </div>
+                <motion.h2 variants={itemVariants} className="home-subtitle">
+                    Technical Project Lead & IT Business Analyst
+                </motion.h2>
 
-          <div className="tabs-content">
-            {activeTab === 'specialties' && (
-              <div className="tags-container">
-                <span className="tag">Análisis de Requisitos</span>
-                <span className="tag">Testing de APIs</span>
-                <span className="tag">Metodologías Ágiles</span>
-                <span className="tag">QA Funcional</span>
-                <span className="tag">Bases de Datos (SQL/NoSQL)</span>
-                <span className="tag">Gestión de Stakeholders</span>
-              </div>
-            )}
+                <motion.p variants={itemVariants} className="home-description">
+                    Technical Project lead y Analista de Negocio TI con más de 8 años de experiencia en banca, 
+                    transporte y movilidad. Transformo necesidades complejas en soluciones de software robustas, 
+                    combinando visión técnica y estratégica.
+                </motion.p>
+                
+                <motion.div variants={itemVariants} className="home-actions">
+                    <a 
+                        href="https://drive.google.com/file/d/1U13pjNYro61wRMDvAmMFJpReuiEtzsGh/view?usp=sharing" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn btn-primary"
+                    >
+                        <FileText size={18} /> Descargar CV
+                    </a>
+                    <Link to="/contact" className="btn btn-secondary">
+                        <Mail size={18} /> Contáctame
+                    </Link>
+                </motion.div>
 
-            {activeTab === 'certifications' && (
-              <div className="certifications-list">
-                <div className="cert-item">
-                  <FontAwesomeIcon icon={faCertificate} className="cert-icon" />
-                  <span>ISTQB Foundation Level</span>
-                </div>
-                <div className="cert-item">
-                  <FontAwesomeIcon icon={faCertificate} className="cert-icon" />
-                  <span>Scrum Manager Nivel 1</span>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+                {/* Sistema de Tabs Animado */}
+                <motion.div variants={itemVariants} className="tabs-wrapper">
+                    <div className="tabs-nav">
+                        <button 
+                            className={`tab-btn ${activeTab === 'certifications' ? 'active' : ''}`}
+                            onClick={() => setActiveTab('certifications')}
+                        >
+                            Certificaciones
+                            {activeTab === 'certifications' && <motion.div layoutId="tab-underline" className="tab-line" />}
+                        </button>
+                        <button 
+                            className={`tab-btn ${activeTab === 'specialties' ? 'active' : ''}`}
+                            onClick={() => setActiveTab('specialties')}
+                        >
+                            Especialidades
+                            {activeTab === 'specialties' && <motion.div layoutId="tab-underline" className="tab-line" />}
+                        </button>
+                    </div>
 
-      {/* Columna 2: Imagen de perfil */}
-      <div className="home-image-wrapper">
-        <img src={profileImage} alt="Alberto Bort Pérez" className="home-profile-img" />
-      </div>
-    </section>
-  );
+                    <div className="tabs-body">
+                        <AnimatePresence mode="wait">
+                            {activeTab === 'specialties' ? (
+                                <motion.div 
+                                    key="specialties"
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 10 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="tags-grid"
+                                >
+                                    {['Análisis de Requisitos', 'Testing de APIs', 'Metodologías Ágiles', 'QA Funcional', 'SQL/NoSQL', 'Stakeholders Mng.'].map(skill => (
+                                        <span key={skill} className="skill-tag">{skill}</span>
+                                    ))}
+                                </motion.div>
+                            ) : (
+                                <motion.div 
+                                    key="certifications"
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 10 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="cert-list"
+                                >
+                                    <div className="cert-item">
+                                        <Award className="cert-icon" size={20} />
+                                        <span>ISTQB Foundation Level</span>
+                                    </div>
+                                    <div className="cert-item">
+                                        <CheckCircle2 className="cert-icon" size={20} />
+                                        <span>Scrum Manager Nivel 1</span>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
+                </motion.div>
+            </div>
+
+            {/* Columna 2: Imagen con efecto flotante */}
+            <motion.div variants={itemVariants} className="home-image-wrapper">
+                <div className="image-blob-bg"></div>
+                <motion.img 
+                    src={profileImage} 
+                    alt="Alberto Bort" 
+                    className="profile-img"
+                    animate={{ y: [0, -15, 0] }}
+                    transition={{ 
+                        duration: 6, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                    }}
+                />
+            </motion.div>
+        </motion.section>
+    );
 };
 
 export default Home;

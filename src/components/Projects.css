@@ -1,159 +1,181 @@
 /* src/components/Projects.css */
 
 .projects-section {
-  padding: 2rem 0;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
-/* Reutilizamos el estilo del título de sección de Experience.css */
-.section-title {
-  text-align: center;
-  font-family: var(--font-family-headings);
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--primary-text-color);
+.projects-container {
+    max-width: 1200px;
+    width: 100%;
 }
 
-.section-title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: var(--accent-color);
-  margin: 0.5rem auto 0;
-}
-
-/* --- La Cuadrícula de Proyectos (Grid) --- */
+/* --- Grid Layout --- */
 .projects-grid {
-  display: grid;
-  /* Crea columnas automáticas que tengan un mínimo de 400px y un máximo de 1fr.
-     Esto hace la grid responsive por naturaleza. */
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2rem;
 }
 
-/* --- La Tarjeta de Proyecto --- */
-.project-card {
-  background-color: var(--card-background-color);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+/* --- Tarjeta Glassmorphism --- */
+.project-card.card-glass {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-8px);
+    border-color: var(--brand-blue);
+    box-shadow: 0 15px 40px -10px rgba(59, 130, 246, 0.15);
 }
 
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+/* Header del Proyecto */
+.card-header-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
-.project-icon {
-  color: var(--accent-color);
-  font-size: 1.5rem;
+.icon-wrapper {
+    min-width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.project-name {
-  font-family: var(--font-family-headings);
-  font-size: 1.5rem;
-  color: var(--primary-text-color);
+.project-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin: 0 0 0.3rem 0;
+    line-height: 1.3;
 }
 
 .project-company {
-  color: var(--secondary-text-color);
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    font-weight: 500;
 }
 
-.company-icon {
-  font-size: 0.9rem;
+.project-desc {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
-.project-description-text {
-  color: var(--secondary-text-color);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+/* Divisor sutil */
+.card-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    margin-bottom: 1.5rem;
 }
 
-.card-subtitle {
-  font-family: var(--font-family-headings);
-  font-weight: 600;
-  color: var(--primary-text-color);
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+/* Bloques de detalles (Resp / Resultados) */
+.details-block {
+    margin-bottom: 1.2rem;
 }
 
-.responsibilities-list, .results-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin-bottom: 1rem;
+.details-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.responsibilities-list li, .results-list li {
-  color: var(--secondary-text-color);
-  margin-bottom: 0.5rem;
-  padding-left: 1.2rem;
-  position: relative;
-  line-height: 1.5;
+.details-icon {
+    color: var(--brand-purple);
 }
 
-/* Reutilizamos el bullet point personalizado */
-.responsibilities-list li::before, .results-list li::before {
-  content: '▹';
-  position: absolute;
-  left: 0;
-  color: var(--accent-color);
-  font-weight: bold;
+.details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.project-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+.details-list li {
+    position: relative;
+    padding-left: 1rem;
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
 }
 
-/* Reutilizamos el estilo de los badges */
-.skill-badge {
-  background-color: rgba(14, 148, 136, 0.15);
-  color: var(--accent-color);
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 500;
+.details-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--brand-blue);
+    font-weight: bold;
 }
 
-.project-link-button {
-  margin-top: auto; /* Empuja el botón al final de la tarjeta */
-  align-self: flex-start; /* Alinea el botón a la izquierda */
-  font-family: var(--font-family-headings);
-  font-weight: 600;
-  padding: 0.6rem 1.5rem;
-  border-radius: var(--border-radius);
-  transition: all var(--transition-speed) ease;
-  background-color: transparent;
-  color: var(--accent-color);
-  border: 2px solid var(--accent-color);
-  text-align: center;
+/* Tags */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto;
+    margin-bottom: 1.5rem;
 }
 
-.project-link-button:hover {
-  background-color: var(--accent-color);
-  color: #ffffff;
+.tech-pill {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--primary-text-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 500;
 }
 
-@media(max-width: 450px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+/* Botón CTA */
+.project-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--brand-blue);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.project-cta:hover {
+    background: var(--brand-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }

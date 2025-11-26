@@ -1,62 +1,49 @@
-// src/App.js
-
 import React from 'react';
-// Importamos HashRouter y NavLink
-import { HashRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
-// Importamos los componentes
+// Componentes
+import Header from './components/Header';
 import Home from './components/Home';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import ParticlesBackground from './components/ParticlesBackground'; // <--- Importamos el fondo
 
-// Importamos el CSS principal
 import './App.css';
+
+// Creamos un wrapper interno para poder usar useLocation
+const AnimatedRoutes = () => {
+    const location = useLocation();
+
+    return (
+        <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+        </AnimatePresence>
+    );
+};
 
 function App() {
     return (
         <Router>
             <div className="app-container">
-                <header className="app-header">
-                    {/* Contenedor para el logo o nombre */}
-                    <div className="header-brand">
-                        <NavLink to="/">
-                            Alberto Bort <span className="header-brand-dot">.</span>
-                        </NavLink>
-                    </div>
-
-                    {/* Contenedor para la navegación */}
-                    <nav className="header-nav">
-                        <NavLink to="/" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
-                            Inicio
-                        </NavLink>
-                        <NavLink to="/experience" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
-                            Experiencia
-                        </NavLink>
-                        <NavLink to="/skills" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
-                            Habilidades
-                        </NavLink>
-                        <NavLink to="/projects" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
-                            Proyectos
-                        </NavLink>
-                        <NavLink to="/contact" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
-                            Contacto
-                        </NavLink>
-                    </nav>
-                </header>
-
-                <main className="app-content">
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/experience" element={<Experience />} />
-                        <Route path="/skills" element={<Skills />} />
-                        <Route path="/projects" element={<Projects />} />
-                        <Route path="/contact" element={<Contact />} />
-                    </Routes>
+                <ParticlesBackground /> {/* <--- Fondo vivo añadido aquí */}
+                <ScrollToTop /> 
+                
+                <Header />
+                {/* Añadimos zIndex al main para que el contenido esté SOBRE las partículas */}
+                <main className="app-content" style={{ position: 'relative', zIndex: 1 }}>
+                    <AnimatedRoutes />
                 </main>
-
                 <Footer />
             </div>
         </Router>

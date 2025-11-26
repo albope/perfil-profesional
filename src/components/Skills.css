@@ -1,54 +1,121 @@
 /* src/components/Skills.css */
 
 .skills-section {
-  padding: 2rem 0;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
-/* Reutilizamos el estilo del título de sección */
-.section-title {
-  text-align: center;
-  font-family: var(--font-family-headings);
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--primary-text-color);
-}
-.section-title::after {
-  content: ''; display: block; width: 60px; height: 3px;
-  background-color: var(--accent-color); margin: 0.5rem auto 0;
+.skills-container {
+    max-width: 1200px;
+    width: 100%;
 }
 
-.skills-category {
-  margin-bottom: 3rem;
+/* --- Grid Layout (Estilo Bento) --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+/* --- Tarjetas Glass --- */
+.skill-card.card-glass {
+    background: rgba(30, 41, 59, 0.4); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 20px; /* Bordes más redondeados para estilo moderno */
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--brand-blue);
+    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.15);
+}
+
+/* Borde superior brillante */
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--brand-blue), var(--brand-purple));
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+.skill-card:hover::before { opacity: 1; }
+
+/* --- Contenido Tarjeta --- */
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    color: var(--brand-blue);
 }
 
 .category-title {
-  font-family: var(--font-family-headings);
-  font-size: 1.5rem;
-  color: var(--primary-text-color);
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--border-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin: 0;
 }
 
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem; /* 12px */
+.category-desc {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
 }
 
-/* ESTILO DE BADGE CONSISTENTE */
-/* Usamos exactamente el mismo estilo que en las otras secciones
-   para mantener la coherencia visual. */
-.skill-badge {
-  background-color: rgba(14, 148, 136, 0.15); /* Color de acento con transparencia */
-  color: var(--accent-color);
-  padding: 0.5rem 1rem;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: transform var(--transition-speed) ease;
+/* --- Tags / Píldoras --- */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto; /* Empuja los tags al fondo si las tarjetas tienen distinta altura */
 }
 
-.skill-badge:hover {
-  transform: translateY(-3px);
+.skill-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--primary-text-color);
+    padding: 0.4rem 0.9rem;
+    border-radius: 50px; /* Forma de píldora completa */
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: default;
+}
+
+.skill-pill:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    .category-title {
+        font-size: 1.3rem;
+    }
 }

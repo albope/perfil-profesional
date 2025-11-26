@@ -1,27 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+/* --- IMPORTACIÓN DE FUENTES (OUTFIT + INTER) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700;800&display=swap');
 
 :root {
-  /* 🎨 PALETA DE COLORES */
-  /* He optado por un tema oscuro sofisticado que hace que el contenido resalte. */
+  /* --- PALETA DE COLORES "MIDNIGHT TECH" --- */
+  --background-color: #0B1120; /* Slate 950: Oscuro profundo y elegante */
+  --card-background: #1E293B;  /* Slate 800: Para tarjetas */
+  
+  /* Textos */
+  --primary-text-color: #F1F5F9; /* Slate 100: Blanco roto, no daña la vista */
+  --secondary-text-color: #94A3B8; /* Slate 400: Gris azulado */
+  
+  /* Acentos de Marca */
+  --brand-blue: #3B82F6;   /* Azul vibrante */
+  --brand-purple: #8B5CF6; /* Violeta eléctrico */
+  --accent-color: var(--brand-blue);
+  
+  /* Gradiente Maestro */
+  --brand-gradient: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+  
+  /* Bordes y Sombras */
+  --border-color: rgba(255, 255, 255, 0.08);
+  --box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  --border-radius: 12px;
 
-  --background-color: #111827; /* Un azul-gris muy oscuro, más suave que el negro puro */
-  --card-background-color: #1F2937; /* Un gris ligeramente más claro para elementos como tarjetas o el header */
-  --primary-text-color: #F9FAFB; /* Un blanco roto, menos duro a la vista que el blanco puro */
-  --secondary-text-color: #9CA3AF; /* Un gris para texto secundario (fechas, descripciones, etc.) */
+  /* --- TIPOGRAFÍA TECH --- */
+  /* Outfit: Para títulos grandes y números. Muy moderna. */
+  --font-family-headings: 'Outfit', system-ui, -apple-system, sans-serif;
+  /* Inter: Para textos largos. Máxima legibilidad. */
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --transition-speed: 0.3s;
+}
 
-  --accent-color: #14b8a6; /* Un verde azulado (teal) vibrante y moderno como color de acento */
-  --accent-color-hover: #0d9488; /* Una versión más oscura para los efectos :hover */
+/* --- RESET GLOBAL Y APLICACIÓN DE FUENTES --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-  --border-color: #374151; /* Un color sutil para bordes */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+  /* Aplicamos la fuente base a TODO el cuerpo */
+  font-family: var(--font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
 
+/* Forzamos la fuente de títulos en todos los encabezados */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-headings);
+  margin: 0;
+  color: var(--primary-text-color);
+}
 
-  /* ✒️ TIPOGRAFÍA */
-  --font-family-headings: 'Poppins', sans-serif; /* Una fuente elegante y con personalidad para títulos */
-  --font-family-body: 'Roboto', sans-serif; /* Una fuente muy legible y profesional para el texto general */
+/* Enlaces y Botones también necesitan heredar bien */
+a, button, input, textarea {
+  font-family: inherit;
+}
 
-
-  /* 📐 OTROS ESTILOS GLOBALES */
-  --border-radius: 8px; /* Un radio de borde consistente para todos los elementos */
-  --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* Una sombra sutil para dar profundidad */
-  --transition-speed: 0.3s; /* Velocidad de transición para animaciones suaves */
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+  border: 2px solid var(--background-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-blue);
 }

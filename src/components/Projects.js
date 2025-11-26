@@ -1,17 +1,14 @@
-// src/components/Projects.js
-
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FolderGit2, Building2, ExternalLink, Layers, CheckCircle2 } from 'lucide-react';
 import './Projects.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFolderOpen, faBuilding } from '@fortawesome/free-solid-svg-icons';
 
-// --- Datos de Proyectos con la nueva adición ---
 const projects = [
   // --- NUEVO PROYECTO AÑADIDO ---
   {
     name: 'JIRA Report Generator',
     company: 'ETRA (Herramienta Interna)',
-    description: "Herramienta web para estandarizar y optimizar la documentación de incidencias en JIRA. Construida con Next.js, TypeScript y TailwindCSS, está siendo utilizada por el Departamento de Transferencia para mejorar la trazabilidad y facilitar la reproducción de errores al equipo de desarrollo.",
+    description: "Herramienta para estandarizar incidencias en JIRA, optimizando la trazabilidad y comunicación entre departamentos mediante reportes estructurados.",
     responsibilities: [
       "Desarrollo completo de la aplicación, desde el concepto inicial hasta el despliegue.",
       "Diseño de una interfaz intuitiva para convertir el contenido de los tickets en informes estructurados.",
@@ -30,7 +27,7 @@ const projects = [
   {
     name: 'Sistema SAE en Línea 10 de Metrovalencia',
     company: 'ETRA',
-    description: "Instalación, supervisión y control del Sistema de Ayuda a la Explotación (SAE) en la nueva Línea 10 (Alacant-Natzaret) de Metrovalencia.",
+    description: "Despliegue y control del Sistema de Ayuda a la Explotación (SAE) en la nueva Línea 10 (Alacant-Natzaret) de Metrovalencia.",
     responsibilities: [
       "Análisis de requisitos y definición de especificaciones técnicas.",
       "Desarrollo de casos de prueba y ejecución de pruebas funcionales y de regresión.",
@@ -49,7 +46,7 @@ const projects = [
   {
     name: 'Digitalización del Transporte Público Interurbano de Metrobús',
     company: 'ETRA',
-    description: "Implementación y gestión del proyecto de digitalización del transporte público en el área metropolitana de Valencia, liderado por NTT DATA en colaboración con ETRA.",
+    description: "Digitalización del transporte público metropolitano de Valencia, integrando sistemas para mejorar la eficiencia junto a NTT DATA.",
     responsibilities: [
       "Análisis de requisitos y definición de especificaciones para el proyecto de digitalización.",
       "Coordinación con NTT DATA y otros stakeholders para asegurar la correcta ejecución del proyecto.",
@@ -67,7 +64,7 @@ const projects = [
   {
     name: "Creación de Entorno de Pruebas Común para QA",
     company: 'Sopra Banking Software',
-    description: "Creación, gestión y mantenimiento de un entorno de pruebas común para todo el equipo de QA, donde se probaban evolutivos y se ejecutaban campañas de regresión manual y automática.",
+    description: "Implementación de un entorno de pruebas unificado para validar evolutivos y ejecutar regresiones automatizadas.",
     responsibilities: [
       "Gestión del proyecto para la creación y mantenimiento del entorno de pruebas.",
       "Coordinación del análisis de requisitos y definición de especificaciones técnicas.",
@@ -79,48 +76,109 @@ const projects = [
       "Reducción significativa del tiempo de pruebas gracias a la automatización.",
       "Disminución de defectos en producción a través de una gestión de calidad más rigurosa."
     ],
-    skills: ['Project Management', 'SQL', 'JIRA', 'Postman', 'QA', 'Test Automation', 'Liderazgo']
+    skills: ['Project Management', 'SQL', 'JIRA', 'Postman', 'QA', 'Test Automation', 'Liderazgo'],
+    link: null // Este proyecto no tenía link en tu código original
   }
 ];
 
 const Projects = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
     <section className="projects-section">
-      <h1 className="section-title">Proyectos Destacados</h1>
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <div key={index} className="project-card">
-            <div className="card-header">
-              <FontAwesomeIcon icon={faFolderOpen} className="project-icon" />
-              <h2 className="project-name">{project.name}</h2>
-            </div>
-            <p className="project-company">
-              <FontAwesomeIcon icon={faBuilding} className="company-icon" /> {project.company}
-            </p>
-            <p className="project-description-text">{project.description}</p>
-            
-            <h3 className="card-subtitle">Responsabilidades Clave</h3>
-            <ul className="responsibilities-list">
-              {project.responsibilities.map((item, idx) => <li key={idx}>{item}</li>)}
-            </ul>
-            
-            <h3 className="card-subtitle">Resultados y Características Clave</h3>
-            <ul className="results-list">
-              {project.results.map((item, idx) => <li key={idx}>{item}</li>)}
-            </ul>
+      <motion.div 
+        className="projects-container"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="section-header">
+          <h2 className="section-title">
+            Proyectos <span className="highlight">Destacados</span>
+          </h2>
+          <p className="section-subtitle">
+            Soluciones reales implementadas con impacto directo en negocio y operaciones.
+          </p>
+        </div>
 
-            <div className="project-skills">
-              {project.skills.map((skill, idx) => <span key={idx} className="skill-badge">{skill}</span>)}
-            </div>
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <motion.div key={index} className="project-card card-glass" variants={cardVariants}>
+              
+              {/* Header de la Tarjeta */}
+              <div className="card-header-content">
+                <div className="icon-wrapper">
+                   <FolderGit2 size={24} />
+                </div>
+                <div>
+                    <h3 className="project-title">{project.name}</h3>
+                    <div className="project-company">
+                        <Building2 size={14} />
+                        <span>{project.company}</span>
+                    </div>
+                </div>
+              </div>
 
-            {project.link && (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-link-button">
-                Ver Detalles del Proyecto
-              </a>
-            )}
-          </div>
-        ))}
-      </div>
+              <p className="project-desc">{project.description}</p>
+
+              <div className="card-divider"></div>
+
+              {/* Bloque: Responsabilidades */}
+              <div className="details-block">
+                <h4 className="details-title">
+                    <Layers size={16} className="details-icon" /> Responsabilidades Clave
+                </h4>
+                <ul className="details-list">
+                    {project.responsibilities.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                    ))}
+                </ul>
+              </div>
+
+              {/* Bloque: Resultados */}
+              <div className="details-block">
+                <h4 className="details-title">
+                    <CheckCircle2 size={16} className="details-icon" /> Resultados y Características
+                </h4>
+                <ul className="details-list">
+                    {project.results.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                    ))}
+                </ul>
+              </div>
+
+              {/* Tags de Tecnologías/Skills */}
+              <div className="project-tags">
+                {project.skills.map((skill, idx) => (
+                    <span key={idx} className="tech-pill">{skill}</span>
+                ))}
+              </div>
+
+              {/* Botón CTA (Si tiene link) */}
+              {project.link && (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta">
+                    Ver Detalles del Proyecto <ExternalLink size={16} />
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };

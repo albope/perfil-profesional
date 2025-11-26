@@ -1,145 +1,230 @@
 /* src/components/Contact.css */
 
 .contact-section {
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 150px);
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 80px); /* Ajuste para centrar descontando header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Reutilizamos el estilo del título de sección */
-.section-title {
-  text-align: center;
-  font-family: var(--font-family-headings);
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-}
-.section-title::after {
-  content: ''; display: block; width: 60px; height: 3px;
-  background-color: var(--accent-color); margin: 0.5rem auto 0;
+.contact-container {
+    max-width: 800px;
+    width: 100%;
 }
 
-/* --- Tarjeta de Contacto Centrada --- */
-.contact-card-centered {
-  background-color: var(--card-background-color);
-  padding: 2rem 3rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--box-shadow);
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
+/* --- Tarjeta Principal Glass --- */
+.contact-content.card-glass {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
 }
 
-.contact-card-centered h2 {
-  font-family: var(--font-family-headings);
-  font-size: 2rem;
-  color: var(--primary-text-color);
-  margin-bottom: 1rem;
+/* --- Grid de Información --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-.contact-card-description {
-  color: var(--secondary-text-color);
-  line-height: 1.6;
-  margin-bottom: 2rem;
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
 }
 
-.info-list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-  text-align: left;
+.contact-item:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.2);
 }
 
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: var(--secondary-text-color);
-  font-size: 1rem;
+.icon-box {
+    width: 48px;
+    height: 48px;
+    background: var(--brand-gradient);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-.info-item svg {
-  color: var(--accent-color);
-  font-size: 1.2rem;
-  width: 20px;
+.info-content {
+    display: flex;
+    flex-direction: column;
 }
 
-.contact-modal-button {
-  font-family: var(--font-family-headings);
-  font-weight: 600;
-  padding: 0.8rem 1.8rem;
-  border-radius: var(--border-radius);
-  background-color: var(--accent-color);
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
+.info-label {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
-.contact-modal-button:hover {
-  background-color: var(--accent-color-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.value-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-/* --- Estilos del Modal --- */
+.info-value {
+    font-size: 1rem;
+    color: var(--primary-text-color);
+    font-weight: 500;
+}
+
+.info-value.link {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.info-value.link:hover {
+    color: var(--brand-blue);
+}
+
+/* Botón de copiar */
+.copy-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-text-color);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--brand-blue);
+}
+
+/* --- Botón CTA Grande --- */
+.cta-container {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    background: var(--brand-gradient);
+    color: white;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.contact-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+}
+
+/* --- Modal Moderno --- */
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
-.modal-content {
-  background-color: var(--card-background-color);
-  padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  width: 90%;
-  max-width: 700px;
-  height: 80%;
-  max-height: 800px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+.modal-content.card-glass {
+    width: 100%;
+    max-width: 600px;
+    height: 85vh;
+    padding: 0; /* Sin padding global para que el iframe ocupe todo */
+    display: flex;
+    flex-direction: column;
+    background: #1E293B; /* Fondo sólido oscuro para evitar transparencias raras con el iframe */
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
 }
 
-.modal-content h2 {
-  font-family: var(--font-family-headings);
-  margin-bottom: 1.5rem;
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 41, 59, 0.95);
 }
 
-.modal-close-button {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: var(--secondary-text-color);
-  cursor: pointer;
-  transition: color var(--transition-speed) ease;
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--primary-text-color);
 }
 
-.modal-close-button:hover {
-  color: var(--primary-text-color);
+.close-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: var(--secondary-text-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.iframe-container {
+    flex: 1;
+    width: 100%;
+    background: white; /* El form de Google suele ser blanco */
 }
 
 .google-form-iframe {
-  flex-grow: 1; /* Hace que el iframe ocupe el espacio restante */
-  width: 100%;
-  border: none;
-  border-radius: var(--border-radius);
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-content.card-glass {
+        padding: 2rem 1.5rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-item {
+        padding: 0.8rem;
+    }
 }

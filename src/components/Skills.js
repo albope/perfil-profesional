@@ -1,68 +1,143 @@
-// src/components/Skills.js
-
 import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Cpu, 
+  Users, 
+  ShieldCheck, 
+  BarChart3, 
+  Database, 
+  Terminal, 
+  LayoutTemplate 
+} from 'lucide-react';
 import './Skills.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTools } from '@fortawesome/free-solid-svg-icons';
-
-// --- Tus datos COMPLETOS, sin la propiedad "level" ---
-const skillsData = {
-  skills: [
-    {
-      category: "Habilidades Técnicas",
-      skills: [
-        { name: "SQL" }, { name: "Rest APIs" }, { name: "SOAP" }, { name: "XML" },
-        { name: "JSON" }, { name: "Jenkins" }, { name: "Jira" }, { name: "Postman" },
-        { name: "MongoDB" }, { name: ".Config Files" }, { name: "Unix / Linux" },
-        { name: "Análisis de Logs" }, { name: "Windows OS" }
-      ]
-    },
-    {
-      category: "Habilidades de QA",
-      skills: [
-        { name: "Testing Manual" }, { name: "Testing Automatizado" },
-        { name: "Planificación de Pruebas" }, { name: "Seguimiento de Errores (Bug Tracking)" },
-        { name: "Pruebas de Regresión" }
-      ]
-    },
-    {
-      category: "Gestión de Proyectos y Metodologías",
-      skills: [
-        { name: "Metodologías Ágiles (Agile)" }, { name: "Project Planning" },
-        { name: "Gestión de Riesgos" }, { name: "Stakeholder Management" },
-        { name: "Gestión del Tiempo" }
-      ]
-    },
-    {
-      category: "Habilidades de Business Analyst Técnico",
-      skills: [
-        { name: "Análisis de Datos" }, { name: "Análisis de Sistemas" },
-        { name: "Mejora de Procesos de Negocio" }, { name: "Documentación Técnica" },
-        { name: "Historias de Usuario" }, { name: "Ciclo de Vida del Software (SDLC)" },
-        { name: "Análisis de Requisitos" }, { name: "Comunicación con Stakeholders" }
-      ]
-    }
-  ]
-};
 
 const Skills = () => {
-  return (
-    <section className="skills-section">
-      <h1 className="section-title">Habilidades y Competencias</h1>
-      {skillsData.skills.map((category, index) => (
-        <div key={index} className="skills-category">
-          <h2 className="category-title">{category.category}</h2>
-          <div className="skills-grid">
-            {category.skills.map((skillItem, idx) => (
-              <div key={idx} className="skill-badge">
-                {skillItem.name}
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </section>
-  );
+    const skillCategories = [
+        {
+            id: 'tech-stack',
+            title: "Stack Técnico & Arquitectura",
+            icon: <Cpu size={24} />,
+            description: "Fundamentos técnicos sólidos para la toma de decisiones arquitectónicas.",
+            skills: [
+                "SQL & NoSQL (MongoDB)",
+                "REST & SOAP APIs",
+                "Integración de Sistemas",
+                "XML / JSON",
+                "Unix / Linux Systems",
+                "Análisis de Logs",
+                "Jenkins (CI/CD)",
+                "Configuración de Entornos"
+            ]
+        },
+        {
+            id: 'leadership',
+            title: "Liderazgo y Gestión",
+            icon: <Users size={24} />,
+            description: "Dirección de equipos y alineación estratégica de proyectos.",
+            skills: [
+                "Liderazgo Técnico",
+                "Gestión de Stakeholders",
+                "Planificación de Proyectos (Roadmap)",
+                "Gestión de Riesgos Técnicos",
+                "Metodologías Ágiles (Scrum/Kanban)",
+                "Mentoring de Equipos",
+                "Gestión del Cambio"
+            ]
+        },
+        {
+            id: 'analysis',
+            title: "Ingeniería de Requisitos",
+            icon: <BarChart3 size={24} />,
+            description: "Puente entre necesidades de negocio y soluciones técnicas.",
+            skills: [
+                "Análisis de Sistemas",
+                "SDLC Management",
+                "Definición de Requisitos Técnicos",
+                "Optimización de Procesos",
+                "User Stories & Backlog",
+                "Documentación Técnica",
+                "Modelado de Datos"
+            ]
+        },
+        {
+            id: 'quality',
+            title: "Estrategia de Calidad (QA)",
+            icon: <ShieldCheck size={24} />,
+            description: "Aseguramiento de la fiabilidad y robustez del software entregado.",
+            skills: [
+                "Estrategia de Pruebas",
+                "Automatización (Visión)",
+                "Validación End-to-End",
+                "Gestión de Defectos (Jira)",
+                "UAT Coordination",
+                "Pruebas de Regresión"
+            ]
+        }
+    ];
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { 
+            opacity: 1, 
+            y: 0,
+            transition: { duration: 0.5 }
+        }
+    };
+
+    return (
+        <section className="skills-section">
+            <motion.div 
+                className="skills-container"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+            >
+                <div className="section-header">
+                    <h2 className="section-title">
+                        Competencias <span className="highlight">Técnicas</span>
+                    </h2>
+                    <p className="section-subtitle">
+                        Combinación de visión estratégica de negocio con un profundo conocimiento técnico.
+                    </p>
+                </div>
+
+                <div className="skills-grid">
+                    {skillCategories.map((category) => (
+                        <motion.div 
+                            key={category.id} 
+                            className="skill-card card-glass"
+                            variants={itemVariants}
+                        >
+                            <div className="card-top">
+                                <div className="icon-box">
+                                    {category.icon}
+                                </div>
+                                <h3 className="category-title">{category.title}</h3>
+                            </div>
+                            
+                            <p className="category-desc">{category.description}</p>
+                            
+                            <div className="tags-container">
+                                {category.skills.map((skill, idx) => (
+                                    <span key={idx} className="skill-pill">
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </motion.div>
+        </section>
+    );
 };
 
 export default Skills;
