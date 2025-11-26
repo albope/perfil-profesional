@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/perfil-profesional/static/css/main.1658e366.css",
-    "main.js": "/perfil-profesional/static/js/main.b024d68f.js",
+    "main.css": "/perfil-profesional/static/css/main.7998b7c8.css",
+    "main.js": "/perfil-profesional/static/js/main.83c561a0.js",
     "static/js/453.233fc212.chunk.js": "/perfil-profesional/static/js/453.233fc212.chunk.js",
     "static/media/Alberto_Bort.jfif": "/perfil-profesional/static/media/Alberto_Bort.06bbf398aef4e9aaff6b.jfif",
     "index.html": "/perfil-profesional/index.html",
-    "main.1658e366.css.map": "/perfil-profesional/static/css/main.1658e366.css.map",
-    "main.b024d68f.js.map": "/perfil-profesional/static/js/main.b024d68f.js.map",
+    "main.7998b7c8.css.map": "/perfil-profesional/static/css/main.7998b7c8.css.map",
+    "main.83c561a0.js.map": "/perfil-profesional/static/js/main.83c561a0.js.map",
     "453.233fc212.chunk.js.map": "/perfil-profesional/static/js/453.233fc212.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1658e366.css",
-    "static/js/main.b024d68f.js"
+    "static/css/main.7998b7c8.css",
+    "static/js/main.83c561a0.js"
   ]
 }
