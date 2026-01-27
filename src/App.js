@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import ParticlesBackground from './components/ParticlesBackground';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Lazy load de componentes secundarios
 const Experience = lazy(() => import('./components/Experience'));
@@ -56,7 +57,9 @@ function App() {
 
                 <Header />
                 <main id="main-content" className="app-content" style={{ position: 'relative', zIndex: 1 }}>
-                    <AnimatedRoutes />
+                    <ErrorBoundary>
+                        <AnimatedRoutes />
+                    </ErrorBoundary>
                 </main>
                 <Footer />
             </div>

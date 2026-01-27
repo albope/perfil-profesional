@@ -11,9 +11,9 @@ const Footer = () => {
             <div className="footer-content">
                 {/* Izquierda: Redes Sociales */}
                 <div className="footer-socials">
-                    <motion.a 
-                        href="https://github.com/albope" 
-                        target="_blank" 
+                    <motion.a
+                        href="https://github.com/albope"
+                        target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ y: -2, color: '#3B82F6' }}
                         className="social-link"
@@ -21,9 +21,9 @@ const Footer = () => {
                     >
                         <Github size={18} />
                     </motion.a>
-                    <motion.a 
-                        href="https://www.linkedin.com/in/albertobort" 
-                        target="_blank" 
+                    <motion.a
+                        href="https://www.linkedin.com/in/albertobort"
+                        target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ y: -2, color: '#8B5CF6' }}
                         className="social-link"
@@ -31,7 +31,7 @@ const Footer = () => {
                     >
                         <Linkedin size={18} />
                     </motion.a>
-                    <motion.a 
+                    <motion.a
                         href="mailto:albertobort@gmail.com"
                         whileHover={{ y: -2, color: '#F472B6' }}
                         className="social-link"
@@ -40,11 +40,19 @@ const Footer = () => {
                         <Mail size={18} />
                     </motion.a>
                 </div>
-                
-                {/* Derecha: Solo Copyright Simple */}
+
+                {/* Centro: Badge de disponibilidad */}
+                <div className="footer-status">
+                    <span className="availability-badge">
+                        <span className="pulse-dot"></span>
+                        Disponible para proyectos
+                    </span>
+                </div>
+
+                {/* Derecha: Copyright */}
                 <div className="footer-info">
                     <p className="copyright">
-                        © {currentYear} <strong>Alberto Bort</strong>
+                        &copy; {currentYear} <strong>Alberto Bort</strong>
                     </p>
                 </div>
             </div>

@@ -83,10 +83,9 @@ const Home = () => {
                 </motion.p>
                 
                 <motion.div variants={itemVariants} className="home-actions">
-                    <a 
-                        href="https://drive.google.com/file/d/1U13pjNYro61wRMDvAmMFJpReuiEtzsGh/view?usp=sharing" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                    <a
+                        href="/Alberto_Bort_CV_ESP_2025.pdf"
+                        download="Alberto_Bort_CV.pdf"
                         className="btn btn-primary"
                     >
                         <FileText size={18} /> Descargar CV
