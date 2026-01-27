@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Linkedin, FileText, Mail, Award, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, FileText, Mail, Award, CheckCircle2 } from 'lucide-react';
 import './Home.css';
 import profileImage from '../assets/images/Alberto_Bort.jfif';
 
@@ -157,15 +157,18 @@ const Home = () => {
             {/* Columna 2: Imagen con efecto flotante */}
             <motion.div variants={itemVariants} className="home-image-wrapper">
                 <div className="image-blob-bg"></div>
-                <motion.img 
-                    src={profileImage} 
-                    alt="Alberto Bort" 
+                <motion.img
+                    src={profileImage}
+                    alt="Alberto Bort - Technical Project Lead & IT Business Analyst"
                     className="profile-img"
+                    loading="lazy"
+                    width="300"
+                    height="300"
                     animate={{ y: [0, -15, 0] }}
-                    transition={{ 
-                        duration: 6, 
-                        repeat: Infinity, 
-                        ease: "easeInOut" 
+                    transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut"
                     }}
                 />
             </motion.div>

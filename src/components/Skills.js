@@ -1,14 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Cpu, 
-  Users, 
-  ShieldCheck, 
-  BarChart3, 
-  Database, 
-  Terminal, 
-  LayoutTemplate 
-} from 'lucide-react';
+import { Cpu, Users, ShieldCheck, BarChart3 } from 'lucide-react';
 import './Skills.css';
 
 const Skills = () => {

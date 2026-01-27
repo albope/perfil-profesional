@@ -54,6 +54,7 @@ const ScrollToTop = () => {
                         exit={{ opacity: 0, scale: 0.5 }}
                         whileHover={{ y: -3 }}
                         whileTap={{ scale: 0.9 }}
+                        aria-label="Volver arriba"
                     >
                         <ArrowUp size={20} />
                     </motion.button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, X, Copy, Check } from 'lucide-react';
 import './Contact.css';
@@ -7,24 +7,43 @@ const Contact = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [copied, setCopied] = useState(null);
 
+    // Manejar tecla ESC y bloquear scroll cuando el modal esta abierto
+    useEffect(() => {
+        const handleEsc = (e) => {
+            if (e.key === 'Escape' && isModalOpen) {
+                setIsModalOpen(false);
+            }
+        };
+
+        if (isModalOpen) {
+            document.addEventListener('keydown', handleEsc);
+            document.body.style.overflow = 'hidden';
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEsc);
+            document.body.style.overflow = 'unset';
+        };
+    }, [isModalOpen]);
+
     const contactInfo = [
-        { 
-            icon: <MapPin size={24} />, 
-            label: "Ubicación", 
-            value: "Valencia, España", 
-            action: null 
+        {
+            icon: <MapPin size={24} />,
+            label: "Ubicacion",
+            value: "Valencia, Espana",
+            action: null
         },
-        { 
-            icon: <Mail size={24} />, 
-            label: "Email", 
-            value: "albertobort@gmail.com", 
+        {
+            icon: <Mail size={24} />,
+            label: "Email",
+            value: "albertobort@gmail.com",
             action: "mailto:albertobort@gmail.com",
             canCopy: true
         },
-        { 
-            icon: <Phone size={24} />, 
-            label: "Teléfono", 
-            value: "+34 676 110 159", 
+        {
+            icon: <Phone size={24} />,
+            label: "Telefono",
+            value: "+34 676 110 159",
             action: "tel:+34676110159",
             canCopy: true
         }
@@ -39,7 +58,7 @@ const Contact = () => {
     return (
         <>
             <section className="contact-section">
-                <motion.div 
+                <motion.div
                     className="contact-container"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -49,9 +68,8 @@ const Contact = () => {
                         <h2 className="section-title">
                             Hablemos <span className="highlight">Ahora</span>
                         </h2>
-                        {/* TEXTO ACTUALIZADO: Más corto y directo */}
                         <p className="section-subtitle">
-                            Siempre abierto a conectar, compartir ideas y hablar de tecnología.
+                            Siempre abierto a conectar, compartir ideas y hablar de tecnologia.
                         </p>
                     </div>
 
@@ -72,13 +90,12 @@ const Contact = () => {
                                             ) : (
                                                 <span className="info-value">{info.value}</span>
                                             )}
-                                            
-                                            {/* Botón de copiar rápido */}
+
                                             {info.canCopy && (
-                                                <button 
+                                                <button
                                                     className="copy-btn"
                                                     onClick={() => handleCopy(info.value, info.label)}
-                                                    title="Copiar"
+                                                    aria-label={`Copiar ${info.label}`}
                                                 >
                                                     {copied === info.label ? <Check size={14} /> : <Copy size={14} />}
                                                 </button>
@@ -90,7 +107,11 @@ const Contact = () => {
                         </div>
 
                         <div className="cta-container">
-                            <button className="btn-primary contact-cta-btn" onClick={() => setIsModalOpen(true)}>
+                            <button
+                                className="btn-primary contact-cta-btn"
+                                onClick={() => setIsModalOpen(true)}
+                                aria-haspopup="dialog"
+                            >
                                 <Send size={18} /> Abrir Formulario de Contacto
                             </button>
                         </div>
@@ -98,17 +119,20 @@ const Contact = () => {
                 </motion.div>
             </section>
 
-            {/* --- Modal con Glassmorphism --- */}
+            {/* Modal con Glassmorphism */}
             <AnimatePresence>
                 {isModalOpen && (
-                    <motion.div 
+                    <motion.div
                         className="modal-overlay"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setIsModalOpen(false)}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="modal-title"
                     >
-                        <motion.div 
+                        <motion.div
                             className="modal-content card-glass"
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
@@ -116,20 +140,24 @@ const Contact = () => {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <div className="modal-header">
-                                <h3>Envíame un Mensaje</h3>
-                                <button className="close-btn" onClick={() => setIsModalOpen(false)}>
+                                <h3 id="modal-title">Enviame un Mensaje</h3>
+                                <button
+                                    className="close-btn"
+                                    onClick={() => setIsModalOpen(false)}
+                                    aria-label="Cerrar formulario de contacto"
+                                >
                                     <X size={24} />
                                 </button>
                             </div>
-                            
+
                             <div className="iframe-container">
                                 <iframe
                                     src="https://forms.gle/jUuKjQgdjTKHiq7K8"
-                                    title="Google Forms Contact"
+                                    title="Formulario de contacto de Google Forms"
                                     className="google-form-iframe"
-                                    frameBorder="0"
+                                    loading="lazy"
                                 >
-                                    Cargando…
+                                    Cargando formulario...
                                 </iframe>
                             </div>
                         </motion.div>
