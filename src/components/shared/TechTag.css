@@ -1,0 +1,48 @@
+/* Componente TechTag reutilizable */
+
+.tech-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--brand-blue);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.tech-tag:hover {
+    background: var(--brand-blue);
+    color: white;
+    border-color: var(--brand-blue);
+}
+
+/* Variante small - para listas compactas */
+.tech-tag--small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* Variante pill - mas redondeada */
+.tech-tag--pill {
+    border-radius: 50px;
+    padding: 0.35rem 0.75rem;
+}
+
+/* Variante subtle - menos prominente */
+.tech-tag--subtle {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--secondary-text-color);
+}
+
+.tech-tag--subtle:hover {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--brand-blue);
+}
