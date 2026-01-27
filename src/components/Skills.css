@@ -12,6 +12,42 @@
     width: 100%;
 }
 
+/* --- Leyenda de niveles --- */
+.skills-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+}
+
+.legend-item::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.legend-expert::before {
+    background: #22c55e;
+}
+
+.legend-advanced::before {
+    background: var(--brand-blue);
+}
+
+.legend-intermediate::before {
+    background: var(--brand-purple);
+}
+
 /* --- Grid Layout (Estilo Bento) --- */
 .skills-grid {
     display: grid;

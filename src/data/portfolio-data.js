@@ -81,7 +81,7 @@ export const experienceData = [
                 location: "Valencia, Espana",
                 description: [
                     "Business Analyst y Application Manager en proyectos de medios de pago (Cheques, SWIFT, SEPA).",
-                    "Diseno de estrategias de prueba y liderazgo del equipo de QA.",
+                    "Liderazgo de equipo de 6-10 personas, disenando estrategias de prueba y asegurando la calidad.",
                     "Supervision de monitorizacion, planificacion y soporte funcional."
                 ],
                 skills: ["HPQC", "JIRA", "Team Leadership", "Payments", "Business Analysis"]
@@ -92,7 +92,7 @@ export const experienceData = [
                 date: "Jul 2020 - Dic 2021",
                 location: "Valencia, Espana",
                 description: [
-                    "Desarrollo de scripts automatizados para reducir pruebas de regresion manuales.",
+                    "Desarrollo de scripts automatizados, reduciendo el tiempo de regresion en un 40-50%.",
                     "Uso de T-Tool Software para automatizacion y optimizacion de lanzamientos."
                 ],
                 skills: ["Test Automation", "T-Tool", "Regression Testing", "Scripting"]
@@ -208,7 +208,7 @@ export const projects = [
     }
 ];
 
-// Categorias de habilidades
+// Niveles de competencia: expert (8+ anos), advanced (5-8 anos), intermediate (2-5 anos)
 export const skillCategories = [
     {
         id: "tech-stack",
@@ -216,14 +216,14 @@ export const skillCategories = [
         icon: "cpu",
         description: "Fundamentos tecnicos solidos para la toma de decisiones arquitectonicas.",
         skills: [
-            "SQL & NoSQL (MongoDB)",
-            "REST & SOAP APIs",
-            "Integracion de Sistemas",
-            "XML / JSON",
-            "Unix / Linux Systems",
-            "Analisis de Logs",
-            "Jenkins (CI/CD)",
-            "Configuracion de Entornos"
+            { name: "SQL & NoSQL (MongoDB)", level: "expert" },
+            { name: "REST & SOAP APIs", level: "expert" },
+            { name: "Integracion de Sistemas", level: "advanced" },
+            { name: "XML / JSON", level: "expert" },
+            { name: "Unix / Linux Systems", level: "advanced" },
+            { name: "Analisis de Logs", level: "advanced" },
+            { name: "Jenkins (CI/CD)", level: "intermediate" },
+            { name: "Configuracion de Entornos", level: "advanced" }
         ]
     },
     {
@@ -232,13 +232,13 @@ export const skillCategories = [
         icon: "users",
         description: "Direccion de equipos y alineacion estrategica de proyectos.",
         skills: [
-            "Liderazgo Tecnico",
-            "Gestion de Stakeholders",
-            "Planificacion de Proyectos (Roadmap)",
-            "Gestion de Riesgos Tecnicos",
-            "Metodologias Agiles (Scrum/Kanban)",
-            "Mentoring de Equipos",
-            "Gestion del Cambio"
+            { name: "Liderazgo Tecnico", level: "advanced" },
+            { name: "Gestion de Stakeholders", level: "expert" },
+            { name: "Planificacion de Proyectos (Roadmap)", level: "advanced" },
+            { name: "Gestion de Riesgos Tecnicos", level: "advanced" },
+            { name: "Metodologias Agiles (Scrum/Kanban)", level: "expert" },
+            { name: "Mentoring de Equipos", level: "advanced" },
+            { name: "Gestion del Cambio", level: "intermediate" }
         ]
     },
     {
@@ -247,13 +247,13 @@ export const skillCategories = [
         icon: "chart",
         description: "Puente entre necesidades de negocio y soluciones tecnicas.",
         skills: [
-            "Analisis de Sistemas",
-            "SDLC Management",
-            "Definicion de Requisitos Tecnicos",
-            "Optimizacion de Procesos",
-            "User Stories & Backlog",
-            "Documentacion Tecnica",
-            "Modelado de Datos"
+            { name: "Analisis de Sistemas", level: "expert" },
+            { name: "SDLC Management", level: "expert" },
+            { name: "Definicion de Requisitos Tecnicos", level: "expert" },
+            { name: "Optimizacion de Procesos", level: "advanced" },
+            { name: "User Stories & Backlog", level: "expert" },
+            { name: "Documentacion Tecnica", level: "advanced" },
+            { name: "Modelado de Datos", level: "advanced" }
         ]
     },
     {
@@ -262,12 +262,12 @@ export const skillCategories = [
         icon: "shield",
         description: "Aseguramiento de la fiabilidad y robustez del software entregado.",
         skills: [
-            "Estrategia de Pruebas",
-            "Automatizacion (Vision)",
-            "Validacion End-to-End",
-            "Gestion de Defectos (Jira)",
-            "UAT Coordination",
-            "Pruebas de Regresion"
+            { name: "Estrategia de Pruebas", level: "expert" },
+            { name: "Automatizacion (Vision)", level: "intermediate" },
+            { name: "Validacion End-to-End", level: "expert" },
+            { name: "Gestion de Defectos (Jira)", level: "expert" },
+            { name: "UAT Coordination", level: "expert" },
+            { name: "Pruebas de Regresion", level: "expert" }
         ]
     }
 ];

@@ -46,3 +46,26 @@
     background: rgba(59, 130, 246, 0.1);
     color: var(--brand-blue);
 }
+
+/* Niveles de competencia - indicador visual con borde izquierdo */
+.tech-tag--level-expert {
+    border-left: 3px solid #22c55e; /* Verde - Expert */
+    padding-left: calc(0.8rem - 3px);
+}
+
+.tech-tag--level-advanced {
+    border-left: 3px solid var(--brand-blue); /* Azul - Advanced */
+    padding-left: calc(0.8rem - 3px);
+}
+
+.tech-tag--level-intermediate {
+    border-left: 3px solid var(--brand-purple); /* Violeta - Intermediate */
+    padding-left: calc(0.8rem - 3px);
+}
+
+/* Ajuste para variante pill con niveles */
+.tech-tag--pill.tech-tag--level-expert,
+.tech-tag--pill.tech-tag--level-advanced,
+.tech-tag--pill.tech-tag--level-intermediate {
+    padding-left: calc(0.75rem - 3px);
+}

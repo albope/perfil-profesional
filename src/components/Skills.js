@@ -47,6 +47,12 @@ const Skills = () => {
                     subtitle="Combinación de visión estratégica de negocio con un profundo conocimiento técnico."
                 />
 
+                <div className="skills-legend">
+                    <span className="legend-item legend-expert">Expert</span>
+                    <span className="legend-item legend-advanced">Advanced</span>
+                    <span className="legend-item legend-intermediate">Intermediate</span>
+                </div>
+
                 <div className="skills-grid">
                     {skillCategories.map((category) => {
                         const IconComponent = iconMap[category.icon];
@@ -66,7 +72,7 @@ const Skills = () => {
                                 <p className="category-desc">{category.description}</p>
 
                                 <div className="tags-container">
-                                    <TechTagList items={category.skills} variant="pill" />
+                                    <TechTagList items={category.skills} variant="pill" showLevels />
                                 </div>
                             </motion.div>
                         );
