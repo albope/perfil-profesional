@@ -4,6 +4,7 @@ import { FolderGit2, Building2, ExternalLink, Layers, CheckCircle2 } from 'lucid
 import { projects } from '../data/portfolio-data';
 import SectionHeader from './shared/SectionHeader';
 import { TechTagList } from './shared/TechTag';
+import PageTransition from './shared/PageTransition';
 import './Projects.css';
 
 const Projects = () => {
@@ -25,6 +26,7 @@ const Projects = () => {
     };
 
     return (
+        <PageTransition>
         <section className="projects-section">
             <motion.div
                 className="projects-container"
@@ -94,6 +96,7 @@ const Projects = () => {
                 </div>
             </motion.div>
         </section>
+        </PageTransition>
     );
 };
 

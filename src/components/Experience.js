@@ -4,6 +4,7 @@ import { Briefcase, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { experienceData } from '../data/portfolio-data';
 import SectionHeader from './shared/SectionHeader';
 import { TechTagList } from './shared/TechTag';
+import PageTransition from './shared/PageTransition';
 import './Experience.css';
 
 const Experience = () => {
@@ -25,6 +26,7 @@ const Experience = () => {
     };
 
     return (
+        <PageTransition>
         <section className="experience-section">
             <motion.div
                 className="experience-container"
@@ -101,6 +103,7 @@ const Experience = () => {
                 </div>
             </motion.div>
         </section>
+        </PageTransition>
     );
 };
 

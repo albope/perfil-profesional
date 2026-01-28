@@ -4,6 +4,7 @@ import { Cpu, Users, ShieldCheck, BarChart3 } from 'lucide-react';
 import { skillCategories } from '../data/portfolio-data';
 import SectionHeader from './shared/SectionHeader';
 import { TechTagList } from './shared/TechTag';
+import PageTransition from './shared/PageTransition';
 import './Skills.css';
 
 // Mapeo de iconos string a componentes Lucide
@@ -34,8 +35,9 @@ const Skills = () => {
     };
 
     return (
+        <PageTransition>
         <section className="skills-section">
-            <motion.div 
+            <motion.div
                 className="skills-container"
                 variants={containerVariants}
                 initial="hidden"
@@ -80,6 +82,7 @@ const Skills = () => {
                 </div>
             </motion.div>
         </section>
+        </PageTransition>
     );
 };
 

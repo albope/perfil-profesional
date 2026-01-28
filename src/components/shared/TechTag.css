@@ -47,25 +47,33 @@
     color: var(--brand-blue);
 }
 
-/* Niveles de competencia - indicador visual con borde izquierdo */
-.tech-tag--level-expert {
-    border-left: 3px solid #22c55e; /* Verde - Expert */
-    padding-left: calc(0.8rem - 3px);
-}
-
-.tech-tag--level-advanced {
-    border-left: 3px solid var(--brand-blue); /* Azul - Advanced */
-    padding-left: calc(0.8rem - 3px);
-}
-
+/* Niveles de competencia - indicador visual con dot */
+.tech-tag--level-expert,
+.tech-tag--level-advanced,
 .tech-tag--level-intermediate {
-    border-left: 3px solid var(--brand-purple); /* Violeta - Intermediate */
-    padding-left: calc(0.8rem - 3px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
-/* Ajuste para variante pill con niveles */
-.tech-tag--pill.tech-tag--level-expert,
-.tech-tag--pill.tech-tag--level-advanced,
-.tech-tag--pill.tech-tag--level-intermediate {
-    padding-left: calc(0.75rem - 3px);
+.tech-tag--level-expert::before,
+.tech-tag--level-advanced::before,
+.tech-tag--level-intermediate::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.tech-tag--level-expert::before {
+    background: #22c55e; /* Verde - Expert */
+}
+
+.tech-tag--level-advanced::before {
+    background: var(--brand-blue); /* Azul - Advanced */
+}
+
+.tech-tag--level-intermediate::before {
+    background: var(--brand-purple); /* Violeta - Intermediate */
 }

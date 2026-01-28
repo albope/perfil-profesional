@@ -17,10 +17,17 @@ const Skills = lazy(() => import('./components/Skills'));
 const Projects = lazy(() => import('./components/Projects'));
 const Contact = lazy(() => import('./components/Contact'));
 
-// Loading fallback para Suspense
+// Loading fallback para Suspense - Skeleton UI
 const PageLoader = () => (
     <div className="page-loader" role="status" aria-label="Cargando contenido">
-        <div className="loader-spinner"></div>
+        <div className="skeleton-header">
+            <div className="skeleton skeleton-title"></div>
+            <div className="skeleton skeleton-subtitle"></div>
+        </div>
+        <div className="skeleton-grid">
+            <div className="skeleton skeleton-card"></div>
+            <div className="skeleton skeleton-card"></div>
+        </div>
     </div>
 );
 

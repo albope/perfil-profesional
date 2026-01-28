@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, X, Copy, Check } from 'lucide-react';
 import SectionHeader from './shared/SectionHeader';
+import PageTransition from './shared/PageTransition';
 import './Contact.css';
 
 const Contact = () => {
@@ -57,7 +58,7 @@ const Contact = () => {
     };
 
     return (
-        <>
+        <PageTransition>
             <section className="contact-section">
                 <motion.div
                     className="contact-container"
@@ -162,7 +163,7 @@ const Contact = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </>
+        </PageTransition>
     );
 };
 
