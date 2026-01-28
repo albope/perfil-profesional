@@ -245,6 +245,13 @@
         padding: 1rem;
     }
 
+    /* Fix email/telefono en movil - fuente mas pequena para que quepa */
+    .info-value {
+        font-size: 0.85rem;
+        word-break: normal;
+        overflow-wrap: normal;
+    }
+
     /* Modal estilo bottom-sheet en movil */
     .modal-overlay {
         align-items: flex-end;
