@@ -26,9 +26,8 @@
 /* --- Grid de Información --- */
 .contact-grid {
     display: grid;
-    /* 3 columnas en desktop para los 3 items de contacto */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
     margin-bottom: 3rem;
 }
 

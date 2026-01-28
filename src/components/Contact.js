@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, X, Copy, Check } from 'lucide-react';
+import SectionHeader from './shared/SectionHeader';
 import './Contact.css';
 
 const Contact = () => {
@@ -64,14 +65,11 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <div className="section-header">
-                        <h2 className="section-title">
-                            Hablemos <span className="highlight">Ahora</span>
-                        </h2>
-                        <p className="section-subtitle">
-                            Siempre abierto a conectar, compartir ideas y hablar de tecnologia.
-                        </p>
-                    </div>
+                    <SectionHeader
+                        title="Hablemos"
+                        highlight="Ahora"
+                        subtitle="Siempre abierto a conectar, compartir ideas y hablar de tecnologia."
+                    />
 
                     <div className="contact-content card-glass">
                         <div className="contact-grid">
