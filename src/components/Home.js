@@ -84,7 +84,7 @@ const Home = () => {
                 
                 <motion.div variants={itemVariants} className="home-actions">
                     <a
-                        href="/Alberto_Bort_CV_ESP_2025.pdf"
+                        href="/Alberto_Bort_CV_ESP_2026.pdf"
                         download="Alberto_Bort_CV.pdf"
                         className="btn btn-primary"
                     >

@@ -11,7 +11,7 @@ export const personalInfo = {
     email: "albertobort@gmail.com",
     phone: "+34 676 110 159",
     location: "Valencia, España",
-    cvUrl: "/Alberto_Bort_CV_ESP_2025.pdf",
+    cvUrl: "/Alberto_Bort_CV_ESP_2026.pdf",
     social: {
         github: "https://github.com/albope",
         linkedin: "https://www.linkedin.com/in/albertobort"
