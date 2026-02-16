@@ -2,8 +2,8 @@ import React from 'react';
 import './SectionHeader.css';
 
 /**
- * Componente reutilizable para encabezados de seccion
- * @param {string} title - Texto principal del titulo
+ * Componente reutilizable para encabezados de sección
+ * @param {string} title - Texto principal del título
  * @param {string} highlight - Texto resaltado con gradiente
  * @param {string} subtitle - Texto descriptivo opcional
  */

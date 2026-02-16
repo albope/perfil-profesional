@@ -25,11 +25,11 @@ class ErrorBoundary extends React.Component {
                 <div className="error-boundary">
                     <div className="error-content">
                         <AlertTriangle size={48} className="error-icon" />
-                        <h2>Algo salio mal</h2>
-                        <p>Ha ocurrido un error inesperado. Por favor, recarga la pagina.</p>
+                        <h2>Algo salió mal</h2>
+                        <p>Ha ocurrido un error inesperado. Por favor, recarga la página.</p>
                         <button onClick={this.handleReload} className="error-btn">
                             <RefreshCw size={18} />
-                            Recargar pagina
+                            Recargar página
                         </button>
                     </div>
                 </div>

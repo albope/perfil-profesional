@@ -100,7 +100,7 @@ a, button, input, textarea {
   outline: none;
 }
 
-/* Focus visible para navegacion por teclado */
+/* Focus visible para navegación por teclado */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

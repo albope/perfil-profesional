@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
 /**
- * Wrapper para transiciones de pagina con Framer Motion
- * Uso: envolver el contenido de cada pagina con este componente
+ * Wrapper para transiciones de página con Framer Motion
+ * Uso: envolver el contenido de cada página con este componente
  */
 const PageTransition = ({ children }) => {
     const pageVariants = {

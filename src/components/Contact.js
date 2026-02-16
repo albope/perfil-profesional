@@ -9,7 +9,7 @@ const Contact = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [copied, setCopied] = useState(null);
 
-    // Manejar tecla ESC y bloquear scroll cuando el modal esta abierto
+    // Manejar tecla ESC y bloquear scroll cuando el modal está abierto
     useEffect(() => {
         const handleEsc = (e) => {
             if (e.key === 'Escape' && isModalOpen) {
@@ -31,8 +31,8 @@ const Contact = () => {
     const contactInfo = [
         {
             icon: <MapPin size={24} />,
-            label: "Ubicacion",
-            value: "Valencia, Espana",
+            label: "Ubicación",
+            value: "Valencia, España",
             action: null
         },
         {
@@ -44,7 +44,7 @@ const Contact = () => {
         },
         {
             icon: <Phone size={24} />,
-            label: "Telefono",
+            label: "Teléfono",
             value: "+34 676 110 159",
             action: "tel:+34676110159",
             canCopy: true
@@ -69,7 +69,7 @@ const Contact = () => {
                     <SectionHeader
                         title="Hablemos"
                         highlight="Ahora"
-                        subtitle="Siempre abierto a conectar, compartir ideas y hablar de tecnologia."
+                        subtitle="Siempre abierto a conectar, compartir ideas y hablar de tecnología."
                     />
 
                     <div className="contact-content card-glass">
@@ -139,7 +139,7 @@ const Contact = () => {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <div className="modal-header">
-                                <h3 id="modal-title">Enviame un Mensaje</h3>
+                                <h3 id="modal-title">Envíame un Mensaje</h3>
                                 <button
                                     className="close-btn"
                                     onClick={() => setIsModalOpen(false)}
