@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence } from 'framer-motion';
 import './App.css';
 
+// Contextos
+import { ToastProvider } from './context/ToastContext';
+import { ThemeProvider } from './context/ThemeContext';
+
 // Componentes que cargan siempre (above the fold)
 import Header from './components/Header';
 import Home from './components/Home';
@@ -16,6 +20,7 @@ const Experience = lazy(() => import('./components/Experience'));
 const Skills = lazy(() => import('./components/Skills'));
 const Projects = lazy(() => import('./components/Projects'));
 const Contact = lazy(() => import('./components/Contact'));
+const NotFound = lazy(() => import('./components/NotFound'));
 
 // Loading fallback para Suspense - Skeleton UI
 const PageLoader = () => (
@@ -44,6 +49,7 @@ const AnimatedRoutes = () => {
                     <Route path="/skills" element={<Skills />} />
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </AnimatePresence>
         </Suspense>
@@ -52,25 +58,29 @@ const AnimatedRoutes = () => {
 
 function App() {
     return (
-        <Router>
-            <div className="app-container">
-                {/* Skip link para accesibilidad */}
-                <a href="#main-content" className="skip-link">
-                    Saltar al contenido principal
-                </a>
+        <ThemeProvider>
+        <ToastProvider>
+            <Router>
+                <div className="app-container">
+                    {/* Skip link para accesibilidad */}
+                    <a href="#main-content" className="skip-link">
+                        Saltar al contenido principal
+                    </a>
 
-                <ParticlesBackground />
-                <ScrollToTop />
+                    <ParticlesBackground />
+                    <ScrollToTop />
 
-                <Header />
-                <main id="main-content" className="app-content" style={{ position: 'relative', zIndex: 1 }}>
-                    <ErrorBoundary>
-                        <AnimatedRoutes />
-                    </ErrorBoundary>
-                </main>
-                <Footer />
-            </div>
-        </Router>
+                    <Header />
+                    <main id="main-content" className="app-content" style={{ position: 'relative', zIndex: 1 }}>
+                        <ErrorBoundary>
+                            <AnimatedRoutes />
+                        </ErrorBoundary>
+                    </main>
+                    <Footer />
+                </div>
+            </Router>
+        </ToastProvider>
+        </ThemeProvider>
     );
 }
 

@@ -1,12 +1,33 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Linkedin, FileText, Mail, Award, CheckCircle2 } from 'lucide-react';
+import { Github, Linkedin, FileText, Mail, Award, CheckCircle2, Briefcase, Building2, FolderGit2, Users } from 'lucide-react';
+import TypeWriter from './shared/TypeWriter';
+import AnimatedCounter from './shared/AnimatedCounter';
+import { useMagneticEffect } from '../hooks/useMagneticEffect';
+import { specialties } from '../data/portfolio-data';
 import './Home.css';
 import profileImage from '../assets/images/Alberto_Bort.jfif';
+import profileImageWebp from '../assets/images/Alberto_Bort.webp';
+
+const roles = [
+    "Technical Project Lead",
+    "IT Business Analyst",
+    "QA Strategy Expert",
+    "Digital Transformation Driver"
+];
+
+const stats = [
+    { icon: <Briefcase size={20} />, value: 8, suffix: "+", label: "Años Exp." },
+    { icon: <Building2 size={20} />, value: 4, suffix: "", label: "Empresas" },
+    { icon: <FolderGit2 size={20} />, value: 5, suffix: "+", label: "Proyectos" },
+    { icon: <Users size={20} />, value: 10, suffix: "", label: "Equipo Max." },
+];
 
 const Home = () => {
     const [activeTab, setActiveTab] = useState('certifications');
+    const magneticRef1 = useMagneticEffect(0.25);
+    const magneticRef2 = useMagneticEffect(0.25);
 
     // Variantes para la animación en cascada
     const containerVariants = {
@@ -73,7 +94,7 @@ const Home = () => {
                 </motion.div>
 
                 <motion.h2 variants={itemVariants} className="home-subtitle">
-                    Technical Project Lead & IT Business Analyst
+                    <TypeWriter words={roles} />
                 </motion.h2>
 
                 <motion.p variants={itemVariants} className="home-description">
@@ -84,15 +105,34 @@ const Home = () => {
                 
                 <motion.div variants={itemVariants} className="home-actions">
                     <a
+                        ref={magneticRef1}
                         href="/Alberto_Bort_CV_ESP_2026.pdf"
                         download="Alberto_Bort_CV.pdf"
                         className="btn btn-primary"
                     >
                         <FileText size={18} /> Descargar CV
                     </a>
-                    <Link to="/contact" className="btn btn-secondary">
+                    <Link ref={magneticRef2} to="/contact" className="btn btn-secondary">
                         <Mail size={18} /> Contáctame
                     </Link>
+                </motion.div>
+
+                {/* Contadores animados - Mini Cards Glass */}
+                <motion.div variants={itemVariants} className="stats-row">
+                    {stats.map((stat, i) => (
+                        <motion.div
+                            key={i}
+                            className="stat-item"
+                            whileHover={{ scale: 1.03 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        >
+                            <span className="stat-icon">{stat.icon}</span>
+                            <span className="stat-value">
+                                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                            </span>
+                            <span className="stat-label">{stat.label}</span>
+                        </motion.div>
+                    ))}
                 </motion.div>
 
                 {/* Sistema de Tabs Animado */}
@@ -125,7 +165,7 @@ const Home = () => {
                                     transition={{ duration: 0.2 }}
                                     className="tags-grid"
                                 >
-                                    {['Análisis de Requisitos', 'Testing de APIs', 'Metodologías Ágiles', 'QA Funcional', 'SQL/NoSQL', 'Stakeholders Mng.'].map(skill => (
+                                    {specialties.map(skill => (
                                         <span key={skill} className="skill-tag">{skill}</span>
                                     ))}
                                 </motion.div>
@@ -156,20 +196,24 @@ const Home = () => {
             {/* Columna 2: Imagen con efecto flotante */}
             <motion.div variants={itemVariants} className="home-image-wrapper">
                 <div className="image-blob-bg"></div>
-                <motion.img
-                    src={profileImage}
-                    alt="Alberto Bort - Technical Project Lead & IT Business Analyst"
-                    className="profile-img"
-                    loading="lazy"
-                    width="300"
-                    height="300"
+                <motion.picture
                     animate={{ y: [0, -15, 0] }}
                     transition={{
                         duration: 6,
                         repeat: Infinity,
                         ease: "easeInOut"
                     }}
-                />
+                >
+                    <source srcSet={profileImageWebp} type="image/webp" />
+                    <img
+                        src={profileImage}
+                        alt="Alberto Bort - Technical Project Lead & IT Business Analyst"
+                        className="profile-img"
+                        loading="eager"
+                        width="380"
+                        height="380"
+                    />
+                </motion.picture>
             </motion.div>
         </motion.section>
     );

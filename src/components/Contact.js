@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, X, Copy, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, X, Copy, Check, AlertCircle } from 'lucide-react';
 import SectionHeader from './shared/SectionHeader';
 import PageTransition from './shared/PageTransition';
+import { useFocusTrap } from '../hooks/useFocusTrap';
 import './Contact.css';
 
 const Contact = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [copied, setCopied] = useState(null);
+    const modalRef = useFocusTrap(isModalOpen);
 
     // Manejar tecla ESC y bloquear scroll cuando el modal está abierto
     useEffect(() => {
@@ -51,9 +53,25 @@ const Contact = () => {
         }
     ];
 
-    const handleCopy = (text, type) => {
-        navigator.clipboard.writeText(text);
-        setCopied(type);
+    const handleCopy = async (text, type) => {
+        try {
+            await navigator.clipboard.writeText(text);
+            setCopied(type);
+        } catch {
+            try {
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                setCopied(type);
+            } catch {
+                setCopied('error');
+            }
+        }
         setTimeout(() => setCopied(null), 2000);
     };
 
@@ -96,13 +114,18 @@ const Contact = () => {
                                                     onClick={() => handleCopy(info.value, info.label)}
                                                     aria-label={`Copiar ${info.label}`}
                                                 >
-                                                    {copied === info.label ? <Check size={14} /> : <Copy size={14} />}
+                                                    {copied === info.label ? <Check size={14} /> : copied === 'error' ? <AlertCircle size={14} /> : <Copy size={14} />}
                                                 </button>
                                             )}
                                         </div>
                                     </div>
                                 </div>
                             ))}
+                        </div>
+
+                        <div aria-live="polite" className="sr-only">
+                            {copied && copied !== 'error' && `${copied} copiado al portapapeles`}
+                            {copied === 'error' && 'Error al copiar. Por favor, copia manualmente.'}
                         </div>
 
                         <div className="cta-container">
@@ -133,6 +156,7 @@ const Contact = () => {
                     >
                         <motion.div
                             className="modal-content card-glass"
+                            ref={modalRef}
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
@@ -155,6 +179,7 @@ const Contact = () => {
                                     title="Formulario de contacto de Google Forms"
                                     className="google-form-iframe"
                                     loading="lazy"
+                                    sandbox="allow-scripts allow-forms allow-same-origin allow-popups"
                                 >
                                     Cargando formulario...
                                 </iframe>

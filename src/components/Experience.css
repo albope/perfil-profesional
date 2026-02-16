@@ -116,7 +116,7 @@
 
 /* --- Tarjeta "Glass" (Contenido) --- */
 .timeline-content.card-glass {
-    background: rgba(30, 41, 59, 0.4);
+    background: var(--glass-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
     padding: 2rem;
@@ -127,7 +127,7 @@
 }
 
 .timeline-content.card-glass:hover {
-    background: rgba(30, 41, 59, 0.6);
+    background: var(--glass-bg-hover);
     border-color: var(--brand-blue);
     transform: translateY(-5px);
     box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
@@ -155,7 +155,7 @@
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--card-header-border);
     padding-bottom: 1rem;
 }
 

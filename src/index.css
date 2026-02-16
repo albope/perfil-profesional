@@ -44,3 +44,36 @@ code {
   padding: 2px 4px;
   border-radius: 4px;
 }
+
+/* 6. Efecto Glow en Cards (seguir cursor) */
+.card-glass {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(59, 130, 246, 0.06),
+    transparent 40%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-glass:hover::after {
+  opacity: 1;
+}
+
+[data-theme="light"] .card-glass::after {
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(37, 99, 235, 0.04),
+    transparent 40%
+  );
+}

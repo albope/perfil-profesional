@@ -35,32 +35,40 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Alberto Bort",
-      "jobTitle": "Technical Project Lead & IT Business Analyst",
-      "description": "Technical Project Lead y Analista de Negocio TI con más de 8 años de experiencia en banca, transporte y movilidad.",
-      "url": "https://perfil-profesional.vercel.app/",
-      "image": "https://perfil-profesional.vercel.app/og-image.jpg",
-      "sameAs": [
-        "https://github.com/albope",
-        "https://www.linkedin.com/in/albertobort"
-      ],
-      "email": "albertobort@gmail.com",
-      "telephone": "+34676110159",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Valencia",
-        "addressCountry": "ES"
-      },
-      "knowsAbout": [
-        "Project Management",
-        "Business Analysis",
-        "Software Testing",
-        "Agile Methodologies",
-        "SQL",
-        "API Testing"
-      ]
-    }
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Alberto Bort",
+        "jobTitle": "Technical Project Lead & IT Business Analyst",
+        "description": "Technical Project Lead y Analista de Negocio TI con más de 8 años de experiencia en banca, transporte y movilidad.",
+        "url": "https://perfil-profesional.vercel.app/",
+        "image": "https://perfil-profesional.vercel.app/og-image.jpg",
+        "sameAs": [
+          "https://github.com/albope",
+          "https://www.linkedin.com/in/albertobort"
+        ],
+        "email": "albertobort@gmail.com",
+        "telephone": "+34676110159",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Valencia",
+          "addressCountry": "ES"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "ETRA",
+          "url": "https://www.grupoetra.com"
+        },
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "name": "ISTQB Foundation Level" },
+          { "@type": "EducationalOccupationalCredential", "name": "Scrum Manager Nivel 1" }
+        ],
+        "knowsAbout": [
+          "Project Management", "Business Analysis", "Software Testing",
+          "Agile Methodologies", "SQL", "API Testing",
+          "System Integration", "Stakeholder Management"
+        ]
+      }
     </script>
 
     <!-- Favicon and Icons -->
@@ -72,6 +80,12 @@
     <!-- Base URL configurada para Vercel (raiz del dominio) -->
   </head>
   <body>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     <noscript>Necesitas habilitar JavaScript para ver este sitio.</noscript>
     <div id="root"></div>
   </body>

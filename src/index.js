@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './theme.css';   // ⬅️ primero el sistema de diseño global
 import './index.css';   // ⬅️ luego tus ajustes específicos
+import './print.css';   // ⬅️ estilos para impresión
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

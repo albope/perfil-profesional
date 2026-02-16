@@ -21,7 +21,7 @@
 
 /* --- Tarjeta Glassmorphism --- */
 .project-card.card-glass {
-    background: rgba(30, 41, 59, 0.4);
+    background: var(--glass-bg);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
     border-radius: 20px;
@@ -173,7 +173,7 @@
 
 .tech-pill {
     font-size: 0.75rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-subtle-bg);
     border: 1px solid var(--border-color);
     color: var(--primary-text-color);
     padding: 0.3rem 0.8rem;

@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react'; // Iconos modernos
-import './Header.css'; // Crearemos este archivo específico
+import { Menu, X } from 'lucide-react';
+import ThemeToggle from './shared/ThemeToggle';
+import './Header.css';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const links = [
         { path: '/', label: 'Inicio' },
@@ -22,7 +32,7 @@ const Header = () => {
     }, [location]);
 
     return (
-        <header className="app-header">
+        <header className={`app-header ${isScrolled ? 'header-compact' : ''}`}>
             <div className="header-content">
                 {/* Logo / Brand */}
                 <div className="header-brand">
@@ -51,14 +61,17 @@ const Header = () => {
                     ))}
                 </nav>
 
-                {/* Mobile Menu Toggle */}
-                <button 
-                    className="mobile-toggle"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label="Toggle menu"
-                >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className="header-actions">
+                    <ThemeToggle />
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        className="mobile-toggle"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Navigation Dropdown */}

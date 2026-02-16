@@ -30,7 +30,7 @@
     font-size: 0.75rem;
 }
 
-/* Variante pill - mas redondeada */
+/* Variante pill - más redondeada */
 .tech-tag--pill {
     border-radius: 50px;
     padding: 0.35rem 0.75rem;
@@ -38,7 +38,7 @@
 
 /* Variante subtle - menos prominente */
 .tech-tag--subtle {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--glass-subtle-bg);
     color: var(--secondary-text-color);
 }
 

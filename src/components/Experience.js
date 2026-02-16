@@ -5,23 +5,18 @@ import { experienceData } from '../data/portfolio-data';
 import SectionHeader from './shared/SectionHeader';
 import { TechTagList } from './shared/TechTag';
 import PageTransition from './shared/PageTransition';
+import { useGlowEffect } from '../hooks/useGlowEffect';
+import Education from './Education';
 import './Experience.css';
 
 const Experience = () => {
+    const glowRef = useGlowEffect();
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: { staggerChildren: 0.1 }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, x: -20 },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: { duration: 0.5 }
         }
     };
 
@@ -40,7 +35,7 @@ const Experience = () => {
                     subtitle="Trayectoria detallada liderando proyectos y asegurando la calidad del software."
                 />
 
-                <div className="timeline">
+                <div className="timeline" ref={glowRef}>
                     <div className="timeline-line"></div>
 
                     {experienceData.map((companyData, cIndex) => (
@@ -49,7 +44,10 @@ const Experience = () => {
                                 <motion.div
                                     key={role.id}
                                     className={`timeline-item ${rIndex > 0 ? 'internal-role' : ''}`}
-                                    variants={itemVariants}
+                                    initial={{ opacity: 0, x: -30 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true, margin: "-80px" }}
+                                    transition={{ duration: 0.5, delay: rIndex * 0.1 }}
                                 >
                                     <div className="timeline-dot"></div>
 
@@ -101,6 +99,8 @@ const Experience = () => {
                         </div>
                     ))}
                 </div>
+
+                <Education />
             </motion.div>
         </section>
         </PageTransition>

@@ -4,6 +4,7 @@ import { Cpu, Users, ShieldCheck, BarChart3 } from 'lucide-react';
 import { skillCategories } from '../data/portfolio-data';
 import SectionHeader from './shared/SectionHeader';
 import { TechTagList } from './shared/TechTag';
+
 import PageTransition from './shared/PageTransition';
 import './Skills.css';
 

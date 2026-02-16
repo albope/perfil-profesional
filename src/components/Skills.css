@@ -58,7 +58,7 @@
 
 /* --- Tarjetas Glass --- */
 .skill-card.card-glass {
-    background: rgba(30, 41, 59, 0.4); /* Fondo oscuro semitransparente */
+    background: var(--glass-bg);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
     border-radius: 20px; /* Bordes más redondeados para estilo moderno */
@@ -129,7 +129,7 @@
 }
 
 .skill-pill {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-subtle-bg);
     border: 1px solid var(--border-color);
     color: var(--primary-text-color);
     padding: 0.4rem 0.9rem;
@@ -141,7 +141,7 @@
 }
 
 .skill-pill:hover {
-    background: rgba(59, 130, 246, 0.15);
+    background: var(--glass-subtle-bg-hover);
     border-color: var(--brand-blue);
     color: var(--brand-blue);
 }

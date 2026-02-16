@@ -1,0 +1,115 @@
+/* === ESTILOS DE IMPRESIÓN === */
+@media print {
+    /* --- Resetear a tema claro --- */
+    :root {
+        --background-color: #ffffff !important;
+        --card-background: #ffffff !important;
+        --primary-text-color: #111827 !important;
+        --secondary-text-color: #4B5563 !important;
+        --border-color: #E5E7EB !important;
+        --brand-blue: #2563EB !important;
+        --brand-purple: #7C3AED !important;
+    }
+
+    body {
+        background: white !important;
+        color: #111827 !important;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    /* --- Ocultar elementos no imprimibles --- */
+    .particles-canvas,
+    .scroll-progress-bar,
+    .scroll-to-top-btn,
+    .app-header,
+    .app-footer,
+    .modal-overlay,
+    .skip-link,
+    .home-actions,
+    .contact-cta-btn,
+    .cta-container,
+    .copy-btn {
+        display: none !important;
+    }
+
+    /* --- Eliminar efectos visuales --- */
+    .card-glass,
+    .timeline-content.card-glass,
+    .skill-card.card-glass,
+    .project-card.card-glass,
+    .contact-content.card-glass {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: none !important;
+        border: 1px solid #E5E7EB !important;
+        break-inside: avoid;
+    }
+
+    /* --- Texto gradiente legible --- */
+    .gradient-text,
+    .section-highlight {
+        -webkit-text-fill-color: #2563EB !important;
+        background: none !important;
+        color: #2563EB !important;
+    }
+
+    /* --- Layout sin restricciones --- */
+    .app-container {
+        min-height: auto;
+    }
+
+    .app-content {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* --- Page breaks --- */
+    .company-group {
+        break-inside: avoid;
+    }
+
+    .project-card {
+        break-inside: avoid;
+    }
+
+    .skill-card {
+        break-inside: avoid;
+    }
+
+    .contact-item {
+        break-inside: avoid;
+    }
+
+    /* --- Mostrar URLs de enlaces externos --- */
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #6B7280;
+        word-break: break-all;
+    }
+
+    /* --- Imagen de perfil --- */
+    .profile-img {
+        border-radius: 50% !important;
+        border: 2px solid #E5E7EB !important;
+        box-shadow: none !important;
+    }
+
+    .profile-blob {
+        display: none !important;
+    }
+
+    /* --- Tipografía para impresión --- */
+    h1 { font-size: 24pt; }
+    h2 { font-size: 18pt; }
+    h3 { font-size: 14pt; }
+
+    /* --- Eliminar animaciones --- */
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

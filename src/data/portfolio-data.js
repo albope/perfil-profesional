@@ -26,12 +26,16 @@ export const certifications = [
 
 // Especialidades destacadas
 export const specialties = [
-    "Análisis de Requisitos",
-    "Testing de APIs",
+    "Liderazgo Técnico",
+    "Arquitectura de Sistemas",
+    "Transformación Digital",
+    "Gestión de Stakeholders",
+    "Integración de Sistemas",
     "Metodologías Ágiles",
-    "QA Funcional",
-    "SQL/NoSQL",
-    "Stakeholders Mng."
+    "Estrategia de Calidad (QA)",
+    "CI/CD & DevOps",
+    "Gobernanza TI",
+    "Gestión de Equipos"
 ];
 
 // Experiencia profesional
@@ -294,6 +298,35 @@ export const contactInfo = [
         value: "+34 676 110 159",
         action: "tel:+34676110159",
         canCopy: true
+    }
+];
+
+// Educación
+export const educationData = [
+    {
+        id: "edem",
+        institution: "EDEM Escuela de Empresarios",
+        degree: "Máster en Data Analytics",
+        field: "Tecnología de la Información",
+        date: "2019 - 2020",
+        grade: "8.61 / 10",
+        highlight: "Python, SQL, Google Cloud, Elasticsearch, Airflow, Machine Learning"
+    },
+    {
+        id: "lancaster",
+        institution: "Lancaster University",
+        degree: "MSc International Business & Strategy",
+        date: "2016 - 2017",
+        grade: "Distinction",
+        highlight: "Top 10 UK University"
+    },
+    {
+        id: "uv",
+        institution: "Universitat de València",
+        degree: "BSc International Business",
+        field: "Mención en Organización y Marketing",
+        date: "2012 - 2016",
+        highlight: "Grupo de Alto Rendimiento Académico. Erasmus+ en Coventry University (First Class Honours)"
     }
 ];
 

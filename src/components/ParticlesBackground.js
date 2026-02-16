@@ -8,15 +8,21 @@ const ParticlesBackground = () => {
         // Respetar preferencia de movimiento reducido
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+        // No renderizar nada si prefiere movimiento reducido
+        if (prefersReducedMotion) return;
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
         let animationFrameId;
         let particlesArray;
+        let isVisible = true;
 
-        // Reducir particulas si el usuario prefiere movimiento reducido
-        const numberOfParticles = prefersReducedMotion ? 30 : 80;
+        // Adaptar particulas segun dispositivo
+        const isMobile = window.innerWidth <= 768;
+        const isLowEnd = navigator.hardwareConcurrency ? navigator.hardwareConcurrency <= 4 : false;
+        const numberOfParticles = (isMobile || isLowEnd) ? 25 : 80;
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -110,7 +116,8 @@ const ParticlesBackground = () => {
         }
 
         function connect() {
-            const maxDistanceSquared = (canvas.width / 7) * (canvas.height / 7);
+            const divisor = isMobile ? 10 : 7;
+            const maxDistanceSquared = (canvas.width / divisor) * (canvas.height / divisor);
             const maxConnectionsPerParticle = 5;
 
             for (let a = 0; a < particlesArray.length; a++) {
@@ -136,6 +143,7 @@ const ParticlesBackground = () => {
         }
 
         function animate() {
+            if (!isVisible) return;
             animationFrameId = requestAnimationFrame(animate);
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -143,11 +151,20 @@ const ParticlesBackground = () => {
                 particlesArray[i].update();
             }
 
-            // Solo dibujar conexiones si no prefiere movimiento reducido
-            if (!prefersReducedMotion) {
-                connect();
-            }
+            connect();
         }
+
+        // Pausar cuando la pestaña no es visible
+        const handleVisibility = () => {
+            if (document.hidden) {
+                isVisible = false;
+                cancelAnimationFrame(animationFrameId);
+            } else {
+                isVisible = true;
+                animate();
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibility);
 
         init();
         animate();
@@ -168,6 +185,7 @@ const ParticlesBackground = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
+            document.removeEventListener('visibilitychange', handleVisibility);
             cancelAnimationFrame(animationFrameId);
             clearTimeout(resizeTimeout);
         };
