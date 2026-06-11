@@ -1,79 +1,34 @@
-/* Componente TechTag reutilizable */
+/* Tags de tecnología: sobrios, un solo color de acento en hover */
 
 .tech-tag-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--space-2);
 }
 
 .tech-tag {
     display: inline-block;
-    padding: 0.4rem 0.8rem;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--brand-blue);
-    border-radius: 6px;
-    font-size: 0.8rem;
+    padding: 0.3rem 0.65rem;
+    background: var(--surface-raised);
+    color: var(--text-muted);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-caption);
     font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
+    transition: border-color var(--transition), color var(--transition);
 }
 
 .tech-tag:hover {
-    background: var(--brand-blue);
-    color: white;
-    border-color: var(--brand-blue);
+    border-color: var(--hairline-strong);
+    color: var(--text);
 }
 
 /* Variante small - para listas compactas */
 .tech-tag--small {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
 }
 
-/* Variante pill - más redondeada */
+/* Variante pill - ligeramente más redondeada */
 .tech-tag--pill {
-    border-radius: 50px;
-    padding: 0.35rem 0.75rem;
-}
-
-/* Variante subtle - menos prominente */
-.tech-tag--subtle {
-    background: var(--glass-subtle-bg);
-    color: var(--secondary-text-color);
-}
-
-.tech-tag--subtle:hover {
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--brand-blue);
-}
-
-/* Niveles de competencia - indicador visual con dot */
-.tech-tag--level-expert,
-.tech-tag--level-advanced,
-.tech-tag--level-intermediate {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.tech-tag--level-expert::before,
-.tech-tag--level-advanced::before,
-.tech-tag--level-intermediate::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-.tech-tag--level-expert::before {
-    background: #22c55e; /* Verde - Expert */
-}
-
-.tech-tag--level-advanced::before {
-    background: var(--brand-blue); /* Azul - Advanced */
-}
-
-.tech-tag--level-intermediate::before {
-    background: var(--brand-purple); /* Violeta - Intermediate */
+    border-radius: var(--radius-md);
 }

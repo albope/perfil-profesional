@@ -1,51 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Calendar, Award } from 'lucide-react';
-import { educationData } from '../data/portfolio-data';
+import { educationData, uiText } from '../data/portfolio-data';
 import './Education.css';
 
 const Education = () => (
-    <div className="education-section">
-        <h2 className="education-title">
-            <GraduationCap size={28} />
-            Formación <span className="highlight">Académica</span>
-        </h2>
+    <section className="education-band" aria-label="Formación académica">
+        <h2 className="education-title">{uiText.education.title}</h2>
 
-        <div className="education-grid">
+        <ul className="education-list">
             {educationData.map((edu, i) => (
-                <motion.div
+                <motion.li
                     key={edu.id}
-                    className="education-card card-glass"
-                    initial={{ opacity: 0, y: 20 }}
+                    className="education-row"
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
                 >
-                    <div className="edu-header">
+                    <div className="edu-main">
                         <h3 className="edu-degree">{edu.degree}</h3>
-                        {edu.field && <span className="edu-field">{edu.field}</span>}
+                        <p className="edu-institution">
+                            {edu.institution}
+                            {edu.field ? ` · ${edu.field}` : ''}
+                        </p>
+                        <p className="edu-highlight">{edu.highlight}</p>
                     </div>
-
-                    <p className="edu-institution">{edu.institution}</p>
-
                     <div className="edu-meta">
-                        <span className="edu-meta-item">
-                            <Calendar size={14} />
-                            {edu.date}
-                        </span>
-                        {edu.grade && (
-                            <span className="edu-meta-item edu-grade">
-                                <Award size={14} />
-                                {edu.grade}
-                            </span>
-                        )}
+                        <span className="edu-date">{edu.date}</span>
+                        {edu.grade && <span className="edu-grade">{edu.grade}</span>}
                     </div>
-
-                    <p className="edu-highlight">{edu.highlight}</p>
-                </motion.div>
+                </motion.li>
             ))}
-        </div>
-    </div>
+        </ul>
+    </section>
 );
 
 export default Education;

@@ -1,212 +1,158 @@
-/* src/components/Projects.css */
+/* Casos de estudio: artículos editoriales numerados, sin grid de cards */
 
 .projects-section {
-    padding: 4rem 2rem;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
+    padding: var(--space-12) 0 var(--space-16);
 }
 
-.projects-container {
-    max-width: 1200px;
-    width: 100%;
-}
-
-/* --- Grid Layout --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 2rem;
-}
-
-/* --- Tarjeta Glassmorphism --- */
-.project-card.card-glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 2rem;
+.case-list {
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
-.project-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--brand-blue);
-    box-shadow: 0 15px 40px -10px rgba(59, 130, 246, 0.25);
+.case-study {
+    border-top: 1px solid var(--hairline);
+    padding: var(--space-12) 0;
 }
 
-/* Efecto glow en borde superior al hover */
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--brand-blue), var(--brand-purple));
-    opacity: 0;
-    transition: opacity 0.3s ease;
+/* --- Cabecera del caso --- */
+.case-header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: baseline;
+    margin-bottom: var(--space-8);
 }
 
-.project-card:hover::before {
-    opacity: 1;
-}
-
-/* Animación del icono al hover */
-.project-card:hover .icon-wrapper {
-    background: var(--brand-gradient);
-    color: white;
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-}
-
-/* Header del Proyecto */
-.card-header-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.icon-wrapper {
-    min-width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--brand-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.project-title {
-    font-size: 1.4rem;
+.case-number {
+    font-family: var(--font-heading);
+    font-size: var(--fs-stat);
     font-weight: 700;
-    color: var(--primary-text-color);
-    margin: 0 0 0.3rem 0;
-    line-height: 1.3;
-    transition: color 0.3s ease;
+    color: var(--text-faint);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
 }
 
-.project-card:hover .project-title {
-    color: var(--brand-blue);
+.case-title {
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 var(--space-2);
 }
 
-.project-company {
+.case-meta {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    color: var(--secondary-text-color);
-    font-weight: 500;
-}
-
-.project-desc {
-    color: var(--secondary-text-color);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-/* Divisor sutil */
-.card-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-    margin-bottom: 1.5rem;
-}
-
-/* Bloques de detalles (Resp / Resultados) */
-.details-block {
-    margin-bottom: 1.2rem;
-}
-
-.details-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--primary-text-color);
-    margin-bottom: 0.6rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.details-icon {
-    color: var(--brand-purple);
-}
-
-.details-list {
-    list-style: none;
-    padding: 0;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    font-size: var(--fs-small);
+    color: var(--text-muted);
     margin: 0;
 }
 
-.details-list li {
-    position: relative;
-    padding-left: 1rem;
-    color: var(--secondary-text-color);
-    font-size: 0.9rem;
-    margin-bottom: 0.4rem;
-    line-height: 1.5;
+.case-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-weight: 600;
 }
 
-.details-list li::before {
-    content: '•';
+/* --- Cuerpo en dos columnas --- */
+.case-body {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-8);
+}
+
+/* Ritmo editorial: los casos pares invierten las columnas en desktop */
+.case-study:nth-of-type(even) .case-body {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+/* Caso sin resultados publicados todavía: una sola columna acotada */
+.case-body.case-body--single,
+.case-study:nth-of-type(even) .case-body.case-body--single {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 720px;
+}
+
+.case-study:nth-of-type(even) .case-context {
+    order: 2;
+}
+
+.case-label {
+    font-size: var(--fs-caption);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0 0 var(--space-4);
+}
+
+.case-desc {
+    color: var(--text);
+    line-height: 1.7;
+    font-size: var(--fs-body);
+    margin: 0 0 var(--space-4);
+}
+
+.case-points {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.case-points li {
+    position: relative;
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-3);
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-size: var(--fs-small);
+}
+
+.case-points li::before {
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--brand-blue);
-    font-weight: bold;
+    top: 0.62em;
+    width: 8px;
+    height: 1px;
+    background: var(--hairline-strong);
 }
 
-/* Tags */
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: auto;
-    margin-bottom: 1.5rem;
+/* Los resultados llevan el acento: son la evidencia */
+.case-points--results li {
+    color: var(--text);
 }
 
-.tech-pill {
-    font-size: 0.75rem;
-    background: var(--glass-subtle-bg);
-    border: 1px solid var(--border-color);
-    color: var(--primary-text-color);
-    padding: 0.3rem 0.8rem;
-    border-radius: 50px;
-    font-weight: 500;
+.case-points--results li::before {
+    background: var(--accent);
 }
 
-/* Botón CTA */
-.project-cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--brand-blue);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    transition: all 0.3s ease;
-    text-decoration: none;
+/* --- Pie: stack --- */
+.case-stack {
+    border-top: 1px solid var(--hairline);
+    padding-top: var(--space-6);
 }
 
-.project-cta:hover {
-    background: var(--brand-blue);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-}
-
+/* --- Media Queries --- */
 @media (max-width: 768px) {
-    .projects-grid {
+    .case-study {
+        padding: var(--space-8) 0;
+    }
+
+    .case-body,
+    .case-study:nth-of-type(even) .case-body {
         grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .case-study:nth-of-type(even) .case-context {
+        order: 0;
+    }
+
+    .case-header {
+        gap: var(--space-4);
     }
 }

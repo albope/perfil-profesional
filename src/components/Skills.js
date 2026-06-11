@@ -1,14 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Users, ShieldCheck, BarChart3 } from 'lucide-react';
-import { skillCategories } from '../data/portfolio-data';
+import { skillCategories, uiText } from '../data/portfolio-data';
+import { usePageTitle } from '../hooks/usePageTitle';
 import SectionHeader from './shared/SectionHeader';
-import { TechTagList } from './shared/TechTag';
-
 import PageTransition from './shared/PageTransition';
 import './Skills.css';
 
-// Mapeo de iconos string a componentes Lucide
 const iconMap = {
     cpu: Cpu,
     users: Users,
@@ -16,73 +14,75 @@ const iconMap = {
     shield: ShieldCheck
 };
 
+const levelLabels = {
+    expert: 'Experto',
+    advanced: 'Avanzado',
+    intermediate: 'En consolidación'
+};
+
 const Skills = () => {
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1 }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { 
-            opacity: 1, 
-            y: 0,
-            transition: { duration: 0.5 }
-        }
-    };
+    usePageTitle('Competencias');
 
     return (
         <PageTransition>
-        <section className="skills-section">
-            <motion.div
-                className="skills-container"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-            >
+            <section className="skills-section">
                 <SectionHeader
-                    title="Competencias"
-                    highlight="Técnicas"
-                    subtitle="Combinación de visión estratégica de negocio con un profundo conocimiento técnico."
+                    kicker={uiText.skills.kicker}
+                    title={uiText.skills.title}
+                    lead={uiText.skills.lead}
                 />
 
-                <div className="skills-legend">
-                    <span className="legend-item legend-expert">Expert</span>
-                    <span className="legend-item legend-advanced">Advanced</span>
-                    <span className="legend-item legend-intermediate">Intermediate</span>
-                </div>
+                <p className="skills-legend">
+                    <span className="legend-item">
+                        <span className="level-dot level-dot--expert" aria-hidden="true"></span>
+                        Experto (8+ años)
+                    </span>
+                    <span className="legend-item">
+                        <span className="level-dot level-dot--advanced" aria-hidden="true"></span>
+                        Avanzado (5–8 años)
+                    </span>
+                    <span className="legend-item">
+                        <span className="level-dot level-dot--intermediate" aria-hidden="true"></span>
+                        En consolidación (2–5 años)
+                    </span>
+                </p>
 
-                <div className="skills-grid">
-                    {skillCategories.map((category) => {
-                        const IconComponent = iconMap[category.icon];
-                        return (
-                            <motion.div
-                                key={category.id}
-                                className="skill-card card-glass"
-                                variants={itemVariants}
-                            >
-                                <div className="card-top">
-                                    <div className="icon-box">
-                                        {IconComponent && <IconComponent size={24} />}
-                                    </div>
-                                    <h3 className="category-title">{category.title}</h3>
+                {skillCategories.map((category) => {
+                    const IconComponent = iconMap[category.icon];
+                    return (
+                        <motion.section
+                            key={category.id}
+                            className="domain-band"
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-60px' }}
+                            transition={{ duration: 0.4 }}
+                            aria-label={category.title}
+                        >
+                            <div className="domain-head">
+                                <div className="domain-icon" aria-hidden="true">
+                                    {IconComponent && <IconComponent size={20} />}
                                 </div>
+                                <h2 className="domain-title">{category.title}</h2>
+                                <p className="domain-desc">{category.description}</p>
+                            </div>
 
-                                <p className="category-desc">{category.description}</p>
-
-                                <div className="tags-container">
-                                    <TechTagList items={category.skills} variant="pill" showLevels />
-                                </div>
-                            </motion.div>
-                        );
-                    })}
-                </div>
-            </motion.div>
-        </section>
+                            <ul className="domain-skills">
+                                {category.skills.map((skill) => (
+                                    <li key={skill.name} className="skill-row">
+                                        <span
+                                            className={`level-dot level-dot--${skill.level}`}
+                                            aria-hidden="true"
+                                        ></span>
+                                        <span className="skill-name">{skill.name}</span>
+                                        <span className="sr-only"> — {levelLabels[skill.level]}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </motion.section>
+                    );
+                })}
+            </section>
         </PageTransition>
     );
 };

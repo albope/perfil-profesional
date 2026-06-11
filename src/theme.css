@@ -1,95 +1,86 @@
-/* --- FUENTES SELF-HOSTED (INTER + OUTFIT) --- */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300 600;
-  font-display: swap;
-  src: url('./assets/fonts/Inter-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* Las @font-face viven en public/index.html (inline) para que CRA no
+   procese las URLs de /fonts/ y el preload apunte al mismo recurso. */
 
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 300 600;
-  font-display: swap;
-  src: url('./assets/fonts/Inter-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
-  src: url('./assets/fonts/Outfit-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
-  src: url('./assets/fonts/Outfit-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+/* ============================================================
+   SISTEMA DE DISEÑO "GRAFITO + AZUL ACERO"
+   Neutrales grafito, un único acento azul acero.
+   El color ocupa <5% de la pantalla: enlaces, datos, focus, CTAs.
+   ============================================================ */
 
 :root {
-  /* --- PALETA DE COLORES "MIDNIGHT TECH" --- */
-  --background-color: #0B1120; /* Slate 950: Oscuro profundo y elegante */
-  --card-background: #1E293B;  /* Slate 800: Para tarjetas */
-  
-  /* Textos */
-  --primary-text-color: #F1F5F9; /* Slate 100: Blanco roto, no daña la vista */
-  --secondary-text-color: #A8B8CC; /* Slate 400+: Cumple WCAG AA sobre card-background */
-  
-  /* Acentos de Marca */
-  --brand-blue: #3B82F6;   /* Azul vibrante */
-  --brand-purple: #8B5CF6; /* Violeta eléctrico */
-  --accent-color: var(--brand-blue);
-  
-  /* Gradiente Maestro */
-  --brand-gradient: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-  
-  /* Glass / Tarjetas */
-  --glass-bg: rgba(30, 41, 59, 0.4);
-  --glass-bg-hover: rgba(30, 41, 59, 0.6);
-  --glass-subtle-bg: rgba(255, 255, 255, 0.03);
-  --glass-subtle-bg-hover: rgba(59, 130, 246, 0.15);
-  --card-header-border: rgba(255, 255, 255, 0.05);
+  /* Neutrales grafito */
+  --bg: #0A0E14;
+  --bg-band: #0D1219;
+  --surface: #11161F;
+  --surface-raised: #161C28;
+  --hairline: #232B38;
+  --hairline-strong: #324158;
 
-  /* Bordes y Sombras */
-  --border-color: rgba(255, 255, 255, 0.08);
-  --box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  --border-radius: 12px;
+  /* Texto */
+  --text: #E8ECF1;
+  --text-muted: #94A3B8;
+  --text-faint: #6B7A90; /* solo metadatos en caption o texto grande */
 
-  /* --- TIPOGRAFÍA TECH --- */
-  /* Outfit: Para títulos grandes y números. Muy moderna. */
-  --font-family-headings: 'Outfit', system-ui, -apple-system, sans-serif;
-  /* Inter: Para textos largos. Máxima legibilidad. */
-  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
-  
-  --transition-speed: 0.3s;
+  /* Acento único: azul acero */
+  --accent: #6EA8FF;
+  --accent-strong: #4D8DFF;
+  --accent-ink: #0A0E14;
+  --accent-soft: rgba(110, 168, 255, 0.1);
+  --focus-ring: #6EA8FF;
+
+  /* Tipografía */
+  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Escala fluida: min/max en rem, término medio rem + vw (nunca vw puro) */
+  --fs-display: clamp(2.5rem, 2rem + 1.8vw, 3.5rem);
+  --fs-h1: clamp(1.875rem, 1.6rem + 1vw, 2.5rem);
+  --fs-h2: clamp(1.375rem, 1.25rem + 0.5vw, 1.75rem);
+  --fs-h3: 1.1875rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-caption: 0.75rem;
+  --fs-stat: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+
+  /* Espaciado (base 4px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Radios sobrios y sombras discretas */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px -16px rgba(0, 0, 0, 0.6);
+
+  --transition: 0.2s ease;
+  --container: 1100px;
 }
 
-/* --- TEMA CLARO --- */
 [data-theme="light"] {
-  --background-color: #F8FAFC;
-  --card-background: #FFFFFF;
-  --primary-text-color: #0F172A;
-  --secondary-text-color: #475569;
-  --brand-blue: #2563EB;
-  --brand-purple: #7C3AED;
-  --accent-color: var(--brand-blue);
-  --brand-gradient: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-bg-hover: rgba(255, 255, 255, 0.9);
-  --glass-subtle-bg: rgba(0, 0, 0, 0.02);
-  --glass-subtle-bg-hover: rgba(37, 99, 235, 0.08);
-  --card-header-border: rgba(0, 0, 0, 0.06);
-  --border-color: rgba(0, 0, 0, 0.08);
-  --box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  --bg: #F7F8FA;
+  --bg-band: #EFF1F5;
+  --surface: #FFFFFF;
+  --surface-raised: #F1F4F8;
+  --hairline: #DDE2EA;
+  --hairline-strong: #C5CDD9;
+  --text: #111827;
+  --text-muted: #4B5563;
+  --text-faint: #6B7280;
+  --accent: #2160CE;
+  --accent-strong: #1B4FB3;
+  --accent-ink: #FFFFFF;
+  --accent-soft: rgba(33, 96, 206, 0.08);
+  --focus-ring: #1B4FB3;
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.06);
+  --shadow-md: 0 8px 24px -16px rgba(17, 24, 39, 0.18);
 }
 
 /* --- RESET GLOBAL Y APLICACIÓN DE FUENTES --- */
@@ -100,23 +91,22 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: var(--primary-text-color);
-  /* Aplicamos la fuente base a TODO el cuerpo */
-  font-family: var(--font-family-base);
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
 }
 
-/* Forzamos la fuente de títulos en todos los encabezados */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-headings);
+  font-family: var(--font-heading);
   margin: 0;
-  color: var(--primary-text-color);
+  color: var(--text);
+  line-height: 1.2;
 }
 
-/* Enlaces y Botones también necesitan heredar bien */
 a, button, input, textarea {
   font-family: inherit;
 }
@@ -126,24 +116,15 @@ a, button, input, textarea {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--background-color);
+  background: var(--bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: var(--hairline-strong);
   border-radius: 5px;
-  border: 2px solid var(--background-color);
+  border: 2px solid var(--bg);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-blue);
-}
-
-/* Scrollbar en tema claro */
-[data-theme="light"] ::-webkit-scrollbar-track {
-  background: #F1F5F9;
-}
-[data-theme="light"] ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
-  border: 2px solid #F1F5F9;
+  background: var(--text-faint);
 }
 
 /* --- ACCESIBILIDAD --- */
@@ -154,10 +135,10 @@ a, button, input, textarea {
   top: -100px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--brand-gradient);
-  color: white;
+  background: var(--accent-strong);
+  color: var(--accent-ink);
   padding: 12px 24px;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-md);
   z-index: 9999;
   font-weight: 600;
   text-decoration: none;
@@ -175,7 +156,7 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--brand-blue);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -196,17 +177,16 @@ button:focus:not(:focus-visible) {
   gap: 2rem;
 }
 
-/* Skeleton base */
 .skeleton {
   background: linear-gradient(
     90deg,
-    rgba(30, 41, 59, 0.4) 0%,
-    rgba(59, 130, 246, 0.1) 50%,
-    rgba(30, 41, 59, 0.4) 100%
+    var(--surface) 0%,
+    var(--surface-raised) 50%,
+    var(--surface) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s ease-in-out infinite;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-md);
 }
 
 .skeleton-header {
@@ -235,7 +215,7 @@ button:focus:not(:focus-visible) {
 
 .skeleton-card {
   height: 200px;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
 }
 
 @keyframes shimmer {
@@ -251,8 +231,8 @@ button:focus:not(:focus-visible) {
 .loader-spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid var(--border-color);
-  border-top-color: var(--brand-blue);
+  border: 3px solid var(--hairline);
+  border-top-color: var(--accent);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   display: none;
@@ -277,14 +257,52 @@ button:focus:not(:focus-visible) {
 
   .skeleton {
     animation: none;
-    background: rgba(30, 41, 59, 0.6);
+    background: var(--surface-raised);
   }
 
   .loader-spinner {
     display: block;
     animation: none;
-    border-color: var(--brand-blue);
+    border-color: var(--accent);
   }
+}
+
+/* --- BOTONES DEL SISTEMA --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent-strong);
+  color: var(--accent-ink);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--hairline-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
 }
 
 /* --- ERROR BOUNDARY --- */
@@ -294,7 +312,7 @@ button:focus:not(:focus-visible) {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: var(--background-color);
+  background: var(--bg);
 }
 
 .error-content {
@@ -303,18 +321,18 @@ button:focus:not(:focus-visible) {
 }
 
 .error-icon {
-  color: #ef4444;
+  color: #EF4444;
   margin-bottom: 1.5rem;
 }
 
 .error-content h2 {
-  font-size: 1.5rem;
+  font-size: var(--fs-h2);
   margin-bottom: 0.5rem;
-  color: var(--primary-text-color);
+  color: var(--text);
 }
 
 .error-content p {
-  color: var(--secondary-text-color);
+  color: var(--text-muted);
   margin-bottom: 1.5rem;
 }
 
@@ -323,18 +341,17 @@ button:focus:not(:focus-visible) {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: var(--brand-gradient);
-  color: white;
+  background: var(--accent-strong);
+  color: var(--accent-ink);
   border: none;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-md);
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: background var(--transition);
 }
 
 .error-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  background: var(--accent);
 }
 
 /* --- UTILIDAD SR-ONLY (accesibilidad) --- */

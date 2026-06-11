@@ -1,163 +1,124 @@
-/* src/components/Contact.css */
+/* Contacto: banda editorial en dos columnas con hairline central */
 
 .contact-section {
-    padding: 4rem 2rem;
-    min-height: calc(100vh - 80px);
+    padding: var(--space-12) 0 var(--space-16);
+    min-height: calc(100vh - 200px);
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-.contact-container {
-    max-width: 800px;
-    width: 100%;
-}
-
-/* --- Tarjeta Principal Glass --- */
-.contact-content.card-glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    padding: 3rem;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
-}
-
-/* --- Grid de Información --- */
-.contact-grid {
+.contact-band {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-12);
+    width: 100%;
+    border-top: 1px solid var(--hairline);
+    padding-top: var(--space-12);
+    position: relative;
 }
 
-.contact-item {
+.contact-band::before {
+    content: '';
+    position: absolute;
+    top: var(--space-12);
+    bottom: 0;
+    left: 52%;
+    width: 1px;
+    background: var(--hairline);
+}
+
+.contact-left .section-header {
+    margin-bottom: var(--space-6);
+}
+
+.contact-trust {
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* --- Canales de contacto --- */
+.channel-list {
+    list-style: none;
+    margin: 0 0 var(--space-8);
+    padding: 0;
+}
+
+.channel-row {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 12px;
-    background: var(--glass-subtle-bg);
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-    overflow: hidden; /* Asegura que nada salga del item */
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--hairline);
 }
 
-.contact-item:hover {
-    background: rgba(59, 130, 246, 0.05);
-    border-color: rgba(59, 130, 246, 0.2);
-}
-
-.icon-box {
-    width: 48px;
-    height: 48px;
-    background: var(--brand-gradient);
-    border-radius: 12px;
-    display: flex;
+.channel-icon {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    flex-shrink: 0; /* El icono no debe encogerse */
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    color: var(--accent);
+    flex-shrink: 0;
 }
 
-.info-content {
+.channel-info {
     display: flex;
     flex-direction: column;
-    min-width: 0; /* TRUCO FLEXBOX: Permite que el hijo se encoja y active el word-break */
+    min-width: 0;
     flex: 1;
 }
 
-.info-label {
-    font-size: 0.75rem;
-    color: var(--secondary-text-color);
-    margin-bottom: 0.2rem;
+.channel-label {
+    font-size: var(--fs-caption);
+    color: var(--text-faint);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.08em;
     font-weight: 600;
 }
 
-.value-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-}
-
-.info-value {
-    font-size: 1rem;
-    color: var(--primary-text-color);
+.channel-value {
+    font-size: var(--fs-body);
+    color: var(--text);
     font-weight: 500;
-    
-    /* CORRECCIÓN DE DESBORDAMIENTO */
-    white-space: normal;
-    overflow-wrap: anywhere; /* Rompe URLs o emails largos en cualquier punto si es necesario */
-    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
-.info-value.link {
-    text-decoration: none;
-    transition: color 0.2s;
+a.channel-value:hover {
+    color: var(--accent);
 }
 
-.info-value.link:hover {
-    color: var(--brand-blue);
-}
-
-/* Botón de copiar */
 .copy-btn {
     background: none;
-    border: none;
-    color: var(--secondary-text-color);
+    border: 1px solid var(--hairline);
+    color: var(--text-muted);
     cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    transition: all 0.2s;
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition), color var(--transition);
     display: flex;
     align-items: center;
-    flex-shrink: 0; /* El botón no se aplasta */
+    flex-shrink: 0;
 }
 
 .copy-btn:hover {
-    background: var(--glass-subtle-bg-hover);
-    color: var(--brand-blue);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
-/* --- Botón CTA Grande --- */
-.cta-container {
-    display: flex;
-    justify-content: center;
-}
-
-.contact-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    background: var(--brand-gradient);
-    color: white;
+.contact-cta {
     border: none;
-    font-weight: 600;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
-    text-align: center;
-    white-space: normal; /* Permitir que el texto del botón también se adapte si es muy largo */
 }
 
-.contact-cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
-}
-
-/* --- Modal Moderno --- */
+/* --- Modal --- */
 .modal-overlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
+    inset: 0;
+    background: rgba(4, 7, 12, 0.75);
     z-index: 2000;
     display: flex;
     align-items: center;
@@ -165,52 +126,50 @@
     padding: 1rem;
 }
 
-.modal-content.card-glass {
+.modal-content {
     width: 100%;
     max-width: 600px;
     height: 85vh;
-    padding: 0; 
     display: flex;
     flex-direction: column;
-    background: var(--card-background);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    position: relative;
+    box-shadow: var(--shadow-md);
 }
 
 .modal-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--hairline);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--glass-bg-hover);
 }
 
-.modal-header h3 {
+.modal-header h2 {
     margin: 0;
-    font-size: 1.2rem;
-    color: var(--primary-text-color);
+    font-size: var(--fs-h3);
+    color: var(--text);
 }
 
 .close-btn {
-    background: var(--glass-subtle-bg);
-    border: none;
-    color: var(--secondary-text-color);
+    background: transparent;
+    border: 1px solid var(--hairline);
+    color: var(--text-muted);
     width: 36px;
     height: 36px;
-    border-radius: 50%;
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: border-color var(--transition), color var(--transition);
 }
 
 .close-btn:hover {
-    background: rgba(239, 68, 68, 0.2);
-    color: #ef4444;
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .iframe-container {
@@ -225,79 +184,37 @@
     border: none;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* --- Responsive --- */
+@media (max-width: 850px) {
     .contact-section {
-        padding: 2rem 1rem;
+        min-height: auto;
+        align-items: flex-start;
     }
 
-    .contact-content.card-glass {
-        padding: 2rem 1.5rem;
-    }
-
-    .contact-grid {
+    .contact-band {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: var(--space-8);
+        padding-top: var(--space-8);
     }
 
-    .contact-item {
-        padding: 1rem;
+    .contact-band::before {
+        display: none;
     }
 
-    /* Fix email/teléfono en móvil - fuente más pequeña para que quepa */
-    .info-value {
-        font-size: 0.85rem;
-        word-break: normal;
-        overflow-wrap: normal;
-    }
-
-    /* Modal estilo bottom-sheet en movil */
+    /* Modal estilo bottom-sheet en móvil */
     .modal-overlay {
         align-items: flex-end;
         padding: 0;
     }
 
-    .modal-content.card-glass {
+    .modal-content {
         max-width: 100%;
         height: 80vh;
-        max-height: 80vh;
-        border-radius: 20px 20px 0 0;
-        animation: slideUp 0.3s ease-out;
-    }
-
-    @keyframes slideUp {
-        from {
-            transform: translateY(100%);
-        }
-        to {
-            transform: translateY(0);
-        }
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     }
 
     .close-btn {
         width: 44px;
         height: 44px;
-    }
-}
-
-/* Breakpoint para moviles pequenos */
-@media (max-width: 480px) {
-    .contact-section {
-        padding: 1.5rem 0.75rem;
-    }
-
-    .contact-content.card-glass {
-        padding: 1.5rem 1rem;
-        border-radius: 16px;
-    }
-
-    .contact-cta-btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.95rem;
-    }
-
-    .modal-content.card-glass {
-        height: 85vh;
-        max-height: 85vh;
     }
 }

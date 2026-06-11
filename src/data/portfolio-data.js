@@ -6,8 +6,8 @@
 // Información personal
 export const personalInfo = {
     name: "Alberto Bort",
-    title: "Technical Project Lead & IT Business Analyst",
-    description: "Technical Project lead y Analista de Negocio TI con más de 8 años de experiencia en banca, transporte y movilidad. Transformo necesidades complejas en soluciones de software robustas, combinando visión técnica y estratégica.",
+    title: "Technical Project Manager & IT Business Analyst",
+    description: "Technical Project Manager y Analista de Negocio TI con más de 9 años en el sector TI, entre banca, transporte público, movilidad y SaaS. Dirijo la entrega de software del discovery al go-live y la operación, uniendo las necesidades de negocio con la ejecución técnica.",
     email: "albertobort@gmail.com",
     phone: "+34 676 110 159",
     location: "Valencia, España",
@@ -18,14 +18,23 @@ export const personalInfo = {
     }
 };
 
-// Certificaciones
+// Certificaciones (según CV 2026)
 export const certifications = [
     { name: "ISTQB Foundation Level", icon: "award" },
-    { name: "Scrum Manager Nivel 1", icon: "check" }
+    { name: "Scrum Master (Scrum Manager)", icon: "check" },
+    { name: "IELTS 8.0 / C2", icon: "globe" }
+];
+
+// Idiomas (según CV 2026; catalán figura en LinkedIn — TODO: confirmar si incluirlo)
+export const languages = [
+    { name: "Español", level: "Nativo" },
+    { name: "Inglés", level: "C2 · IELTS 8.0" },
+    { name: "Francés", level: "Profesional (B2)" }
 ];
 
 // Especialidades destacadas
 export const specialties = [
+    "Agentes de IA",
     "Liderazgo Técnico",
     "Arquitectura de Sistemas",
     "Transformación Digital",
@@ -38,24 +47,112 @@ export const specialties = [
     "Gestión de Equipos"
 ];
 
+// Microcopy de la interfaz (kicker / título / lead por página, CTAs)
+export const uiText = {
+    hero: {
+        kicker: "Valencia · Banca · Transporte público · Movilidad · SaaS",
+        roles: [
+            "IT Project Manager",
+            "IT Business Analyst",
+            "End-to-End Project Delivery",
+            "Digital Transformation Driver"
+        ],
+        thesis: "Dirijo la entrega de software de principio a fin —del discovery al go-live y la operación—, uniendo las necesidades de negocio con la ejecución técnica.",
+        support: "Más de 9 años en el sector TI entre banca, transporte público, movilidad y SaaS. Mantengo alineados a clientes, prioridades, alcance, plazos y equipos de entrega, combinando una base técnica en QA, APIs y análisis de datos con la gestión de proyectos end-to-end.",
+        ctaPrimary: "Descargar CV",
+        ctaSecondary: "Contactar",
+        credentialsTitle: "Certificaciones e idiomas",
+        specialtiesTitle: "Especialidades"
+    },
+    experience: {
+        kicker: "Trayectoria",
+        title: "Experiencia profesional",
+        lead: "De analista QA a Project Manager: casi una década de responsabilidad creciente sobre sistemas donde fallar no es una opción."
+    },
+    skills: {
+        kicker: "Competencias",
+        title: "Dominio técnico y criterio de gestión",
+        lead: "Cuatro dominios con niveles honestos: lo que domino, lo que practico y lo que estoy consolidando."
+    },
+    projects: {
+        kicker: "Casos de estudio",
+        title: "Proyectos con resultados",
+        lead: "Contexto, rol, decisiones y resultados de los proyectos que he liderado.",
+        contextLabel: "Contexto y rol",
+        resultsLabel: "Resultados",
+        linkLabel: "Ver referencia"
+    },
+    contact: {
+        kicker: "Contacto",
+        title: "Hablemos",
+        lead: "Disponible para liderar proyectos de entrega, análisis y calidad de software desde Valencia.",
+        cta: "Enviar mensaje",
+        modalTitle: "Envíame un mensaje",
+        trustLine: "Publico sobre IA, automatización y transformación digital en"
+    },
+    education: {
+        title: "Formación académica"
+    },
+    footer: {
+        availability: "Abierto a nuevos retos"
+    },
+    notFound: {
+        title: "Esta página no existe",
+        message: "El contenido que buscas se ha movido o nunca estuvo aquí.",
+        cta: "Volver al inicio"
+    }
+};
+
+// Evidencia del hero (el "9+" sigue el headline de LinkedIn; el CV PDF aún dice 8+)
+export const heroStats = [
+    { value: 9, suffix: "+", label: "Años en el sector TI", animated: true },
+    { value: 4, suffix: "", label: "Sectores: banca, transporte, movilidad y SaaS", animated: true },
+    { value: "6–10", label: "Personas por equipo liderado", animated: false }
+];
+
 // Experiencia profesional
 export const experienceData = [
     {
+        company: "Ubimia",
+        companyLink: "https://www.ubimia.com",
+        sector: "SaaS y software a medida · Cross-market",
+        period: "Mar 2026 – Presente",
+        roles: [
+            {
+                id: "ubimia-1",
+                title: "IT Operations Project Manager",
+                date: "Mar 2026 - Presente",
+                location: "Comunidad Valenciana, España (Híbrido)",
+                description: [
+                    "Dirijo la entrega end-to-end de proyectos SaaS y de software a medida en uDigital (Ubimia), como interlocutor principal del cliente y responsable de alcance, plazos, calidad y rentabilidad.",
+                    "Lidero discovery, definición de alcance, planificación y entrega desde el kickoff hasta el go-live.",
+                    "Traduzco las necesidades del cliente en prioridades claras, planes de sprint y requisitos accionables.",
+                    "Gestiono la comunicación con el cliente: expectativas, decisiones, peticiones de cambio y escalados.",
+                    "Coordino al equipo de desarrollo (planificación, seguimiento y rutinas de desarrollo individual) y superviso rentabilidad, previsiones, facturación y reporting de la cartera de proyectos.",
+                    "Acompaño la formación de usuarios finales, la preparación del go-live y la transición a operación."
+                ],
+                skills: ["Project Management", "SaaS", "Scrum", "Gestión de Cliente", "Forecasting & Billing", "Agentes de IA"]
+            }
+        ]
+    },
+    {
         company: "ETRA",
         companyLink: "https://www.grupoetra.com",
+        sector: "Movilidad y transporte público",
+        period: "Dic 2021 – Mar 2026",
         roles: [
             {
                 id: "etra-1",
                 title: "Technical Project Lead",
-                date: "May 2023 - Presente",
+                date: "May 2023 - Mar 2026",
                 location: "Comunidad Valenciana, España",
                 description: [
-                    "Liderazgo en la implementación de soluciones digitales para el transporte público (ATMV y Metrovalencia).",
-                    "Definición de requisitos técnicos y funcionales, asegurando una integración fluida con infraestructuras existentes.",
-                    "Gestión del backlog de producto, riesgos técnicos y comunicación con stakeholders.",
-                    "Coordinación entre equipos de desarrollo, operaciones y comerciales.",
-                    "Supervisión de pruebas de sistema, despliegues y QA.",
-                    "Resolución de incidencias y soporte técnico durante la implementación."
+                    "Lideré la implantación de soluciones digitales para FGV (Metrovalencia), ATMV y EMT: planificación, alcance y coordinación de recursos para entregar en plazo y con calidad.",
+                    "Definí requisitos técnicos y funcionales y elaboré especificaciones, asegurando la integración con las infraestructuras existentes.",
+                    "Gestioné el backlog de producto, los riesgos técnicos y la interlocución regular con stakeholders (FGV, MLO, Enyse, EMT, NTT).",
+                    "Coordiné despliegues remotos y presenciales de Sistemas de Ayuda a la Explotación (SAE) y definí los planes de mantenimiento en entornos productivos.",
+                    "Supervisé pruebas de sistema, despliegues y QA, y resolví incidencias en pruebas y producción minimizando el impacto operativo.",
+                    "Impartí sesiones formativas y elaboré manuales de usuario y documentación técnica."
                 ],
                 skills: ["Project Management", "Stakeholder Mng.", "Agile", "Risk Management", "System Integration", "QA Leadership"]
             },
@@ -65,10 +162,10 @@ export const experienceData = [
                 date: "Dic 2021 - May 2023",
                 location: "Valencia, España",
                 description: [
-                    "Diseño y ejecución de pruebas de Aceptación de Usuario (UAT), integración y componentes.",
-                    "Desarrollo de planes de prueba detallados basados en requisitos, utilizando JIRA.",
-                    "Gestión y resolución de defectos e incidencias para minimizar el impacto operativo.",
-                    "Liderazgo en reuniones técnicas con clientes clave (FGV, MLO, Enyse, NTT)."
+                    "Diseñé y ejecuté pruebas de aceptación de usuario (UAT), integración y componentes para sistemas de transporte público en producción.",
+                    "Desarrollé planes de prueba detallados a partir de los requisitos, con gestión y trazabilidad en JIRA.",
+                    "Gestioné y resolví defectos e incidencias priorizando la continuidad del servicio.",
+                    "Lideré reuniones técnicas con clientes clave (FGV, MLO, Enyse, NTT)."
                 ],
                 skills: ["JIRA", "Postman", "SOAP UI", "SQL Server", "MongoDB", "Jenkins", "Linux/Bash", "Git"]
             }
@@ -77,6 +174,8 @@ export const experienceData = [
     {
         company: "Sopra Banking Software",
         companyLink: "https://www.soprabanking.com",
+        sector: "Banca · Medios de pago",
+        period: "Abr 2018 – Dic 2021",
         roles: [
             {
                 id: "sopra-1",
@@ -84,9 +183,10 @@ export const experienceData = [
                 date: "May 2021 - Dic 2021",
                 location: "Valencia, España",
                 description: [
-                    "Business Analyst y Application Manager en proyectos de medios de pago (Cheques, SWIFT, SEPA).",
-                    "Liderazgo de equipo de 6-10 personas, diseñando estrategias de prueba y asegurando la calidad.",
-                    "Supervisión de monitorización, planificación y soporte funcional."
+                    "Lideré un equipo de QA de 6–10 personas en proyectos de medios de pago (cheques, SWIFT, SEPA), ejerciendo también como Business Analyst y Application Manager.",
+                    "Definí la estrategia de validación y los planes de prueba funcional y técnica de cada entrega.",
+                    "Aprobé el paso a producción de los entregables (Go/No-Go), validando el cumplimiento de los estándares de calidad.",
+                    "Supervisé la monitorización, la planificación y el soporte funcional durante el ciclo de proyecto."
                 ],
                 skills: ["HPQC", "JIRA", "Team Leadership", "Payments", "Business Analysis"]
             },
@@ -96,8 +196,8 @@ export const experienceData = [
                 date: "Jul 2020 - Dic 2021",
                 location: "Valencia, España",
                 description: [
-                    "Desarrollo de scripts automatizados, reduciendo el tiempo de regresión en un 40-50%.",
-                    "Uso de T-Tool Software para automatización y optimización de lanzamientos."
+                    "Desarrollé y mantuve escenarios de regresión automatizados con T-Tool, reduciendo el tiempo de regresión un 40–50% en cada versión.",
+                    "Integré la automatización en el ciclo de validación, optimizando los lanzamientos."
                 ],
                 skills: ["Test Automation", "T-Tool", "Regression Testing", "Scripting"]
             },
@@ -107,9 +207,9 @@ export const experienceData = [
                 date: "Abr 2018 - May 2021",
                 location: "Valencia, España",
                 description: [
-                    "Revisión de especificaciones y desarrollo de planes de prueba con HPQC.",
-                    "Seguimiento de defectos y participación en ciclos de validación.",
-                    "Mantenimiento y evolución de escenarios de prueba."
+                    "Revisé especificaciones y diseño técnico, garantizando la trazabilidad y la cobertura completa de los requisitos.",
+                    "Desarrollé planes de prueba con HPQC, con seguimiento detallado de defectos y riesgos.",
+                    "Mantuve y evolucioné los escenarios de prueba a lo largo de los ciclos de validación."
                 ],
                 skills: ["HPQC", "SOAP UI", "Oracle DB", "UML", "Unix"]
             }
@@ -118,6 +218,8 @@ export const experienceData = [
     {
         company: "Payever Gmbh",
         companyLink: "https://payever.de/",
+        sector: "SaaS · E-commerce",
+        period: "Sep 2017 – Mar 2018",
         roles: [
             {
                 id: "payever-1",
@@ -125,9 +227,9 @@ export const experienceData = [
                 date: "Sep 2017 - Mar 2018",
                 location: "Hamburgo, Alemania",
                 description: [
-                    "Rol multifuncional en start-up tecnológica (SaaS): gestión de proyectos, marketing y soporte.",
-                    "Estrategia de precios para aplicaciones de negocio.",
-                    "Análisis de errores que afectaban el rendimiento del desarrollo."
+                    "Rol multifuncional en una startup SaaS respaldada por Banco Santander y Microsoft Ventures: gestión de proyectos, marketing y ventas e-commerce.",
+                    "Elaboré la estrategia de precios para las aplicaciones de negocio de la plataforma de comercio.",
+                    "Identifiqué y comuniqué las principales fuentes de errores que afectaban al rendimiento del desarrollo, con interlocución directa con los fundadores."
                 ],
                 skills: ["Project Management", "Pricing Strategy", "Error Analysis", "E-commerce", "SaaS"]
             }
@@ -137,6 +239,21 @@ export const experienceData = [
 
 // Proyectos destacados
 export const projects = [
+    {
+        name: "Agentes de IA para clientes cross-market",
+        company: "Ubimia · uDigital",
+        description: "Entrega de soluciones basadas en agentes de IA dentro de la unidad uDigital de Ubimia, integradas en proyectos SaaS y de software a medida para clientes de distintos sectores.",
+        responsibilities: [
+            "Dirección del proyecto de principio a fin: discovery, alcance, planificación y entrega hasta el go-live.",
+            "Traducción de las necesidades del cliente en requisitos accionables y planes de sprint para el equipo de desarrollo.",
+            "Gestión de la comunicación con el cliente: expectativas, decisiones, cambios y escalados.",
+            "Acompañamiento del go-live: formación de usuarios y transición a operación."
+        ],
+        // TODO: confirmar resultados/métricas publicables (clientes nombrables, alcance, impacto) antes de añadirlos
+        results: [],
+        skills: ["Agentes de IA", "SaaS", "Gestión de Proyectos", "Análisis Funcional", "Sprint Planning"],
+        link: null
+    },
     {
         name: "JIRA Report Generator",
         company: "ETRA (Herramienta Interna)",
@@ -227,7 +344,11 @@ export const skillCategories = [
             { name: "Unix / Linux Systems", level: "advanced" },
             { name: "Análisis de Logs", level: "advanced" },
             { name: "Jenkins (CI/CD)", level: "intermediate" },
-            { name: "Configuración de Entornos", level: "advanced" }
+            { name: "Configuración de Entornos", level: "advanced" },
+            // Python figura en el CV 2026 y en el máster de EDEM — TODO: confirmar nivel
+            { name: "Python (análisis de datos)", level: "intermediate" },
+            // Entrega de proyectos con agentes de IA en Ubimia desde Mar 2026 — TODO: confirmar nivel
+            { name: "Agentes de IA (delivery)", level: "intermediate" }
         ]
     },
     {
@@ -242,7 +363,9 @@ export const skillCategories = [
             { name: "Gestión de Riesgos Técnicos", level: "advanced" },
             { name: "Metodologías Ágiles (Scrum/Kanban)", level: "expert" },
             { name: "Mentoring de Equipos", level: "advanced" },
-            { name: "Gestión del Cambio", level: "intermediate" }
+            { name: "Gestión del Cambio", level: "intermediate" },
+            // Responsabilidad de P&L/forecasting asumida en Ubimia (Mar 2026) — TODO: confirmar nivel
+            { name: "Rentabilidad y Forecasting", level: "intermediate" }
         ]
     },
     {

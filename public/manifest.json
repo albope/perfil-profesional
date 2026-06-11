@@ -1,7 +1,7 @@
 {
   "short_name": "Alberto Bort",
-  "name": "Alberto Bort | Technical Project Lead & IT Business Analyst",
-  "description": "Portafolio profesional de Alberto Bort. Technical Project Lead y Analista de Negocio TI con más de 8 años de experiencia en banca, transporte y movilidad.",
+  "name": "Alberto Bort | Technical Project Manager & IT Business Analyst",
+  "description": "Portfolio profesional de Alberto Bort. Technical Project Lead y Analista de Negocio TI con casi una década de experiencia internacional en banca, transporte público y movilidad.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -22,9 +22,10 @@
     }
   ],
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#0B1120",
-  "background_color": "#0B1120",
+  "theme_color": "#0A0E14",
+  "background_color": "#0A0E14",
   "lang": "es",
   "orientation": "portrait-primary"
 }

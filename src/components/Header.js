@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './shared/ThemeToggle';
+import { navLinks } from '../data/portfolio-data';
 import './Header.css';
 
 const Header = () => {
@@ -17,14 +18,6 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-
-    const links = [
-        { path: '/', label: 'Inicio' },
-        { path: '/experience', label: 'Experiencia' },
-        { path: '/skills', label: 'Habilidades' },
-        { path: '/projects', label: 'Proyectos' },
-        { path: '/contact', label: 'Contacto' },
-    ];
 
     // Cierra el menú móvil al cambiar de ruta
     React.useEffect(() => {
@@ -43,7 +36,7 @@ const Header = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="desktop-nav">
-                    {links.map((link) => (
+                    {navLinks.map((link) => (
                         <NavLink 
                             key={link.path} 
                             to={link.path} 
@@ -67,7 +60,9 @@ const Header = () => {
                     <button
                         className="mobile-toggle"
                         onClick={() => setIsOpen(!isOpen)}
-                        aria-label="Toggle menu"
+                        aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-nav"
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
@@ -77,14 +72,15 @@ const Header = () => {
             {/* Mobile Navigation Dropdown */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.nav 
+                    <motion.nav
+                        id="mobile-nav"
                         className="mobile-nav"
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        {links.map((link) => (
+                        {navLinks.map((link) => (
                             <NavLink 
                                 key={link.path} 
                                 to={link.path}

@@ -7,11 +7,11 @@
   width: 100%;
   height: 80px;
 
-  /* Glassmorphism Dark */
-  background-color: rgba(11, 17, 32, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-color);
+  /* Translúcido sobrio para legibilidad al hacer scroll */
+  background-color: rgba(10, 14, 20, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--hairline);
 
   display: flex;
   flex-direction: column;
@@ -21,11 +21,11 @@
 
 .app-header.header-compact {
   height: 60px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .header-content {
-  max-width: 1200px;
+  max-width: var(--container);
   width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
@@ -35,43 +35,29 @@
   height: 100%;
 }
 
-/* --- BRAND LOGO (MEJORA UX) --- */
+/* --- Brand --- */
 .header-brand a {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--primary-text-color);
-  letter-spacing: -0.5px;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
   text-decoration: none;
   display: inline-flex;
   align-items: baseline;
-  transition: all 0.3s ease;
-  cursor: pointer; /* Refuerza que es interactivo */
 }
 
-/* Efecto Glow y Elevación al Hover (PC) y al Tocar (Móvil) */
-.header-brand a:hover,
-.header-brand a:active {
-  /* Un brillo sutil azulado detrás del texto */
-  text-shadow: 0 0 20px rgba(59, 130, 246, 0.4); 
-  transform: translateY(-1px);
+.header-brand a:hover {
+  text-decoration: none;
+  color: var(--text);
 }
 
 .brand-dot {
-  color: var(--brand-blue);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto rebote (bouncy) */
+  color: var(--accent);
   display: inline-block;
 }
 
-/* Reacción del punto al Hover (PC) y al Tocar (Móvil) */
-.header-brand a:hover .brand-dot,
-.header-brand a:active .brand-dot {
-  color: var(--brand-purple); /* Cambio de color */
-  transform: scale(1.5) rotate(10deg); /* Pop effect */
-}
-
-/* --- FIN BRAND LOGO --- */
-
-/* Nav Desktop */
+/* --- Nav Desktop --- */
 .desktop-nav {
   display: flex;
   gap: 2.5rem;
@@ -80,26 +66,27 @@
 .nav-link {
   position: relative;
   text-decoration: none;
-  color: var(--secondary-text-color);
+  color: var(--text-muted);
   font-weight: 500;
-  font-size: 0.95rem;
-  transition: color var(--transition-speed) ease;
+  font-size: var(--fs-small);
+  transition: color var(--transition);
 }
 
-.nav-link:hover, .nav-link.active {
-  color: var(--primary-text-color);
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text);
+  text-decoration: none;
 }
 
 /* La línea animada */
 .underline {
   position: absolute;
-  bottom: -4px;
+  bottom: -6px;
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--brand-blue);
-  box-shadow: 0 0 10px var(--brand-blue);
-  border-radius: 2px;
+  background: var(--accent);
+  border-radius: 1px;
 }
 
 /* Header actions (theme toggle + mobile menu) */
@@ -114,18 +101,18 @@
   display: none;
   background: none;
   border: none;
-  color: var(--primary-text-color);
+  color: var(--text);
   cursor: pointer;
   padding: 0.5rem;
 }
 
 /* Light theme header */
 [data-theme="light"] .app-header {
-  background-color: rgba(248, 250, 252, 0.85);
+  background-color: rgba(247, 248, 250, 0.9);
 }
 
 [data-theme="light"] .mobile-nav {
-  background: rgba(248, 250, 252, 0.98);
+  background: rgba(247, 248, 250, 0.98);
 }
 
 /* Mobile Nav */
@@ -134,21 +121,20 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: rgba(11, 17, 32, 0.98);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
+  background: rgba(10, 14, 20, 0.98);
+  border-bottom: 1px solid var(--hairline);
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  box-shadow: var(--shadow-md);
 }
 
 .mobile-link {
   padding: 1.2rem 0;
-  color: var(--secondary-text-color);
+  color: var(--text-muted);
   text-decoration: none;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 1.1rem;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 1.05rem;
   font-weight: 500;
 }
 
@@ -157,12 +143,10 @@
 }
 
 .mobile-link.active {
-  color: var(--brand-blue);
-  background: rgba(59, 130, 246, 0.1);
-  border-left: 3px solid var(--brand-blue);
+  color: var(--accent);
+  border-left: 2px solid var(--accent);
   padding-left: 1rem;
   margin-left: -1rem;
-  border-radius: 0 8px 8px 0;
 }
 
 @media (max-width: 768px) {
@@ -175,6 +159,6 @@
 @media (max-width: 480px) {
   .app-header { height: 65px; }
   .app-header.header-compact { height: 50px; }
-  .header-brand a { font-size: 1.25rem; }
+  .header-brand a { font-size: 1.2rem; }
   .header-content { padding: 0 1rem; }
 }

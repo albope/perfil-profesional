@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, MotionConfig } from 'framer-motion';
 import './App.css';
 
 // Contextos
@@ -59,6 +59,7 @@ const AnimatedRoutes = () => {
 function App() {
     return (
         <ThemeProvider>
+        <MotionConfig reducedMotion="user">
         <ToastProvider>
             <Router>
                 <div className="app-container">
@@ -80,6 +81,7 @@ function App() {
                 </div>
             </Router>
         </ToastProvider>
+        </MotionConfig>
         </ThemeProvider>
     );
 }

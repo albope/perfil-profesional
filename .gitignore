@@ -24,4 +24,5 @@ yarn-error.log*
 
 # Claude Code
 .claude/
+contexto-actual.md
 nul

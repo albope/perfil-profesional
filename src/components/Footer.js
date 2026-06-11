@@ -1,6 +1,7 @@
 import React from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { personalInfo, uiText } from '../data/portfolio-data';
 import './Footer.css';
 
 const Footer = () => {
@@ -12,28 +13,28 @@ const Footer = () => {
                 {/* Izquierda: Redes Sociales */}
                 <div className="footer-socials">
                     <motion.a
-                        href="https://github.com/albope"
+                        href={personalInfo.social.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ y: -2, color: '#3B82F6' }}
+                        whileHover={{ y: -2 }}
                         className="social-link"
                         aria-label="GitHub"
                     >
                         <Github size={18} />
                     </motion.a>
                     <motion.a
-                        href="https://www.linkedin.com/in/albertobort"
+                        href={personalInfo.social.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ y: -2, color: '#8B5CF6' }}
+                        whileHover={{ y: -2 }}
                         className="social-link"
                         aria-label="LinkedIn"
                     >
                         <Linkedin size={18} />
                     </motion.a>
                     <motion.a
-                        href="mailto:albertobort@gmail.com"
-                        whileHover={{ y: -2, color: '#F472B6' }}
+                        href={`mailto:${personalInfo.email}`}
+                        whileHover={{ y: -2 }}
                         className="social-link"
                         aria-label="Email"
                     >
@@ -45,7 +46,7 @@ const Footer = () => {
                 <div className="footer-status">
                     <span className="availability-badge">
                         <span className="pulse-dot"></span>
-                        Disponible para proyectos
+                        {uiText.footer.availability}
                     </span>
                 </div>
 

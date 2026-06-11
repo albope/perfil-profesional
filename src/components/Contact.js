@@ -4,9 +4,18 @@ import { Mail, Phone, MapPin, Send, X, Copy, Check, AlertCircle } from 'lucide-r
 import SectionHeader from './shared/SectionHeader';
 import PageTransition from './shared/PageTransition';
 import { useFocusTrap } from '../hooks/useFocusTrap';
+import { usePageTitle } from '../hooks/usePageTitle';
+import { contactInfo, personalInfo, uiText } from '../data/portfolio-data';
 import './Contact.css';
 
+const iconMap = {
+    mapPin: MapPin,
+    mail: Mail,
+    phone: Phone
+};
+
 const Contact = () => {
+    usePageTitle('Contacto');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [copied, setCopied] = useState(null);
     const modalRef = useFocusTrap(isModalOpen);
@@ -29,29 +38,6 @@ const Contact = () => {
             document.body.style.overflow = 'unset';
         };
     }, [isModalOpen]);
-
-    const contactInfo = [
-        {
-            icon: <MapPin size={24} />,
-            label: "Ubicación",
-            value: "Valencia, España",
-            action: null
-        },
-        {
-            icon: <Mail size={24} />,
-            label: "Email",
-            value: "albertobort@gmail.com",
-            action: "mailto:albertobort@gmail.com",
-            canCopy: true
-        },
-        {
-            icon: <Phone size={24} />,
-            label: "Teléfono",
-            value: "+34 676 110 159",
-            action: "tel:+34676110159",
-            canCopy: true
-        }
-    ];
 
     const handleCopy = async (text, type) => {
         try {
@@ -79,69 +65,82 @@ const Contact = () => {
         <PageTransition>
             <section className="contact-section">
                 <motion.div
-                    className="contact-container"
+                    className="contact-band"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <SectionHeader
-                        title="Hablemos"
-                        highlight="Ahora"
-                        subtitle="Siempre abierto a conectar, compartir ideas y hablar de tecnología."
-                    />
+                    <div className="contact-left">
+                        <SectionHeader
+                            kicker={uiText.contact.kicker}
+                            title={uiText.contact.title}
+                            lead={uiText.contact.lead}
+                        />
+                        <p className="contact-trust">
+                            {uiText.contact.trustLine}{' '}
+                            <a
+                                href={personalInfo.social.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </a>.
+                        </p>
+                    </div>
 
-                    <div className="contact-content card-glass">
-                        <div className="contact-grid">
-                            {contactInfo.map((info, index) => (
-                                <div key={index} className="contact-item">
-                                    <div className="icon-box">
-                                        {info.icon}
-                                    </div>
-                                    <div className="info-content">
-                                        <span className="info-label">{info.label}</span>
-                                        <div className="value-wrapper">
+                    <div className="contact-right">
+                        <ul className="channel-list">
+                            {contactInfo.map((info, index) => {
+                                const Icon = iconMap[info.icon];
+                                return (
+                                    <li key={index} className="channel-row">
+                                        <span className="channel-icon" aria-hidden="true">
+                                            {Icon && <Icon size={18} />}
+                                        </span>
+                                        <span className="channel-info">
+                                            <span className="channel-label">{info.label}</span>
                                             {info.action ? (
-                                                <a href={info.action} className="info-value link">
+                                                <a href={info.action} className="channel-value">
                                                     {info.value}
                                                 </a>
                                             ) : (
-                                                <span className="info-value">{info.value}</span>
+                                                <span className="channel-value">{info.value}</span>
                                             )}
-
-                                            {info.canCopy && (
-                                                <button
-                                                    className="copy-btn"
-                                                    onClick={() => handleCopy(info.value, info.label)}
-                                                    aria-label={`Copiar ${info.label}`}
-                                                >
-                                                    {copied === info.label ? <Check size={14} /> : copied === 'error' ? <AlertCircle size={14} /> : <Copy size={14} />}
-                                                </button>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                                        </span>
+                                        {info.canCopy && (
+                                            <button
+                                                className="copy-btn"
+                                                onClick={() => handleCopy(info.value, info.label)}
+                                                aria-label={`Copiar ${info.label}`}
+                                            >
+                                                {copied === info.label
+                                                    ? <Check size={15} />
+                                                    : copied === 'error'
+                                                        ? <AlertCircle size={15} />
+                                                        : <Copy size={15} />}
+                                            </button>
+                                        )}
+                                    </li>
+                                );
+                            })}
+                        </ul>
 
                         <div aria-live="polite" className="sr-only">
                             {copied && copied !== 'error' && `${copied} copiado al portapapeles`}
                             {copied === 'error' && 'Error al copiar. Por favor, copia manualmente.'}
                         </div>
 
-                        <div className="cta-container">
-                            <button
-                                className="btn-primary contact-cta-btn"
-                                onClick={() => setIsModalOpen(true)}
-                                aria-haspopup="dialog"
-                            >
-                                <Send size={18} /> Abrir Formulario de Contacto
-                            </button>
-                        </div>
+                        <button
+                            className="btn btn-primary contact-cta"
+                            onClick={() => setIsModalOpen(true)}
+                            aria-haspopup="dialog"
+                        >
+                            <Send size={18} /> {uiText.contact.cta}
+                        </button>
                     </div>
                 </motion.div>
             </section>
 
-            {/* Modal con Glassmorphism */}
             <AnimatePresence>
                 {isModalOpen && (
                     <motion.div
@@ -155,15 +154,15 @@ const Contact = () => {
                         aria-labelledby="modal-title"
                     >
                         <motion.div
-                            className="modal-content card-glass"
+                            className="modal-content"
                             ref={modalRef}
-                            initial={{ scale: 0.9, opacity: 0 }}
+                            initial={{ scale: 0.95, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
                         >
                             <div className="modal-header">
-                                <h3 id="modal-title">Envíame un Mensaje</h3>
+                                <h2 id="modal-title">{uiText.contact.modalTitle}</h2>
                                 <button
                                     className="close-btn"
                                     onClick={() => setIsModalOpen(false)}

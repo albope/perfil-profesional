@@ -1,10 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Home, SearchX } from 'lucide-react';
+import { Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { uiText } from '../data/portfolio-data';
+import { usePageTitle } from '../hooks/usePageTitle';
 import './NotFound.css';
 
 const NotFound = () => {
+    usePageTitle('Página no encontrada');
+
     return (
         <div className="not-found">
             <motion.div
@@ -13,13 +17,12 @@ const NotFound = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <SearchX size={56} className="not-found-icon" />
-                <h1 className="not-found-code">404</h1>
-                <h2>Página no encontrada</h2>
-                <p>La página que buscas no existe o ha sido movida.</p>
-                <Link to="/" className="not-found-btn">
+                <p className="not-found-code" aria-hidden="true">404</p>
+                <h1>{uiText.notFound.title}</h1>
+                <p className="not-found-message">{uiText.notFound.message}</p>
+                <Link to="/" className="btn btn-secondary">
                     <Home size={18} />
-                    Volver al inicio
+                    {uiText.notFound.cta}
                 </Link>
             </motion.div>
         </div>

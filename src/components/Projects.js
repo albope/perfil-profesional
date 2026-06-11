@@ -1,101 +1,88 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FolderGit2, Building2, ExternalLink, Layers, CheckCircle2 } from 'lucide-react';
-import { projects } from '../data/portfolio-data';
+import { ExternalLink } from 'lucide-react';
+import { projects, uiText } from '../data/portfolio-data';
+import { usePageTitle } from '../hooks/usePageTitle';
 import SectionHeader from './shared/SectionHeader';
 import { TechTagList } from './shared/TechTag';
 import PageTransition from './shared/PageTransition';
 import './Projects.css';
 
 const Projects = () => {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.15 }
-        }
-    };
-
-    const cardVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5 }
-        }
-    };
+    usePageTitle('Casos de estudio');
 
     return (
         <PageTransition>
-        <section className="projects-section">
-            <motion.div
-                className="projects-container"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-            >
+            <section className="projects-section">
                 <SectionHeader
-                    title="Proyectos"
-                    highlight="Destacados"
-                    subtitle="Soluciones reales implementadas con impacto directo en negocio y operaciones."
+                    kicker={uiText.projects.kicker}
+                    title={uiText.projects.title}
+                    lead={uiText.projects.lead}
                 />
 
-                <div className="projects-grid">
+                <div className="case-list">
                     {projects.map((project, index) => (
-                        <motion.div key={index} className="project-card card-glass" variants={cardVariants}>
-                            <div className="card-header-content">
-                                <div className="icon-wrapper">
-                                    <FolderGit2 size={24} />
-                                </div>
-                                <div>
-                                    <h3 className="project-title">{project.name}</h3>
-                                    <div className="project-company">
-                                        <Building2 size={14} />
+                        <motion.article
+                            key={project.name}
+                            className="case-study"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: '-60px' }}
+                            transition={{ duration: 0.45 }}
+                        >
+                            <header className="case-header">
+                                <span className="case-number" aria-hidden="true">
+                                    {String(index + 1).padStart(2, '0')}
+                                </span>
+                                <div className="case-heading">
+                                    <h2 className="case-title">{project.name}</h2>
+                                    <p className="case-meta">
                                         <span>{project.company}</span>
-                                    </div>
+                                        {project.link && (
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="case-link"
+                                            >
+                                                {uiText.projects.linkLabel}
+                                                <ExternalLink size={13} aria-hidden="true" />
+                                            </a>
+                                        )}
+                                    </p>
                                 </div>
+                            </header>
+
+                            <div className={`case-body${project.results?.length ? '' : ' case-body--single'}`}>
+                                <div className="case-context">
+                                    <h3 className="case-label">{uiText.projects.contextLabel}</h3>
+                                    <p className="case-desc">{project.description}</p>
+                                    <ul className="case-points">
+                                        {project.responsibilities.map((item, idx) => (
+                                            <li key={idx}>{item}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {project.results?.length > 0 && (
+                                    <div className="case-results">
+                                        <h3 className="case-label">{uiText.projects.resultsLabel}</h3>
+                                        <ul className="case-points case-points--results">
+                                            {project.results.map((item, idx) => (
+                                                <li key={idx}>{item}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                )}
                             </div>
 
-                            <p className="project-desc">{project.description}</p>
-
-                            <div className="card-divider"></div>
-
-                            <div className="details-block">
-                                <h4 className="details-title">
-                                    <Layers size={16} className="details-icon" /> Responsabilidades Clave
-                                </h4>
-                                <ul className="details-list">
-                                    {project.responsibilities.map((item, idx) => (
-                                        <li key={idx}>{item}</li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="details-block">
-                                <h4 className="details-title">
-                                    <CheckCircle2 size={16} className="details-icon" /> Resultados
-                                </h4>
-                                <ul className="details-list">
-                                    {project.results.map((item, idx) => (
-                                        <li key={idx}>{item}</li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="project-tags">
-                                <TechTagList items={project.skills} variant="pill" />
-                            </div>
-
-                            {project.link && (
-                                <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-cta">
-                                    Ver Detalles <ExternalLink size={16} />
-                                </a>
-                            )}
-                        </motion.div>
+                            <footer className="case-stack">
+                                <TechTagList items={project.skills} variant="small" />
+                            </footer>
+                        </motion.article>
                     ))}
                 </div>
-            </motion.div>
-        </section>
+            </section>
         </PageTransition>
     );
 };

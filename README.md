@@ -1,110 +1,72 @@
-# Perfil Profesional
+# Portfolio profesional — Alberto Bort
 
-## Descripción
-Este proyecto es una aplicación web interactiva que he desarrollado con **Create React App** para proporcionar un perfil profesional detallado. Muestra información sobre mis habilidades, proyectos y experiencias de una manera organizada y accesible. A través de este proyecto, he demostrado y ampliado una amplia gama de habilidades y conocimientos técnicos esenciales en el desarrollo web moderno, tales como:
+Portfolio ejecutivo de **Alberto Bort**, Technical Project Lead & IT Business Analyst (Valencia). SPA en React con enfoque editorial sobrio: sistema de diseño propio con CSS variables ("grafito + azul acero"), tema dark/light, accesibilidad WCAG 2.2 AA y SEO con JSON-LD.
 
-- Uso de **React** para construir una interfaz de usuario eficiente y dinámica.
-- Implementación de las últimas características de **JavaScript (ES6+)**, incluyendo funciones de flecha, destructuración y async/await.
-- Utilización de **HTML5 y CSS3** para estructurar y diseñar la aplicación.
-- Manejo de la navegación dentro de la aplicación con **React Router**.
-- Realización de peticiones HTTP a APIs externas utilizando **Axios**.
-- Gestión del estado y los efectos secundarios en la aplicación mediante hooks de **React**.
-- Uso de **Git y GitHub** para el control de versiones y la colaboración en el desarrollo del proyecto.
-- Implementación de pruebas unitarias y de integración con **Jest** y **React Testing Library**.
-- Creación de un diseño adaptable con **Responsive Design**.
-- Consumo e integración de **APIs RESTful**.
-- Conocimientos en **despliegue de aplicaciones web** y configuración de pipelines de **CI/CD**.
-- Despliegue del sitio web utilizando **GitHub Pages**.
+**Producción:** https://perfil-profesional.vercel.app
 
-## Instalación
-Para configurar y ejecutar este proyecto en tu máquina local, sigue estos pasos:
+## Stack
 
-1. Clona este repositorio:
-    ```sh
-    git clone https://github.com/albope/perfil-profesional.git
-    cd perfil-profesional
-    ```
+- **React 18** (Create React App / react-scripts 5)
+- **React Router 6** — rutas: `/`, `/experience`, `/skills`, `/projects`, `/contact` + 404
+- **Framer Motion 12** — transiciones y entrada de secciones, con `MotionConfig reducedMotion="user"` global
+- **Lucide React** — iconografía
+- **CSS modular por componente** sobre tokens en `src/theme.css` (sin Tailwind ni CSS-in-JS)
+- **Fuentes self-hosted** (Inter + Outfit, woff2 con subsets latin/latin-ext) servidas desde `public/fonts/` con `@font-face` inline en `index.html` y preload
+- **Vercel** — rewrites SPA, security headers y caché immutable (`vercel.json`)
 
-2. Instala las dependencias necesarias:
-    ```sh
-    npm install
-    ```
+## Scripts
 
-## Uso
-Para ejecutar la aplicación en modo de desarrollo:
-```sh
-npm start
-
-Abre http://localhost:3000 para ver la aplicación en el navegador. La página se recargará automáticamente si realizas cambios en el código.
+```bash
+npm install        # instalar dependencias
+npm start          # desarrollo en http://localhost:3000
+npm test           # tests (Jest + React Testing Library); CI: npm test -- --watchAll=false
+npm run build      # build de producción en build/
 ```
 
-## Scripts Disponibles
-En el directorio del proyecto, puedes ejecutar:
-```sh
-npm start: Ejecuta la aplicación en el modo de desarrollo.
-npm test: Lanza el corredor de pruebas en el modo interactivo de vigilancia.
-npm run build: Construye la aplicación para producción en la carpeta build.
-npm run deploy: Despliega la aplicación en GitHub Pages.
-npm run eject: Extrae los archivos de configuración para una mayor personalización.
+No existe script de deploy: el despliegue lo hace **Vercel** automáticamente en cada push a `main`.
+
+## Estructura
+
+```
+public/
+  fonts/                  # woff2 self-hosted (preload + @font-face en index.html)
+  Alberto_Bort_CV_ESP_2026.pdf
+  index.html              # SEO, OG/Twitter, JSON-LD (Person), theme inicial
+  sitemap.xml · robots.txt · manifest.json
+src/
+  data/portfolio-data.js  # ÚNICA fuente de verdad de contenido (datos + microcopy uiText)
+  theme.css               # sistema de diseño: tokens de color/tipografía/espaciado
+  index.css · print.css   # ajustes globales y estilos de impresión
+  components/             # un .js + .css por componente
+    shared/               # SectionHeader, TechTag, TypeWriter, AnimatedCounter, ...
+  context/                # ThemeContext (dark/light), ToastContext
+  hooks/                  # useFocusTrap, usePageTitle
 ```
 
-## Estructura del Proyecto
+### Editar contenido
 
-La estructura básica del proyecto es la siguiente:
-```sh
-perfil-profesional/
-├── public/
-│   ├── index.html
-│   └── ...
-├── src/
-│   ├── components/
-│   │   ├── Home.js
-│   │   ├── Experience.js
-│   │   ├── Skills.js
-│   │   ├── Projects.js
-│   │   ├── Contact.js
-│   │   └── Footer.js
-│   ├── App.js
-│   ├── index.js
-│   └── ...
-├── .gitignore
-├── package.json
-├── README.md
-└── ...
-```
-## Despliegue
+Todo el contenido profesional (experiencia, proyectos, skills, contacto, microcopy de la interfaz) vive en [`src/data/portfolio-data.js`](src/data/portfolio-data.js). Los componentes solo renderizan; no hay textos de negocio hardcodeados en ellos.
 
-Para desplegar la aplicación en GitHub Pages, sigue estos pasos:
-```sh
-1. Asegúrate de tener la configuración correcta en package.json:
+## Accesibilidad
 
-"homepage": "https://albope.github.io/perfil-profesional",
-"scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-}
+- Un `<h1>` por página (vía `SectionHeader`), skip link, focus visible, modal con focus trap y ESC.
+- Menú móvil con `aria-expanded`/`aria-controls`.
+- `prefers-reduced-motion` respetado en Framer Motion (global), canvas de partículas, typewriter y contadores.
+- Niveles de competencia con indicador no dependiente solo del color (relleno del punto + texto sr-only).
 
-2. Construye y despliega la aplicación:
+## Tests
 
-npm run deploy
-```
-## Contribuciones
+- `src/setupTests.js` mockea `matchMedia`, `IntersectionObserver`, `ResizeObserver` y `scrollTo` (no existen en JSDOM).
+- Los tests están anclados a `portfolio-data.js` (nombre, CV, empresas), no al copy visual, para sobrevivir a cambios de diseño.
 
-Las contribuciones son bienvenidas. Para contribuir, por favor sigue estos pasos:
-```sh
-Haz un fork de este repositorio.
-Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-Realiza los cambios necesarios y haz commit (git commit -m 'Añadir nueva funcionalidad').
-Empuja los cambios a la rama (git push origin feature/nueva-funcionalidad).
-Crea un Pull Request.
-```
+## Mejoras futuras
+
+- **Migración a Vite**: CRA está sin mantenimiento (avisos de Babel/Browserslist en build). Vite + Vitest reduciría tiempos de build y eliminaría la deuda de react-scripts. No se ha ejecutado para mantener estable la cadena actual.
+- **og-image**: regenerar `public/og-image.jpg` (1200×630) con la paleta nueva — fondo `#0A0E14`, nombre en Outfit y tesis en Inter. Receta sin herramientas de diseño: maquetar un HTML local y capturar con el navegador.
+- **favicon.ico**: pesa 66 KB; regenerar multi-size (16/32/48) ~15 KB. `favicon.svg` ya es el icono primario.
+- **CSP**: añadir `Content-Security-Policy` en `vercel.json` requiere permitir `frame-src` de Google Forms y el script inline del tema (`INLINE_RUNTIME_CHUNK=false`); hacerlo en un cambio aislado.
+- **Dominio**: el CV enlaza `albertobortcv.vercel.app` y el código usa `perfil-profesional.vercel.app`; confirmar el canónico y unificar.
+
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
-
-## Contacto
-
-Para más información o preguntas, puedes contactarme:
-
-Github: [albope](https://github.com/albope)\
-LinkedIn: [Alberto Bort Pérez](https://www.linkedin.com/in/albertobort/)
+Proyecto personal. El contenido (textos, CV, imagen) es propiedad de Alberto Bort.

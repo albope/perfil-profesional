@@ -1,7 +1,7 @@
 .app-footer {
     width: 100%;
-    background-color: var(--background-color);
-    border-top: 1px solid var(--border-color);
+    background-color: var(--bg);
+    border-top: 1px solid var(--hairline);
     padding: 2rem 0; /* Reducido de 3rem a 2rem para ser más compacto verticalmente */
     margin-top: auto;
     position: relative;
@@ -25,20 +25,20 @@
 }
 
 .social-link {
-    color: var(--secondary-text-color);
-    transition: color 0.3s ease;
+    color: var(--text-muted);
+    transition: color var(--transition), border-color var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem; /* Padding un poco más pequeño */
-    border-radius: 50%;
-    background: var(--glass-subtle-bg);
-    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    background: transparent;
+    border: 1px solid var(--hairline);
 }
 
 .social-link:hover {
-    background: var(--glass-subtle-bg-hover);
-    border-color: var(--border-color);
+    color: var(--accent);
+    border-color: var(--accent);
 }
 
 /* Info Text */
@@ -49,13 +49,13 @@
 }
 
 .copyright {
-    color: var(--secondary-text-color);
-    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-size: var(--fs-small);
     margin: 0;
 }
 
 .copyright strong {
-    color: var(--primary-text-color);
+    color: var(--text);
     font-weight: 600;
 }
 
@@ -87,21 +87,22 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.3);
-    border-radius: 50px;
-    font-size: 0.8rem;
-    color: #22c55e;
+    padding: 0.4rem 0.9rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-caption);
+    color: var(--text-muted);
     font-weight: 500;
+    letter-spacing: 0.04em;
 }
 
 .pulse-dot {
-    width: 8px;
-    height: 8px;
-    background: #22c55e;
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
     border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
+    animation: pulse 2.5s ease-in-out infinite;
 }
 
 @keyframes pulse {

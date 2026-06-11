@@ -1,157 +1,119 @@
-/* src/components/Skills.css */
+/* Competencias: bandas de dominio apiladas con indicadores de nivel */
 
 .skills-section {
-    padding: 4rem 2rem;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-}
-
-.skills-container {
-    max-width: 1200px;
-    width: 100%;
+    padding: var(--space-12) 0 var(--space-16);
 }
 
 /* --- Leyenda de niveles --- */
 .skills-legend {
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
     flex-wrap: wrap;
+    gap: var(--space-6);
+    margin: 0 0 var(--space-8);
+    font-size: var(--fs-small);
+    color: var(--text-muted);
 }
 
 .legend-item {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
-    color: var(--secondary-text-color);
+    gap: var(--space-2);
 }
 
-.legend-item::before {
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-radius: 3px;
+/* Indicador de nivel: un solo color, distinción por relleno */
+.level-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-sizing: border-box;
 }
 
-.legend-expert::before {
-    background: #22c55e;
+.level-dot--expert {
+    background: var(--accent);
+    border: 1.5px solid var(--accent);
 }
 
-.legend-advanced::before {
-    background: var(--brand-blue);
+.level-dot--advanced {
+    background: linear-gradient(90deg, var(--accent) 50%, transparent 50%);
+    border: 1.5px solid var(--accent);
 }
 
-.legend-intermediate::before {
-    background: var(--brand-purple);
+.level-dot--intermediate {
+    background: transparent;
+    border: 1.5px solid var(--hairline-strong);
 }
 
-/* --- Grid Layout (Estilo Bento) --- */
-.skills-grid {
+/* --- Banda de dominio --- */
+.domain-band {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    padding: 1rem 0;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: var(--space-12);
+    border-top: 1px solid var(--hairline);
+    padding: var(--space-8) 0;
 }
 
-/* --- Tarjetas Glass --- */
-.skill-card.card-glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--border-color);
-    border-radius: 20px; /* Bordes más redondeados para estilo moderno */
-    padding: 2rem;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--brand-blue);
-    box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.15);
-}
-
-/* Borde superior brillante */
-.skill-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 4px;
-    background: linear-gradient(90deg, var(--brand-blue), var(--brand-purple));
-    opacity: 0.5;
-    transition: opacity 0.3s;
-}
-.skill-card:hover::before { opacity: 1; }
-
-/* --- Contenido Tarjeta --- */
-.card-top {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.icon-box {
-    width: 50px;
-    height: 50px;
-    display: flex;
+.domain-icon {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: rgba(59, 130, 246, 0.1);
-    border-radius: 12px;
-    color: var(--brand-blue);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--hairline);
+    background: var(--surface);
+    color: var(--accent);
+    margin-bottom: var(--space-4);
 }
 
-.category-title {
-    font-size: 1.5rem;
+.domain-title {
+    font-size: var(--fs-h3);
     font-weight: 700;
-    color: var(--primary-text-color);
+    color: var(--text);
+    margin: 0 0 var(--space-2);
+}
+
+.domain-desc {
+    font-size: var(--fs-small);
+    color: var(--text-muted);
+    line-height: 1.6;
     margin: 0;
 }
 
-.category-desc {
-    color: var(--secondary-text-color);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
+/* --- Lista de skills --- */
+.domain-skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-8);
+    row-gap: var(--space-3);
+    align-content: start;
 }
 
-/* --- Tags / Píldoras --- */
-.tags-container {
+.skill-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    margin-top: auto; /* Empuja los tags al fondo si las tarjetas tienen distinta altura */
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--hairline);
 }
 
-.skill-pill {
-    background: var(--glass-subtle-bg);
-    border: 1px solid var(--border-color);
-    color: var(--primary-text-color);
-    padding: 0.4rem 0.9rem;
-    border-radius: 50px; /* Forma de píldora completa */
-    font-size: 0.9rem;
+.skill-name {
+    color: var(--text);
+    font-size: var(--fs-small);
     font-weight: 500;
-    transition: all 0.2s;
-    cursor: default;
 }
 
-.skill-pill:hover {
-    background: var(--glass-subtle-bg-hover);
-    border-color: var(--brand-blue);
-    color: var(--brand-blue);
-}
-
-/* --- Responsive --- */
+/* --- Media Queries --- */
 @media (max-width: 768px) {
-    .skills-grid {
+    .domain-band {
         grid-template-columns: 1fr;
+        gap: var(--space-6);
     }
-    .category-title {
-        font-size: 1.3rem;
+
+    .domain-skills {
+        grid-template-columns: 1fr;
     }
 }

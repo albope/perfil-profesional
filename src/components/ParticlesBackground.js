@@ -15,6 +15,8 @@ const ParticlesBackground = () => {
         if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
         let animationFrameId;
         let particlesArray;
         let isVisible = true;
@@ -22,10 +24,21 @@ const ParticlesBackground = () => {
         // Adaptar particulas segun dispositivo
         const isMobile = window.innerWidth <= 768;
         const isLowEnd = navigator.hardwareConcurrency ? navigator.hardwareConcurrency <= 4 : false;
-        const numberOfParticles = (isMobile || isLowEnd) ? 25 : 80;
+        const numberOfParticles = (isMobile || isLowEnd) ? 14 : 32;
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
+        // Color acorde a la paleta activa, actualizado al cambiar de tema
+        const getColors = () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            return isLight
+                ? { particle: 'rgba(33, 96, 206, 0.18)', line: '33, 96, 206', lineOpacity: 0.05 }
+                : { particle: 'rgba(110, 168, 255, 0.3)', line: '110, 168, 255', lineOpacity: 0.07 };
+        };
+        let colors = getColors();
+        const themeObserver = new MutationObserver(() => { colors = getColors(); });
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
         const mouse = {
             x: null,
@@ -60,7 +73,7 @@ const ParticlesBackground = () => {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = '#3B82F6';
+                ctx.fillStyle = colors.particle;
                 ctx.fill();
             }
 
@@ -80,7 +93,7 @@ const ParticlesBackground = () => {
                     const radiusSquared = (mouse.radius + this.size) * (mouse.radius + this.size);
 
                     if (distanceSquared < radiusSquared) {
-                        const pushForce = 2;
+                        const pushForce = 0.6;
                         if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
                             this.x += pushForce;
                         }
@@ -105,7 +118,7 @@ const ParticlesBackground = () => {
         function init() {
             particlesArray = [];
             for (let i = 0; i < numberOfParticles; i++) {
-                const size = (Math.random() * 2) + 1;
+                const size = Math.random() + 1;
                 const x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
                 const y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
                 const directionX = (Math.random() * 0.4) - 0.2;
@@ -118,7 +131,7 @@ const ParticlesBackground = () => {
         function connect() {
             const divisor = isMobile ? 10 : 7;
             const maxDistanceSquared = (canvas.width / divisor) * (canvas.height / divisor);
-            const maxConnectionsPerParticle = 5;
+            const maxConnectionsPerParticle = 3;
 
             for (let a = 0; a < particlesArray.length; a++) {
                 let connections = 0;
@@ -131,7 +144,7 @@ const ParticlesBackground = () => {
                     if (distanceSquared < maxDistanceSquared) {
                         connections++;
                         const opacityValue = 1 - (distanceSquared / 10000);
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${opacityValue * 0.2})`;
+                        ctx.strokeStyle = `rgba(${colors.line}, ${opacityValue * colors.lineOpacity})`;
                         ctx.lineWidth = 1;
                         ctx.beginPath();
                         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -186,6 +199,7 @@ const ParticlesBackground = () => {
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('visibilitychange', handleVisibility);
+            themeObserver.disconnect();
             cancelAnimationFrame(animationFrameId);
             clearTimeout(resizeTimeout);
         };
